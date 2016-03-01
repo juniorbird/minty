@@ -8,8 +8,11 @@ function replaceDeclarations(file) {
   let fileOut = [];
 
   const varDecRE = /(const|let|var)\s([^\s;]*)(\s*=\s*.*)[^;]/gi;
+  const varSetRE = /(\S*)\s*=\s*([^;]*);/gi;
   let varDecLine;
   let varDecDec;
+  let varSetLine;
+  let varSetSet;
 
   for (let line of fileIn) {
       fileOut.push(line);
@@ -17,6 +20,12 @@ function replaceDeclarations(file) {
 
       varDecDec = (varDecLine && varDecLine[2].length > 0) ? `~~~~recorder['${varDecLine[2]}'] = "";\nconsole.log(recorder);` : '';
       fileOut.push(varDecDec);
+
+      varSetLine = varSetRE.exec(line);
+      // if (varSetLine) console.log(varSetLine[1] + '=' + varSetLine[2]);
+
+      varSetSet = (varSetLine) ? `~~~~recorder['${varSetLine[1]}'] = ${varSetLine[2]};\nconsole.log(recorder);` : '';
+      fileOut.push(varSetSet);
   }
 
   fileOut = fileOut.join('');

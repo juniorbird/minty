@@ -8,7 +8,7 @@ for (var i = 0; i < 10; i++) {
 
 function myFunc(paramA, paramB) {
   'use strict';
-  
+
   let localLet = 'hello';
 
   localLet = localLet + ' ' + paramA;
@@ -16,3 +16,5 @@ function myFunc(paramA, paramB) {
 
   return localLet;
 }
+
+console.log(myFunc('foo', 'bar'));
