@@ -15,7 +15,7 @@ function replaceDeclarations(file) {
       fileOut.push(line);
       varDecLine = varDecRE.exec(line);
 
-      varDecDec = (varDecLine && varDecLine[2].length > 0) ? `~~~~recorder[${varDecLine[2]}] = "";\nconsole.log(recorder);` : '';
+      varDecDec = (varDecLine && varDecLine[2].length > 0) ? `~~~~recorder['${varDecLine[2]}'] = "";\nconsole.log(recorder);` : '';
       fileOut.push(varDecDec);
   }
 
@@ -33,5 +33,6 @@ fs.readFile(__dirname + '/test-declarations.js', function (err, data) {
   } else {
     data = String(data);
     console.log(replaceDeclarations(data));
+    eval(replaceDeclarations(data));
   }
 });
