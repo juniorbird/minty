@@ -18,14 +18,14 @@ function replaceDeclarations(file) {
       fileOut.push(line);
       varDecLine = varDecRE.exec(line);
 
-      varDecDec = (varDecLine && varDecLine[2].length > 0) ? `~~~~recorder['${varDecLine[2]}'] = "${varDecLine[2]}";\nconsole.log(recorder);` : '';
+      varDecDec = (varDecLine && varDecLine[2].length > 0) ? `~~~~recorder['${varDecLine[2]}'] = ${varDecLine[2]};\nconsole.log(recorder);` : '';
       fileOut.push(varDecDec);
 
       varSetLine = varSetRE.exec(line);
       // if (varSetLine) console.log(varSetLine[1] + '=' + varSetLine[2]);
 
-      // varSetSet = (varSetLine) ? `~~~~recorder['${varSetLine[1]}'] = ${varSetLine[2]};\nconsole.log(recorder);` : '';
-      varSetSet = 'console.log(recorder);';
+      varSetSet = (varSetLine) ? `\nconsole.log(recorder);` : '';
+      // if (varSetLine) varSetSet = '\nconsole.log(recorder);\n';
       fileOut.push(varSetSet);
   }
 
