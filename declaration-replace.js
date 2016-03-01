@@ -18,7 +18,7 @@ function replaceDeclarations(file) {
       fileOut.push(line);
       varDecLine = varDecRE.exec(line);
 
-      varDecDec = (varDecLine && varDecLine[2].length > 0) ? `~~~~recorder['${varDecLine[2]}'] = ${varDecLine[2]};\nconsole.log(recorder);` : '';
+      varDecDec = (varDecLine && varDecLine[2].length > 0) ? `~~~~recorder['${varDecLine[2]}'] = ${varDecLine[2]};` : '';
       fileOut.push(varDecDec);
 
       varSetLine = varSetRE.exec(line);
