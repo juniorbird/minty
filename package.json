@@ -1,0 +1,19 @@
+{
+  "name": "lumpy-turnips",
+  "version": "0.0.0",
+  "description": "Step by step visualization of node processess",
+  "main": "add.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzilist/lumpy-turnips.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tzilist/lumpy-turnips/issues"
+  },
+  "homepage": "https://github.com/tzilist/lumpy-turnips#readme"
+}
