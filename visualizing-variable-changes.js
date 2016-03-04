@@ -1,105 +1,52 @@
-var data = [ { line: 1, variables: { one: undefined, two: 2 } },
-  { line: 2, variables: { one: undefined, two: 2, four: 2 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 0 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 0 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 0 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 1 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 1 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 1 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 2 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 2 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 2 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 3 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 3 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 3 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 4 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 4 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 4 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 6 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 6 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 6 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 7 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 7 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 7 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 8 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 8 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 8 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 9 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 9 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 9 } },
-  { line: 6, variables: { one: undefined, two: 2, four: 2, i: 10 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 0 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 1 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 2 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 3 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 4 } },
-  { line: 8, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 11, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 12, variables: { one: undefined, two: 2, four: 2, i: 5, what: 'what' } },
-  { line: 13, variables: { one: undefined, two: 2, four: 2, i: 5, what: 'what', test: 'hello' } },
-  { line: 14, variables: { one: undefined, two: 2, four: 2, i: 5, what: 'what', test: 'hello buddy' } },
-  { line: 15,  variables: { one: undefined,two: 2, four: 2, i: 5, what: 'what', test: 'hello buddy', hello: 'hi' } } ]
-//data is an array with objects
-//
-
-
-
-
 $(document).ready(() => {
-
-  var variableWatch = data[data.length - 1];
-  // appending variable names to the DOM - all their values start out as undefined
-  for (var key in variableWatch.variables) {
-    $('tbody').append(`<tr id=${key}></tr>`);
-    $(`#${key}`).append(`<td>${key}</td>`).append(`<td id=${key +'val'}>undefined</td>`);
-  }
-  $('#back').prop('disabled', true);
-
   var index = [],
       indexCounter = -1,
       dataLength = data.length,
-      watchedVariablesObj;
+      watchedVariablesObj,
+      completeVariableList = data[dataLength - 1].variables,
+      declaredVariables = Object.keys(completeVariableList);
+
+  // appending variable names to the DOM - all their values start out as undefined
+  for (var key in completeVariableList) {
+    $('tbody').append(`<tr id=${key}></tr>`);
+    $(`#${key}`).append(`<td>${key}</td>`).append(`<td id=${key +'val'} class="variables">undefined</td>`);
+  }
+
+  disableBackFirstButtons(true);
+
+  $('#step').text(`Step 0 of ${dataLength}`);
 
   $('#forward').click((e) => {
     if (indexCounter < dataLength - 1) {
       indexCounter++;
       index.push(indexCounter);
-      $('#back').prop('disabled', false);
+      disableBackFirstButtons(false);
+      $('#step').text(`Step ${indexCounter+1} of ${dataLength}`);
     }
     if (indexCounter === dataLength - 1)
-      $('#forward').prop('disabled', true);
+      disableForwardLastButtons(true);
 
     //updating the variable values
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
       for (var key in watchedVariables) {
-        $(`#${key + 'val'}`).remove();
-        $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
+        updateVariables(key);
       }
     }
   });
 
   $('#back').click(() => {
     var watchedVariablesObj,
-        declaredVariables = Object.keys(data[data.length - 1].variables),
         decVar;
     if (indexCounter > -1) {
       indexCounter--;
       index.pop();
-      $('#forward').prop('disabled', false);
+      disableForwardLastButtons(false);
+      $('#step').text(`Step ${indexCounter + 1} of ${dataLength}`);
     }
-    //making sure all the values revert back to undefined when the user clicks back all the way to the beginning
+    //make all values revert back to undefined when the user clicks back all the way to the beginning with the back button
     if (indexCounter === -1) {
-      console.log('inside if', indexCounter)
-      $('.variables').each((i, elem) => {
-        console.log('in each', elem)
-        if ($(elem).text() !== 'undefined')
-          $(elem).text('undefined');
-      });
-      $('#back').prop('disabled', true);
+      makeValuesUndefined();
       return;
     }
 
@@ -107,8 +54,7 @@ $(document).ready(() => {
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
       for (var key in watchedVariables) {
-        $(`#${key + 'val'}`).remove();
-        $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
+        updateVariables(key);
       }
     }
 
@@ -116,9 +62,60 @@ $(document).ready(() => {
     for (var i = 0, n = declaredVariables.length; i < n; i ++) {
       declaredVar = declaredVariables[i]
       if (!watchedVariables[declaredVar]) {
+        if (watchedVariables[declaredVar] === 0) return;
         $(`#${declaredVar + 'val'}`).remove();
-        $(`#${declaredVar}`).append(`<td id="${declaredVar + 'val'}">undefined</td>`);
+        $(`#${declaredVar}`).append(`<td id="${declaredVar + 'val'}" class="variables">undefined</td>`);
       }
     }
   });
+
+//make all values revert back to undefined when the user clicks first
+  $('#first').click(() => {
+    if (indexCounter === dataLength - 1)
+      disableForwardLastButtons(false);
+
+    indexCounter = -1;
+    makeValuesUndefined();
+    $('#step').text(`Step ${indexCounter + 1} of ${dataLength}`);
+  });
+
+  //display variables and their values from the last index of the data set
+  $('#last').click(() => {
+    var variable;
+    if (indexCounter === -1)
+      disableBackFirstButtons(false);
+
+    indexCounter = dataLength - 1;
+    $('.variables').each((i, elem) => {
+      variable = completeVariableList[declaredVariables[i]];
+      $(elem).text(`${variable}`);
+    });
+    disableForwardLastButtons(true);
+    $('#step').text(`Step ${indexCounter + 1} of ${dataLength}`); 
+  });
+
 });
+
+//updates variables when user clicks forward or back button
+function updateVariables(key) {
+  $(`#${key + 'val'}`).remove();
+  $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
+};
+
+function disableForwardLastButtons(value) {
+  $('#forward').prop('disabled', value);
+  $('#last').prop('disabled', value);
+};
+
+function disableBackFirstButtons(value) {
+  $('#back').prop('disabled', value);
+  $('#first').prop('disabled', value);
+};
+
+function makeValuesUndefined() {
+  $('.variables').each((i, elem) => {
+    if ($(elem).text() !== 'undefined')
+      $(elem).text('undefined');
+  });
+  disableBackFirstButtons(true)
+};
