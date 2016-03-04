@@ -217,6 +217,9 @@
 
     function placeLineIndicator(lineNum) {
       // Wrap this in a SetInterval so that we can check if the editor exists
+      lineNum = lineNum - 1;
+      if (lineNum < 0) lineNum = 0;
+
       var lineHeight = 16;
       var targetTop = (lineHeight * lineNum) + 10;
 
@@ -248,7 +251,7 @@
       }
     }
 
-    var checkForEditor = setInterval(placeLineIndicator, 5, 20);
+    var checkForEditor = setInterval(placeLineIndicator, 5, 23);
 
     // setTimeout(function() {
     //   console.log('document is ready!');
