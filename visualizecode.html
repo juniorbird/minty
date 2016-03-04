@@ -4,17 +4,27 @@
   <title>ACE in Action</title>
   <style type="text/css" media="screen">
       #editor {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
       }
 
-      /*.ace-monokai .ace_marker-layer .ace_active-line {
+      .ace_layer.ace_print-margin-layer {
+        z-index: 1000;
+      }
+
+      .ace_line {
+        pointer-events: none;
+      }
+
+      .ace-monokai .ace_marker-layer .ace_active-line {
         background-color: red !important;
-      }*/
+      }
   </style>
+
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js" type="text/javascript"></script>
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -167,7 +177,7 @@
         const hello = 'hi';`;
   </script>
 
-  <script src="https://code.jquery.com/jquery-2.2.1.min.js" type="text/javascript"></script>
+
 
   <script>
 
@@ -182,14 +192,12 @@
       editor.setReadOnly(true);
       editor.setValue(file);
       editor.navigateTo(22,1);
-      editor.onCursorChange(forceSelection(editor));
   </script>
 
   <script>
     $('#editor').click(function (e) {
       console.log('clicked');
       forceSelection(editor);
-      $('.ace-monokai .ace_marker-layer .ace_active-line').css('background-color', 'blue !important')
     });
   </script>
 </body>
