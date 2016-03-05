@@ -107,11 +107,20 @@
       $(selector).addClass('current');
     }
 
+    // It's cleaner to have these as two steps than one
+    // This way we can remove the indicator before we change lines
+    // And we don't need to know if the user is stepping forwards or back
+    function removeLineIndicator(lineNum) {
+      'use strict'
+      let selector = '.ace_line:nth-of-type(' + lineNum + ')';
+      $(selector).removeClass('current');
+    }
+
     // We can't place the current line indicator until the editor has loaded.
     // So we'll look for the editor continuously until it loads
     //  And then we'll place the line and clear the interval.
     //  4 is shortest interval per spec. Lower numbers may be rounded to 4.
-    var checkForEditor = setInterval(placeLineIndicator, 4, 20);
+    // var checkForEditor = setInterval(placeLineIndicator, 4, 1);
   </script>
 </body>
 </html>

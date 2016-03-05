@@ -61,11 +61,15 @@ $(document).ready(() => {
   var index = [],
       indexCounter = -1,
       dataLength = data.length,
-      watchedVariablesObj;
+      watchedVariablesObj,
+      oldLine,
+      newLine;
 
   $('#forward').click((e) => {
     if (indexCounter < dataLength - 1) {
+      oldLine = indexCounter;
       indexCounter++;
+      newLine = indexCounter;
       index.push(indexCounter);
       $('#back').prop('disabled', false);
     }
@@ -75,6 +79,9 @@ $(document).ready(() => {
     //updating the variable values
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
+      console.log('old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
+      removeLineIndicator(data[oldLine].line);
+      placeLineIndicator(data[newLine].line);
       for (var key in watchedVariables) {
         $(`#${key + 'val'}`).remove();
         $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
@@ -87,7 +94,9 @@ $(document).ready(() => {
         declaredVariables = Object.keys(data[data.length - 1].variables),
         decVar;
     if (indexCounter > -1) {
+      removeLineIndicator(data[indexCounter].line);
       indexCounter--;
+      placeLineIndicator(data[indexCounter].line);
       index.pop();
       $('#forward').prop('disabled', false);
     }
