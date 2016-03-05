@@ -7,10 +7,10 @@
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
 
-      h1 {
+      /*h1 {
         height:39px;
         overflow: hidden;
-      }
+      }*/
 
       #editor {
         height: 600px;
@@ -34,7 +34,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h1>Lumpily watching your variables</h1>
+      <h1 id="pagetitle">Lumpily watching your variables</h1>
     </div>
   </div>
 
@@ -106,8 +106,11 @@
       lineNum--; // Lines start with 1 but arrays start with 0
       if (lineNum < 0) lineNum = 0; // Edge case
 
+      var topOffset = $('#pagetitle').outerHeight(true); // gets height of title
+      // console.log(topOffset);
+
       var lineHeight = 16; // Pixel height of a single line
-      var targetTop = (lineHeight * lineNum) + 69; // Why70? That's the top offset
+      var targetTop = (lineHeight * lineNum) + topOffset; // How far down is the line we want to look at?
 
 
       function setCurrent(selector) {
@@ -149,7 +152,7 @@
     // So we'll look for the editor continuously until it loads
     //  And then we'll place the line and clear the interval.
     //  4 is shortest interval per spec. Lower numbers may be rounded to 4.
-    var checkForEditor = setInterval(placeLineIndicator, 4, 2);
+    var checkForEditor = setInterval(placeLineIndicator, 4, 23);
   </script>
 </body>
 </html>
