@@ -13,7 +13,6 @@ $(document).ready(() => {
   }
 
   disableBackFirstButtons(true);
-
   $('#step').text(`Step 0 of ${dataLength}`);
 
   $('#forward').click((e) => {
@@ -91,7 +90,7 @@ $(document).ready(() => {
       $(elem).text(`${variable}`);
     });
     disableForwardLastButtons(true);
-    $('#step').text(`Step ${indexCounter + 1} of ${dataLength}`); 
+    $('#step').text(`Step ${indexCounter + 1} of ${dataLength}`);
   });
 
 });
@@ -99,8 +98,29 @@ $(document).ready(() => {
 //updates variables when user clicks forward or back button
 function updateVariables(key) {
   $(`#${key + 'val'}`).remove();
-  $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
+  if (watchedVariables[key] instanceof Array) {
+    $('body').append('<table id="array-table"></table>')
+      .append('<tbody></tbody>')
+      .append('<tr id="array-display"></tr>');
+    handleArrays(key, watchedVariables[key]);
+
+  } else
+    $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
+
 };
+
+function handleArrays(key, array) {
+
+
+  $('.array-values').remove();
+  if (array.length === 0)
+    $('#array-display').append('<td class="array-values">Empty Array</td>');
+
+
+  $(array).each((i, elem) => {
+    $('#array-display').append(`<td class="array-values">${elem}</td>`);
+  });
+}
 
 function disableForwardLastButtons(value) {
   $('#forward').prop('disabled', value);
