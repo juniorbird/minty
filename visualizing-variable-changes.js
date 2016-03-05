@@ -392,7 +392,6 @@ var data = [{
     "hello": "hi"
   }
 }];
-console.log(data);
 
 
 

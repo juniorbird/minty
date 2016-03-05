@@ -39,7 +39,9 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div id="editor">Loading code...</div>
+      <ul class="nav nav-tabs">
+      </ul>
+      <div class="tab-content"></div>
     </div>
     <div class="col-md-6">
       <table>
@@ -112,26 +114,68 @@
 
         test += " buddy";
 
-        const hello = 'hi';`
+        const hello = 'hi';`,
+        'component.js' : `var Node = function(value) {
+          this.value = value;
+          this.next = null;
+        }
+
+        function hasCycle(head) {
+          'use strict';
+
+          if (!head) return false;
+
+          // An object to contain nexts
+          //  If we find an already-existing next, we know it's circular
+          let nodeObj = {};
+          nodeObj.nexts = {};
+          nodeObj.push = (next) => {
+            try {
+              // Wrapping this in a try box
+              //  Because stringify will fail if we have a circular reference
+              //  So if it fails, then we know we've a circle!
+              next = JSON.stringify(next);
+              nodeObj.nexts[next] = 1;
+              return false;
+            }
+            catch (e) {
+              return true;
+            }
+          }
+
+          function checkNextNode(node) {
+            let circle = nodeObj.push(node);
+            if (circle) return true;
+            if (node.next) return checkNextNode(node.next);
+            return false;
+          }
+
+          return checkNextNode(head);
+        }
+
+
+        module.exports = {Node: Node, hasCycle: hasCycle}
+        `
     };
   </script>
 
   <script>
-      var editor = ace.edit('editor');
+    function createEditor(selector, fromCode) {
+      var editor = ace.edit(selector);
       editor.setTheme('ace/theme/monokai');
       editor.getSession().setMode('ace/mode/javascript');
       editor.setReadOnly(true);
       editor.setHighlightSelectedWord(false);
-      editor.setValue(file['app.js']);
+      editor.setValue(fromCode);
       // We've wrapped the string of the code in backticks
       //  So we replaced them on the way in
       //  But, being a good editor, Ace shows the encoded backticks
       //  So we need to de-encode them
       editor.replaceAll('`', { needle: '&#96;' });
+      // Ace seems to load with the entire doc selected. Unselect for great UX.
       editor.clearSelection();
-  </script>
+    }
 
-  <script>
     function placeLineIndicator(lineNum) {
       'use strict';
       let selector = '.ace_line:nth-of-type(' + lineNum + ')';
@@ -146,6 +190,39 @@
       let selector = '.ace_line:nth-of-type(' + lineNum + ')';
       $(selector).removeClass('current');
     }
+
+    function safeFileID(filename) {
+      // Makes a CSS-safe ID for file tabs
+      return filename.replace(/[^a-z0-9]/gi, '')
+    }
+
+    function makeEditorFromFiles(codeObj) {
+      'use strict';
+      let files = Object.keys(codeObj);
+      let entry = safeFileID(codeObj.entry);
+
+      // remove the "entry" value, which we use for other things
+      files.splice(files.indexOf('entry'), 1)
+
+      let cssFilename
+      for (let filename of files) {
+        // $('#editor').append('<div></div>').addClass(filename)
+        cssFilename = safeFileID(filename);
+        $('.nav-tabs')
+          .append('<li class="' + cssFilename + '"><a data-toggle="tab" href="#' + cssFilename + '">' + filename + '</a></li>');
+        $('.tab-content')
+          .append('<div id="' + cssFilename + '" class="tab-pane">Loading file...' + filename + '</div>');
+
+        // createEditor(cssFilename, codeObj[filename]);
+      }
+
+      // make the entry file active
+      $('.' + entry).addClass('active');
+      $('#' + entry).addClass('active');
+    }
+
+    makeEditorFromFiles(file);
+    // createEditor('app.js', file['app.js']);
   </script>
 </body>
 </html>
