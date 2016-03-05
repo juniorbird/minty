@@ -79,8 +79,9 @@ $(document).ready(() => {
     //updating the variable values
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
-      console.log('old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
-      removeLineIndicator(data[oldLine].line);
+      // console.log('indexCounter', indexCounter, 'variables:', data[indexCounter])
+      // console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
+      if (oldLine >= 0) removeLineIndicator(data[oldLine].line);
       placeLineIndicator(data[newLine].line);
       for (var key in watchedVariables) {
         $(`#${key + 'val'}`).remove();
