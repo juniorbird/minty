@@ -29,6 +29,7 @@ $(document).ready(() => {
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
       for (var key in watchedVariables) {
+
         updateVariables(key);
       }
     }
@@ -102,6 +103,7 @@ function updateVariables(key) {
     $('body').append('<table id="array-table"></table>')
       .append('<tbody></tbody>')
       .append('<tr id="array-display"></tr>');
+    $('.array-values').remove();
     handleArrays(key, watchedVariables[key]);
 
   } else
@@ -110,15 +112,12 @@ function updateVariables(key) {
 };
 
 function handleArrays(key, array) {
-
-
-  $('.array-values').remove();
   if (array.length === 0)
     $('#array-display').append('<td class="array-values">Empty Array</td>');
 
-
   $(array).each((i, elem) => {
-    $('#array-display').append(`<td class="array-values">${elem}</td>`);
+    if (elem instanceof Array) handleArrays(key, elem);
+    else $('#array-display').append(`<td class="array-values">${elem}</td>`);
   });
 }
 
