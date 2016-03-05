@@ -16,8 +16,9 @@
         height: auto;
       }
 
-      .ace_line {
-        pointer-events: none;
+      .ace_editor {
+        height: 600px;
+        width: 100%;
       }
 
       .current {
@@ -160,8 +161,8 @@
   </script>
 
   <script>
-    function createEditor(selector, fromCode) {
-      var editor = ace.edit(selector);
+    function createEditor(atSelector, fromCode) {
+      var editor = ace.edit(atSelector);
       editor.setTheme('ace/theme/monokai');
       editor.getSession().setMode('ace/mode/javascript');
       editor.setReadOnly(true);
@@ -193,6 +194,8 @@
 
     function safeFileID(filename) {
       // Makes a CSS-safe ID for file tabs
+      // TODO: make sure IDs are unique
+      // TODO: IDs shouldn't start with a number
       return filename.replace(/[^a-z0-9]/gi, '')
     }
 
@@ -206,14 +209,17 @@
 
       let cssFilename
       for (let filename of files) {
-        // $('#editor').append('<div></div>').addClass(filename)
+        // Create a safe version of the filename
         cssFilename = safeFileID(filename);
+
+        // Create both a tab and a content area for each file
         $('.nav-tabs')
           .append('<li class="' + cssFilename + '"><a data-toggle="tab" href="#' + cssFilename + '">' + filename + '</a></li>');
         $('.tab-content')
           .append('<div id="' + cssFilename + '" class="tab-pane">Loading file...' + filename + '</div>');
 
-        // createEditor(cssFilename, codeObj[filename]);
+        // Drop an editor in the area we just created
+        createEditor(cssFilename, codeObj[filename]);
       }
 
       // make the entry file active
@@ -222,7 +228,6 @@
     }
 
     makeEditorFromFiles(file);
-    // createEditor('app.js', file['app.js']);
   </script>
 </body>
 </html>
