@@ -7,14 +7,13 @@
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
 
-      /*h1 {
-        height:39px;
-        overflow: hidden;
-      }*/
-
       #editor {
         height: 600px;
         width: 100%;
+      }
+
+      h1 {
+        height: auto;
       }
 
       .ace_line {
@@ -102,57 +101,15 @@
 
   <script>
     function placeLineIndicator(lineNum) {
-      // Wrap this in a SetInterval so that we can check if the editor exists
-      lineNum--; // Lines start with 1 but arrays start with 0
-      if (lineNum < 0) lineNum = 0; // Edge case
-
-      var topOffset = $('#pagetitle').outerHeight(true); // gets height of title
-      // console.log(topOffset);
-
-      var lineHeight = 16; // Pixel height of a single line
-      var targetTop = (lineHeight * lineNum) + topOffset; // How far down is the line we want to look at?
-
-
-      function setCurrent(selector) {
-        // Why is this a function? Because putting the jQuery in a timeout fails.
-        $(selector).addClass('current');
-        return true;
-      }
-
-      function getPos(index) {
-        var el, selector, elOffset, elTop;
-        selector = '.ace_line:nth-of-type(' + index + ')';
-        el = $(selector);
-        elOffset = el.offset();
-        console.log(elOffset);
-
-        // elOffset is undefined if there's no element there
-        // Undefined is fine, so we don't have to worry about the assignment above
-        // However, if you try to get .top of undefined, bad things man, bad things.
-        // So we test down here.
-        if (elOffset) {
-          elTop = elOffset.top;
-          if (elTop === targetTop) {
-            console.log('matched');
-            // Not sure why we need a setTimeout here...
-            // Suspect that jQuery finds the element on the page before it's fully drawn
-            // 4 is the shortest actual timeout. I could pass 0 but the spec says that can be rounded to 4.
-            setTimeout(setCurrent, 4, selector);
-          }
-        }
-      }
-
-      if ($('.ace_line')) {
-        clearInterval(checkForEditor);
-        $('.ace_line').each(function(idx) { getPos(idx) });
-      }
+      var selector = '.ace_line:nth-of-type(' + lineNum + ')';
+      $(selector).addClass('current');
     }
 
     // We can't place the current line indicator until the editor has loaded.
     // So we'll look for the editor continuously until it loads
     //  And then we'll place the line and clear the interval.
     //  4 is shortest interval per spec. Lower numbers may be rounded to 4.
-    var checkForEditor = setInterval(placeLineIndicator, 4, 23);
+    var checkForEditor = setInterval(placeLineIndicator, 4, 20);
   </script>
 </body>
 </html>
