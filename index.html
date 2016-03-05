@@ -59,18 +59,58 @@
 
   <script type="text/javascript">
     // 'use strict';
-    const file=`var one, two = 2;
-     var four = 2, five;
-     for(var i = 0; i < 10; i++) {
-       console.log('hello'); //comment
-       console.log('what');
-     }
-     for(var i = 0; i < 5; i++) {
-     }
-     let what = 'what';
-     var test = "hello";
-     test += " buddy";
-     const hello = 'hi';`;
+    const file=`"use strict";
+
+    var one, two = 2;
+    var four = 2, five;
+
+
+     //what should we do if var test = 'shoot'
+
+    for(var i = 0; i < 10; i++) {
+
+    }
+
+    for(var i = 0; i < 5; i++) {
+    }
+
+    function fn(a, b, c) {
+      console.log(a,b,c);
+      function fn2(d,e,f) {
+        console.log('what!');
+        var bus = 'slow';
+      }
+      fn2(4,5,6);
+      var car = 'toyota';
+    }
+
+
+    fn(1,2,3);
+
+
+    [1,2,3].forEach(val => {
+      console.log(val);
+    });
+
+    [1,2,3].forEach((val, i) => {
+      console.log(val);
+    });
+
+    var checkThis = function() {
+      console.log('hello there my friend');
+    };
+
+    /*
+    * here is another comment
+    * with some stuff
+    * shoot */
+    let what = 'what';
+
+    var test = "hello";
+
+    test += " buddy";
+
+    const hello = 'hi';`;
   </script>
 
   <script>
