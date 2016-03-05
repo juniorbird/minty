@@ -430,9 +430,9 @@ $(document).ready(() => {
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
       // console.log('indexCounter', indexCounter, 'variables:', data[indexCounter])
-      // console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
-      if (oldLine >= 0) removeLineIndicator(data[oldLine].line);
-      placeLineIndicator(data[newLine].line);
+      console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
+      if (oldLine >= 0) removeLineIndicator(data[oldLine].line + 1);
+      placeLineIndicator(data[newLine].line + 1);
       for (var key in watchedVariables) {
         $(`#${key + 'val'}`).remove();
         $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
@@ -445,9 +445,9 @@ $(document).ready(() => {
         declaredVariables = Object.keys(data[data.length - 1].variables),
         decVar;
     if (indexCounter > -1) {
-      removeLineIndicator(data[indexCounter].line);
+      removeLineIndicator(data[indexCounter].line + 1);
       indexCounter--;
-      placeLineIndicator(data[indexCounter].line);
+      placeLineIndicator(data[indexCounter].line + 1);
       index.pop();
       $('#forward').prop('disabled', false);
     }
@@ -466,6 +466,7 @@ $(document).ready(() => {
     //when user clicks back, this will update the DOM with new values
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
+      console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
       for (var key in watchedVariables) {
         $(`#${key + 'val'}`).remove();
         $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
