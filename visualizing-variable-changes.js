@@ -1,49 +1,399 @@
-var data = [ { line: 1, variables: { one: undefined, two: 2 } },
-  { line: 2, variables: { one: undefined, two: 2, four: 2 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 0 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 0 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 0 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 1 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 1 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 1 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 2 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 2 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 2 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 3 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 3 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 3 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 4 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 4 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 4 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 6 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 6 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 6 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 7 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 7 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 7 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 8 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 8 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 8 } },
-  { line: 3, variables: { one: undefined, two: 2, four: 2, i: 9 } },
-  { line: 4, variables: { one: undefined, two: 2, four: 2, i: 9 } },
-  { line: 5, variables: { one: undefined, two: 2, four: 2, i: 9 } },
-  { line: 6, variables: { one: undefined, two: 2, four: 2, i: 10 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 0 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 1 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 2 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 3 } },
-  { line: 7, variables: { one: undefined, two: 2, four: 2, i: 4 } },
-  { line: 8, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 11, variables: { one: undefined, two: 2, four: 2, i: 5 } },
-  { line: 12, variables: { one: undefined, two: 2, four: 2, i: 5, what: 'what' } },
-  { line: 13, variables: { one: undefined, two: 2, four: 2, i: 5, what: 'what', test: 'hello' } },
-  { line: 14, variables: { one: undefined, two: 2, four: 2, i: 5, what: 'what', test: 'hello buddy' } },
-  { line: 15,  variables: { one: undefined,two: 2, four: 2, i: 5, what: 'what', test: 'hello buddy', hello: 'hi' } } ]
-//data is an array with objects
-//
+var data = [{
+  "line": 2,
+  "variables": {
+    "two": 2
+  }
+}, {
+  "line": 3,
+  "variables": {
+    "two": 2,
+    "four": 2
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 0
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 1
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 2
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 3
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 4
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 6
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 7
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 8
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 9
+  }
+}, {
+  "line": 10,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 10
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 0
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 1
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 2
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 3
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 4
+  }
+}, {
+  "line": 13,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 23,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 15,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3
+  }
+}, {
+  "line": 16,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3
+  }
+}, {
+  "line": 20,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3
+  }
+}, {
+  "line": 17,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+    "e": 5,
+    "f": 6
+  }
+}, {
+  "line": 18,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+    "e": 5,
+    "f": 6
+  }
+}, {
+  "line": 19,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+    "e": 5,
+    "f": 6,
+    "bus": "slow"
+  }
+}, {
+  "line": 21,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3
+  }
+}, {
+  "line": 22,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "car": "toyota"
+  }
+}, {
+  "line": 26,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 29,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 1
+  }
+}, {
+  "line": 30,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 1
+  }
+}, {
+  "line": 29,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 2
+  }
+}, {
+  "line": 30,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 2
+  }
+}, {
+  "line": 29,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 3
+  }
+}, {
+  "line": 30,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 3
+  }
+}, {
+  "line": 31,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 33,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 0,
+    "val": 1
+  }
+}, {
+  "line": 34,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 0,
+    "val": 1
+  }
+}, {
+  "line": 33,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 1,
+    "val": 2
+  }
+}, {
+  "line": 34,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 1,
+    "val": 2
+  }
+}, {
+  "line": 33,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 2,
+    "val": 3
+  }
+}, {
+  "line": 34,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 2,
+    "val": 3
+  }
+}, {
+  "line": 35,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 39,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}"
+  }
+}, {
+  "line": 45,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}",
+    "what": "what"
+  }
+}, {
+  "line": 47,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}",
+    "what": "what",
+    "test": "hello"
+  }
+}, {
+  "line": 49,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}",
+    "what": "what",
+    "test": "hello buddy"
+  }
+}, {
+  "line": 51,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}",
+    "what": "what",
+    "test": "hello buddy",
+    "hello": "hi"
+  }
+}];
+console.log(data);
+
 
 
 
@@ -61,11 +411,15 @@ $(document).ready(() => {
   var index = [],
       indexCounter = -1,
       dataLength = data.length,
-      watchedVariablesObj;
+      watchedVariablesObj,
+      oldLine,
+      newLine;
 
   $('#forward').click((e) => {
     if (indexCounter < dataLength - 1) {
+      oldLine = indexCounter;
       indexCounter++;
+      newLine = indexCounter;
       index.push(indexCounter);
       $('#back').prop('disabled', false);
     }
@@ -75,6 +429,11 @@ $(document).ready(() => {
     //updating the variable values
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
+      // console.log('indexCounter', indexCounter, 'variables:', data[indexCounter])
+      // console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
+      console.log('indexCounter', indexCounter, 'new line:', data[newLine].line, 'variables:', watchedVariables);
+      if (oldLine >= 0) removeLineIndicator(data[oldLine].line + 1);
+      placeLineIndicator(data[newLine].line + 1);
       for (var key in watchedVariables) {
         $(`#${key + 'val'}`).remove();
         $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
@@ -87,7 +446,9 @@ $(document).ready(() => {
         declaredVariables = Object.keys(data[data.length - 1].variables),
         decVar;
     if (indexCounter > -1) {
+      removeLineIndicator(data[indexCounter].line + 1);
       indexCounter--;
+      placeLineIndicator(data[indexCounter].line + 1);
       index.pop();
       $('#forward').prop('disabled', false);
     }
@@ -106,6 +467,7 @@ $(document).ready(() => {
     //when user clicks back, this will update the DOM with new values
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
+      console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
       for (var key in watchedVariables) {
         $(`#${key + 'val'}`).remove();
         $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
