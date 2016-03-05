@@ -59,58 +59,61 @@
 
   <script type="text/javascript">
     // 'use strict';
-    const file=`"use strict";
+    const file={
+        entry: 'app.js',
+        'app.js' : `"use strict";
 
-    var one, two = 2;
-    var four = 2, five;
-
-
-     //what should we do if var test = 'shoot'
-
-    for(var i = 0; i < 10; i++) {
-
-    }
-
-    for(var i = 0; i < 5; i++) {
-    }
-
-    function fn(a, b, c) {
-      console.log(a,b,c);
-      function fn2(d,e,f) {
-        console.log('what!');
-        var bus = 'slow';
-      }
-      fn2(4,5,6);
-      var car = 'toyota';
-    }
+        var one, two = 2;
+        var four = 2, five;
 
 
-    fn(1,2,3);
+         //what should we do if var test = 'shoot'
+
+        for(var i = 0; i < 10; i++) {
+
+        }
+
+        for(var i = 0; i < 5; i++) {
+        }
+
+        function fn(a, b, c) {
+          console.log(a,b,c);
+          function fn2(d,e,f) {
+            console.log('what!');
+            var bus = 'slow';
+          }
+          fn2(4,5,6);
+          var car = 'toyota';
+        }
 
 
-    [1,2,3].forEach(val => {
-      console.log(val);
-    });
+        fn(1,2,3);
 
-    [1,2,3].forEach((val, i) => {
-      console.log(val);
-    });
 
-    var checkThis = function() {
-      console.log('hello there my friend');
+        [1,2,3].forEach(val => {
+          console.log(val);
+        });
+
+        [1,2,3].forEach((val, i) => {
+          console.log(val);
+        });
+
+        var checkThis = function() {
+          console.log('hello there my friend');
+        };
+
+        /*
+        * here is another comment
+        * with some stuff
+        * shoot */
+        let what = 'what';
+
+        var test = "hello";
+
+        test += " buddy";
+
+        const hello = 'hi';`
     };
-
-    /*
-    * here is another comment
-    * with some stuff
-    * shoot */
-    let what = 'what';
-
-    var test = "hello";
-
-    test += " buddy";
-
-    const hello = 'hi';`;
   </script>
 
   <script>
@@ -119,7 +122,12 @@
       editor.getSession().setMode('ace/mode/javascript');
       editor.setReadOnly(true);
       editor.setHighlightSelectedWord(false);
-      editor.setValue(file);
+      editor.setValue(file['app.js']);
+      // We've wrapped the string of the code in backticks
+      //  So we replaced them on the way in
+      //  But, being a good editor, Ace shows the encoded backticks
+      //  So we need to de-encode them
+      editor.replaceAll('`', { needle: '&#96;' });
       editor.clearSelection();
   </script>
 
