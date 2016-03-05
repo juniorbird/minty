@@ -430,7 +430,8 @@ $(document).ready(() => {
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
       // console.log('indexCounter', indexCounter, 'variables:', data[indexCounter])
-      console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
+      // console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
+      console.log('indexCounter', indexCounter, 'new line:', data[newLine].line, 'variables:', watchedVariables);
       if (oldLine >= 0) removeLineIndicator(data[oldLine].line + 1);
       placeLineIndicator(data[newLine].line + 1);
       for (var key in watchedVariables) {
