@@ -16,8 +16,9 @@
         height: auto;
       }
 
-      .ace_line {
-        pointer-events: none;
+      .ace_editor {
+        height: 600px;
+        width: 100%;
       }
 
       .current {
@@ -39,7 +40,9 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div id="editor">Loading code...</div>
+      <ul class="nav nav-tabs">
+      </ul>
+      <div class="tab-content"></div>
     </div>
     <div class="col-md-6">
       <table>
@@ -65,71 +68,121 @@
 
   <script type="text/javascript">
     // 'use strict';
-    const file=`"use strict";
+    const file={
+        entry: 'app.js',
+        'app.js' : `"use strict";
 
-    var one, two = 2;
-    var four = 2, five;
-
-
-     //what should we do if var test = 'shoot'
-
-    for(var i = 0; i < 10; i++) {
-
-    }
-
-    for(var i = 0; i < 5; i++) {
-    }
-
-    function fn(a, b, c) {
-      console.log(a,b,c);
-      function fn2(d,e,f) {
-        console.log('what!');
-        var bus = 'slow';
-      }
-      fn2(4,5,6);
-      var car = 'toyota';
-    }
+        var one, two = 2;
+        var four = 2, five;
 
 
-    fn(1,2,3);
+         //what should we do if var test = 'shoot'
+
+        for(var i = 0; i < 10; i++) {
+
+        }
+
+        for(var i = 0; i < 5; i++) {
+        }
+
+        function fn(a, b, c) {
+          console.log(a,b,c);
+          function fn2(d,e,f) {
+            console.log('what!');
+            var bus = 'slow';
+          }
+          fn2(4,5,6);
+          var car = 'toyota';
+        }
 
 
-    [1,2,3].forEach(val => {
-      console.log(val);
-    });
+        fn(1,2,3);
 
-    [1,2,3].forEach((val, i) => {
-      console.log(val);
-    });
 
-    var checkThis = function() {
-      console.log('hello there my friend');
+        [1,2,3].forEach(val => {
+          console.log(val);
+        });
+
+        [1,2,3].forEach((val, i) => {
+          console.log(val);
+        });
+
+        var checkThis = function() {
+          console.log('hello there my friend');
+        };
+
+        /*
+        * here is another comment
+        * with some stuff
+        * shoot */
+        let what = 'what';
+
+        var test = "hello";
+
+        test += " buddy";
+
+        const hello = 'hi';`,
+        'component.js' : `var Node = function(value) {
+          this.value = value;
+          this.next = null;
+        }
+
+        function hasCycle(head) {
+          'use strict';
+
+          if (!head) return false;
+
+          // An object to contain nexts
+          //  If we find an already-existing next, we know it's circular
+          let nodeObj = {};
+          nodeObj.nexts = {};
+          nodeObj.push = (next) => {
+            try {
+              // Wrapping this in a try box
+              //  Because stringify will fail if we have a circular reference
+              //  So if it fails, then we know we've a circle!
+              next = JSON.stringify(next);
+              nodeObj.nexts[next] = 1;
+              return false;
+            }
+            catch (e) {
+              return true;
+            }
+          }
+
+          function checkNextNode(node) {
+            let circle = nodeObj.push(node);
+            if (circle) return true;
+            if (node.next) return checkNextNode(node.next);
+            return false;
+          }
+
+          return checkNextNode(head);
+        }
+
+
+        module.exports = {Node: Node, hasCycle: hasCycle}
+        `
     };
-
-    /*
-    * here is another comment
-    * with some stuff
-    * shoot */
-    let what = 'what';
-
-    var test = "hello";
-
-    test += " buddy";
-
-    const hello = 'hi';`;
   </script>
 
   <script>
-      var editor = ace.edit('editor');
+    function createEditor(atSelector, fromCode) {
+      var editor = ace.edit(atSelector);
       editor.setTheme('ace/theme/monokai');
       editor.getSession().setMode('ace/mode/javascript');
       editor.setReadOnly(true);
       editor.setHighlightSelectedWord(false);
-      editor.setValue(file);
+      editor.setValue(fromCode);
+      // We've wrapped the string of the code in backticks
+      //  So we replaced them on the way in
+      //  But, being a good editor, Ace shows the encoded backticks
+      //  So we need to de-encode them
+      editor.replaceAll('`', { needle: '&#96;' });
+      // Ace seems to load with the entire doc selected. Unselect for great UX.
       editor.clearSelection();
-  </script>
+    }
 
-  <script>
     function placeLineIndicator(lineNum) {
       'use strict';
       let selector = '.ace_line:nth-of-type(' + lineNum + ')';
@@ -144,6 +197,43 @@
       let selector = '.ace_line:nth-of-type(' + lineNum + ')';
       $(selector).removeClass('current');
     }
+
+    function safeFileID(filename) {
+      // Makes a CSS-safe ID for file tabs
+      // TODO: make sure IDs are unique
+      // TODO: IDs shouldn't start with a number
+      return filename.replace(/[^a-z0-9]/gi, '')
+    }
+
+    function makeEditorFromFiles(codeObj) {
+      'use strict';
+      let files = Object.keys(codeObj);
+      let entry = safeFileID(codeObj.entry);
+
+      // remove the "entry" value, which we use for other things
+      files.splice(files.indexOf('entry'), 1)
+
+      let cssFilename
+      for (let filename of files) {
+        // Create a safe version of the filename
+        cssFilename = safeFileID(filename);
+
+        // Create both a tab and a content area for each file
+        $('.nav-tabs')
+          .append('<li class="' + cssFilename + '"><a data-toggle="tab" href="#' + cssFilename + '">' + filename + '</a></li>');
+        $('.tab-content')
+          .append('<div id="' + cssFilename + '" class="tab-pane">Loading file...' + filename + '</div>');
+
+        // Drop an editor in the area we just created
+        createEditor(cssFilename, codeObj[filename]);
+      }
+
+      // make the entry file active
+      $('.' + entry).addClass('active');
+      $('#' + entry).addClass('active');
+    }
+
+    makeEditorFromFiles(file);
   </script>
 
 </body>
