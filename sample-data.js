@@ -43,6 +43,6 @@ var data = [ { line: 1, variables: { one: undefined, two: 2 } },
   { line: 14, variables: { one: undefined, two: 2, four: 2, i: 5, what: 'what', test: 'hello buddy' } },
   { line: 15,  variables: { one: undefined,two: 2, four: 2, i: 5, what: 'what', test: 'hello buddy', hello: 'hi', array: [] } },
   { line: 16,  variables: { one: undefined,two: 2, four: 2, i: 5, what: 'what', test: 'hello buddy', hello: 'hi', array: [1, 2] } },
-  { line: 17,  variables: { one: undefined,two: 2, four: 2, i: 5, what: 'what', test: 'hello buddy', hello: 'hi', array: [1, [4, 7, [5, 9, [12, 14]]]] } }]
+  { line: 17,  variables: { one: undefined,two: 2, four: 2, i: 5, what: 'what', test: 'hello buddy', hello: 'hi', array: [1, [], [4, 7, [5, 9, [12, 14, []]]], 8] } }]
 //data is an array with objects
 //

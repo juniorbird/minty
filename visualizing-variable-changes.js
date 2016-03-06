@@ -1,6 +1,5 @@
 $(document).ready(() => {
-  var index = [],
-      indexCounter = -1,
+  var indexCounter = -1,
       dataLength = data.length,
       watchedVariablesObj,
       completeVariableList = data[dataLength - 1].variables,
@@ -18,7 +17,6 @@ $(document).ready(() => {
   $('#forward').click((e) => {
     if (indexCounter < dataLength - 1) {
       indexCounter++;
-      index.push(indexCounter);
       disableBackFirstButtons(false);
       $('#step').text(`Step ${indexCounter+1} of ${dataLength}`);
     }
@@ -29,7 +27,6 @@ $(document).ready(() => {
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
       for (var key in watchedVariables) {
-
         updateVariables(key);
       }
     }
@@ -38,9 +35,9 @@ $(document).ready(() => {
   $('#back').click(() => {
     var watchedVariablesObj,
         decVar;
+
     if (indexCounter > -1) {
       indexCounter--;
-      index.pop();
       disableForwardLastButtons(false);
       $('#step').text(`Step ${indexCounter + 1} of ${dataLength}`);
     }
@@ -100,26 +97,42 @@ $(document).ready(() => {
 function updateVariables(key) {
   $(`#${key + 'val'}`).remove();
   if (watchedVariables[key] instanceof Array) {
-    $('body').append('<table id="array-table"></table>')
-      .append('<tbody></tbody>')
-      .append('<tr id="array-display"></tr>');
+    $('#main-table').remove();
+    $('body').append($('<table/>', {'id': `main-table`}));
     $('.array-values').remove();
+    $(`#${key}`).append(`<td id="${key + 'val'}" class="variables"></td>`);
     handleArrays(key, watchedVariables[key]);
-
   } else
     $(`#${key}`).append(`<td id="${key + 'val'}" class="variables">${watchedVariables[key]}</td>`);
-
 };
 
-function handleArrays(key, array) {
-  if (array.length === 0)
-    $('#array-display').append('<td class="array-values">Empty Array</td>');
 
-  $(array).each((i, elem) => {
-    if (elem instanceof Array) handleArrays(key, elem);
-    else $('#array-display').append(`<td class="array-values">${elem}</td>`);
-  });
-}
+function handleArrays(key, array, index) {
+  var counter = 0;
+
+  function inner (key, array, index) {
+    counter++;
+    $('#main-table').append(
+      $('<table/>', {'id': `array-table${counter}`}).append(
+        $('<tbody/>').append(
+          $('<tr/>', {'id' : `array-display${counter}`})
+        )
+      )
+    );
+
+    if (array.length === 0)
+      $(`#array-display${counter}`).append('<td class="array-values">Empty Array</td>');
+
+    $(array).each((i, elem) => {
+      if (elem instanceof Array) {
+        // inner(key, elem, counter);
+        $(`#array-display${counter}`).append(`<td class="array-values"></td>`);
+      }
+      else $(`#array-display${counter}`).append(`<td class="array-values">${elem}</td>`);
+    });
+  }
+  inner(key, array, index);
+};
 
 function disableForwardLastButtons(value) {
   $('#forward').prop('disabled', value);
