@@ -1,9 +1,411 @@
+var data = [{
+  "line": 2,
+  "variables": {
+    "two": 2
+  }
+}, {
+  "line": 3,
+  "variables": {
+    "two": 2,
+    "four": 2
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 0
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 1
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 2
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 3
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 4
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 6
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 7
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 8
+  }
+}, {
+  "line": 8,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 9
+  }
+}, {
+  "line": 10,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 10
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 0
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 1
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 2
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 3
+  }
+}, {
+  "line": 12,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 4
+  }
+}, {
+  "line": 13,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 23,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 15,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3
+  }
+}, {
+  "line": 16,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3
+  }
+}, {
+  "line": 20,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3
+  }
+}, {
+  "line": 17,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+    "e": 5,
+    "f": 6
+  }
+}, {
+  "line": 18,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+    "e": 5,
+    "f": 6
+  }
+}, {
+  "line": 19,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+    "e": 5,
+    "f": 6,
+    "bus": "slow"
+  }
+}, {
+  "line": 21,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3
+  }
+}, {
+  "line": 22,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "car": "toyota"
+  }
+}, {
+  "line": 26,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 29,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 1
+  }
+}, {
+  "line": 30,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 1
+  }
+}, {
+  "line": 29,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 2
+  }
+}, {
+  "line": 30,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 2
+  }
+}, {
+  "line": 29,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 3
+  }
+}, {
+  "line": 30,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "val": 3
+  }
+}, {
+  "line": 31,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 33,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 0,
+    "val": 1
+  }
+}, {
+  "line": 34,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 0,
+    "val": 1
+  }
+}, {
+  "line": 33,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 1,
+    "val": 2
+  }
+}, {
+  "line": 34,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 1,
+    "val": 2
+  }
+}, {
+  "line": 33,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 2,
+    "val": 3
+  }
+}, {
+  "line": 34,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 2,
+    "val": 3
+  }
+}, {
+  "line": 35,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5
+  }
+}, {
+  "line": 39,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}"
+  }
+}, {
+  "line": 45,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}",
+    "what": "what"
+  }
+}, {
+  "line": 47,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}",
+    "what": "what",
+    "test": "hello"
+  }
+}, {
+  "line": 49,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}",
+    "what": "what",
+    "test": "hello buddy"
+  }
+}, {
+  "line": 51,
+  "variables": {
+    "two": 2,
+    "four": 2,
+    "i": 5,
+    "checkThis": "function () {\n  console.log('hello there my friend');\n}",
+    "what": "what",
+    "test": "hello buddy",
+    "hello": "hi"
+  }
+}];
+
+
+
+
+
+
 $(document).ready(() => {
   var indexCounter = -1,
       dataLength = data.length,
       watchedVariablesObj,
       completeVariableList = data[dataLength - 1].variables,
-      declaredVariables = Object.keys(completeVariableList);
+      declaredVariables = Object.keys(completeVariableList),
+      oldLine,
+      newLine;
 
   // appending variable names to the DOM - all their values start out as undefined
   for (var key in completeVariableList) {
@@ -11,21 +413,33 @@ $(document).ready(() => {
     $(`#${key}`).append(`<td>${key}</td>`).append(`<td id=${key +'val'} class="variables">undefined</td>`);
   }
 
+
   disableBackFirstButtons(true);
   $('#step').text(`Step 0 of ${dataLength}`);
 
   $('#forward').click((e) => {
     if (indexCounter < dataLength - 1) {
+      oldLine = indexCounter;
       indexCounter++;
+      newLine = indexCounter;
+
       disableBackFirstButtons(false);
       $('#step').text(`Step ${indexCounter+1} of ${dataLength}`);
+
     }
+
+
     if (indexCounter === dataLength - 1)
       disableForwardLastButtons(true);
 
     //updating the variable values
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
+      // console.log('indexCounter', indexCounter, 'variables:', data[indexCounter])
+      // console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
+      console.log('indexCounter', indexCounter, 'new line:', data[newLine].line, 'variables:', watchedVariables);
+      if (oldLine >= 0) removeLineIndicator(data[oldLine].line + 1);
+      placeLineIndicator(data[newLine].line + 1);
       for (var key in watchedVariables) {
         updateVariables(key);
       }
@@ -37,9 +451,11 @@ $(document).ready(() => {
         decVar;
 
     if (indexCounter > -1) {
+      removeLineIndicator(data[indexCounter].line + 1);
       indexCounter--;
       disableForwardLastButtons(false);
       $('#step').text(`Step ${indexCounter + 1} of ${dataLength}`);
+      placeLineIndicator(data[indexCounter].line + 1);
     }
     //make all values revert back to undefined when the user clicks back all the way to the beginning with the back button
     if (indexCounter === -1) {
@@ -50,6 +466,7 @@ $(document).ready(() => {
     //when user clicks back, this will update the DOM with new values
     watchedVariables = data[indexCounter].variables;
     if (data[indexCounter]) {
+      console.log('indexCounter', indexCounter, 'old line:', data[oldLine].line, 'new line:', data[newLine].line, 'variables:', watchedVariables);
       for (var key in watchedVariables) {
         updateVariables(key);
       }
