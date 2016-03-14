@@ -1,0 +1,31 @@
+{
+  "name": "minty",
+  "version": "0.1.0",
+  "description": "Node process visualization",
+  "main": "/lib/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumpy-turnips/minty.git"
+  },
+  "keywords": [
+    "visualization",
+    "node",
+    "minty",
+    "mintyjs",
+    "tutor"
+  ],
+  "author": "Ted Zilist <tzilist@gmail.com>, Wade Armstrong <wade@wadearmstrong.com>, Angie Yeh <angieyeh24@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lumpy-turnips/minty/issues"
+  },
+  "homepage": "https://www.mintyjs.com",
+  "dependencies": {
+    "async": "^1.5.2",
+    "decomment": "^0.8.5",
+    "lodash": "^4.6.1"
+  }
+}
