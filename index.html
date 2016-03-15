@@ -7,21 +7,20 @@
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
 
-      #editor {
-        height: 600px;
-        width: 100%;
-      }
-
       h1 {
         height: auto;
       }
 
       .ace_editor {
-        height: 600px;
+        height: 300px;
         width: 100%;
       }
 
       .current {
+        background-color: green !important;
+      }
+
+      .error {
         background-color: red !important;
       }
   </style>
@@ -66,111 +65,14 @@
   <script src="./visualizing-variable-changes.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js" type="text/javascript"></script>
 
-  <script type="text/javascript">
-    // 'use strict';
-    const file={
-        entry: 'app.js',
-        'app.js' : `"use strict";
-
-        var one, two = 2;
-        var four = 2, five;
-
-
-         //what should we do if var test = 'shoot'
-
-        for(var i = 0; i < 10; i++) {
-
-        }
-
-        for(var i = 0; i < 5; i++) {
-        }
-
-        function fn(a, b, c) {
-          console.log(a,b,c);
-          function fn2(d,e,f) {
-            console.log('what!');
-            var bus = 'slow';
-          }
-          fn2(4,5,6);
-          var car = 'toyota';
-        }
-
-
-        fn(1,2,3);
-
-
-        [1,2,3].forEach(val => {
-          console.log(val);
-        });
-
-        [1,2,3].forEach((val, i) => {
-          console.log(val);
-        });
-
-        var checkThis = function() {
-          console.log('hello there my friend');
-        };
-
-        /*
-        * here is another comment
-        * with some stuff
-        * shoot */
-        let what = 'what';
-
-        var test = "hello";
-
-        test += " buddy";
-
-        const hello = 'hi';`,
-        'component.js' : `var Node = function(value) {
-          this.value = value;
-          this.next = null;
-        }
-
-        function hasCycle(head) {
-          'use strict';
-
-          if (!head) return false;
-
-          // An object to contain nexts
-          //  If we find an already-existing next, we know it's circular
-          let nodeObj = {};
-          nodeObj.nexts = {};
-          nodeObj.push = (next) => {
-            try {
-              // Wrapping this in a try box
-              //  Because stringify will fail if we have a circular reference
-              //  So if it fails, then we know we've a circle!
-              next = JSON.stringify(next);
-              nodeObj.nexts[next] = 1;
-              return false;
-            }
-            catch (e) {
-              return true;
-            }
-          }
-
-          function checkNextNode(node) {
-            let circle = nodeObj.push(node);
-            if (circle) return true;
-            if (node.next) return checkNextNode(node.next);
-            return false;
-          }
-
-          return checkNextNode(head);
-        }
-
-
-        module.exports = {Node: Node, hasCycle: hasCycle}
-        `
-    };
-  </script>
-
   <script>
+    var editors = {}
+
     function createEditor(atSelector, fromCode) {
-      var editor = ace.edit(atSelector);
+      var editor = new ace.edit(atSelector);
       editor.setTheme('ace/theme/monokai');
       editor.getSession().setMode('ace/mode/javascript');
+      editor.getSession().setOption("useWorker", false);
       editor.setReadOnly(true);
       editor.setHighlightSelectedWord(false);
       editor.setValue(fromCode);
@@ -181,28 +83,74 @@
       editor.replaceAll('`', { needle: '&#96;' });
       // Ace seems to load with the entire doc selected. Unselect for great UX.
       editor.clearSelection();
+      editors[atSelector] = editor;
+      console.log('editors', editors);
     }
 
-    function placeLineIndicator(lineNum) {
+    function moveLineIndicator(currIndex, lastIndex, dataArr) {
       'use strict';
-      let selector = '.ace_line:nth-of-type(' + lineNum + ')';
-      $(selector).addClass('current');
-    }
 
-    // It's cleaner to have these as two steps than one
-    // This way we can remove the indicator before we change lines
-    // And we don't need to know if the user is stepping forwards or back
-    function removeLineIndicator(lineNum) {
-      'use strict';
-      let selector = '.ace_line:nth-of-type(' + lineNum + ')';
-      $(selector).removeClass('current');
+      console.log('moving to', currIndex, 'from', lastIndex, 'line:', dataArr[currIndex]);
+
+      function getAttr(obj, idx, attr, objToSet) {
+        let attribute;
+        try {
+          attribute = obj[idx][attr];
+        } catch (err) {
+          attribute = undefined;
+        } finally {
+          objToSet[attr] = attribute;
+        }
+      }
+
+      function lineIndicator(index, arr) {
+        if ((index !== undefined) && (index !== null)) {
+          let li = {};
+
+          ['line', 'error', 'file'].forEach( (val) => getAttr(arr, index, val, li));
+
+          // Run this through the thing that generates all our references to a file
+          li.file = safeFileID(li.file);
+
+          li.highlight = () => {
+            if (li.line) {
+              if (li.error) {
+                editors[li.file].getSession().addGutterDecoration(li.line, 'error');
+              } else {
+                editors[li.file].getSession().addGutterDecoration(li.line, 'current');
+              }
+              editors[li.file].scrollToLine(li.line, true, true);
+            }
+          };
+
+          li.unlight = () => {
+            if (li.line) {
+              if (li.error) {
+                editors[li.file].getSession().removeGutterDecoration(li.line, 'error');
+              } else {
+                editors[li.file].getSession().removeGutterDecoration(li.line, 'current');
+              }
+            }
+          };
+
+          return li;
+        } else {
+          return null;
+        }
+      }
+
+      let lastLine = new lineIndicator(lastIndex, dataArr);
+      let currLine = new lineIndicator(currIndex, dataArr);
+
+      lastLine.unlight();
+      currLine.highlight();
     }
 
     function safeFileID(filename) {
       // Makes a CSS-safe ID for file tabs
       // TODO: make sure IDs are unique
       // TODO: IDs shouldn't start with a number
-      return filename.replace(/[^a-z0-9]/gi, '')
+      if (filename) return filename.replace(/[^a-z0-9]/gi, '')
     }
 
     function makeEditorFromFiles(codeObj) {
@@ -210,8 +158,9 @@
       let files = Object.keys(codeObj);
       let entry = safeFileID(codeObj.entry);
 
-      // remove the "entry" value, which we use for other things
+      // remove the "entry" and "log" values, which we use for other things
       files.splice(files.indexOf('entry'), 1)
+      files.splice(files.indexOf('log'), 1)
 
       let cssFilename
       for (let filename of files) {
@@ -233,7 +182,7 @@
       $('#' + entry).addClass('active');
     }
 
-    makeEditorFromFiles(file);
+    makeEditorFromFiles(data);
   </script>
 
 </body>
