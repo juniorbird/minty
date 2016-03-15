@@ -85,25 +85,22 @@
     function moveLineIndicator(currIndex, lastIndex, dataArr) {
       'use strict';
 
-      function getAttr(obj, idx, attr) {
+      function getAttr(obj, idx, attr, objToSet) {
+        let thingy;
         try {
-          return obj[idx][attr];
+          thingy = obj[idx][attr];
         } catch (err) {
-          return undefined;
+          thingy = undefined;
+        } finally {
+          objToSet[attr] = thingy;
         }
       }
 
       function lineIndicator(index, arr) {
         if ((index !== undefined) && (index !== null)) {
           let li = {};
-          let temp;
 
-          function setter(key) {
-            temp = getAttr(arr, index, key);
-            if (temp) li[key] = temp;
-          }
-
-          ['line', 'error', 'file'].forEach( (val) => setter(val));
+          ['line', 'error', 'file'].forEach( (val) => getAttr(arr, index, val, li));
 
           li.highlight = () => {
             let line = li.line;
