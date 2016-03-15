@@ -17,6 +17,10 @@
       }
 
       .current {
+        background-color: green !important;
+      }
+
+      .error {
         background-color: red !important;
       }
   </style>
@@ -84,6 +88,8 @@
 
     function moveLineIndicator(currIndex, lastIndex, dataArr) {
       'use strict';
+
+      console.log('moving to', currIndex, 'from', lastIndex, 'line:', dataArr[currIndex]);
 
       function getAttr(obj, idx, attr, objToSet) {
         let attribute;

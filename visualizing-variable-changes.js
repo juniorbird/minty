@@ -714,6 +714,7 @@ var data =
       "what": "what"
     }
   }, {
+    "file": "test.js",
     "line": 57,
     "variables": {
       "one": "undefined",
