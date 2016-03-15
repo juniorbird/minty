@@ -65,7 +65,7 @@
     var editors = {}
 
     function createEditor(atSelector, fromCode) {
-      var editor = ace.edit(atSelector);
+      var editor = new ace.edit(atSelector);
       editor.setTheme('ace/theme/monokai');
       editor.getSession().setMode('ace/mode/javascript');
       editor.setReadOnly(true);
@@ -79,16 +79,14 @@
       // Ace seems to load with the entire doc selected. Unselect for great UX.
       editor.clearSelection();
       editors[atSelector] = editor;
-      console.log(editors);
+      console.log('editors', editors);
     }
 
     function moveLineIndicator(currIndex, lastIndex, dataArr) {
       'use strict';
 
-      console.log('current', currIndex, 'last', lastIndex);
       function getAttr(obj, idx, attr) {
         try {
-          // console.log('index', idx);
           return obj[idx][attr];
         } catch (err) {
           return undefined;
@@ -96,18 +94,45 @@
       }
 
       function lineIndicator(index, arr) {
-        console.log('index', index);
         if ((index !== undefined) && (index !== null)) {
           let li = {};
           let temp;
 
           function setter(key) {
             temp = getAttr(arr, index, key);
-            console.log('temp', temp);
             if (temp) li[key] = temp;
           }
 
           ['line', 'error', 'file'].forEach( (val) => setter(val));
+
+          li.highlight = () => {
+            let line = li.line;
+            let error = li.error;
+            let file = safeFileID(li.file);
+
+            if (line) {
+              if (error) {
+                editors['testjs'].getSession().addGutterDecoration(line, 'error');
+              } else {
+                editors['testjs'].getSession().addGutterDecoration(line, 'current');
+              }
+              editors['testjs'].scrollToLine(line, true, true);
+            }
+          };
+
+          li.unlight = () => {
+            let line = li.line;
+            let error = li.error;
+            let file = safeFileID(li.file);
+
+            if (line) {
+              if (error) {
+                editors[file].getSession().removeGutterDecoration(line, 'error');
+              } else {
+                editors[file].getSession().removeGutterDecoration(line, 'current');
+              }
+            }
+          };
 
           return li;
         } else {
@@ -115,33 +140,18 @@
         }
       }
 
-      let lastInfo = new lineIndicator(lastIndex, dataArr);
-      let currInfo = new lineIndicator(currIndex, dataArr);
+      let lastLine = new lineIndicator(lastIndex, dataArr);
+      let currLine = new lineIndicator(currIndex, dataArr);
 
-      console.log('last:', JSON.stringify(lastInfo), 'curr:', JSON.stringify(currInfo));
-
-
-      // lastInfo.line = getAttr(data, lastIndex, 'line') + 1;
-      // currInfo.line = getAttr(data, currIndex, 'line') + 1;
-      // lastInfo.status = getAttr(data, lastIndex, 'error');
-      // currInfo.status = getAttr(data, currIndex, 'error');
-      // lastInfo.file = safeFileID(getAttr(data, lastIndex, 'file'));
-      // currInfo.file = safeFileID(getAttr(data, currIndex, 'file'));
-
-
-      if (lastInfo.line) {
-        editors[lastInfo.file].removeGutterDecoration(lastInfo.status);
-      }
-      editors[currInfo.file].addGutterDecoration(currInfo.status);
-
-      editors[currInfo.file].scrollToLine(currInfo.line, true, true);
+      lastLine.unlight();
+      currLine.highlight();
     }
 
     function safeFileID(filename) {
       // Makes a CSS-safe ID for file tabs
       // TODO: make sure IDs are unique
       // TODO: IDs shouldn't start with a number
-      return filename.replace(/[^a-z0-9]/gi, '')
+      if (filename) return filename.replace(/[^a-z0-9]/gi, '')
     }
 
     function makeEditorFromFiles(codeObj) {
