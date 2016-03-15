@@ -86,13 +86,13 @@
       'use strict';
 
       function getAttr(obj, idx, attr, objToSet) {
-        let thingy;
+        let attribute;
         try {
-          thingy = obj[idx][attr];
+          attribute = obj[idx][attr];
         } catch (err) {
-          thingy = undefined;
+          attribute = undefined;
         } finally {
-          objToSet[attr] = thingy;
+          objToSet[attr] = attribute;
         }
       }
 
@@ -109,11 +109,11 @@
 
             if (line) {
               if (error) {
-                editors['testjs'].getSession().addGutterDecoration(line, 'error');
+                editors[file].getSession().addGutterDecoration(line, 'error');
               } else {
-                editors['testjs'].getSession().addGutterDecoration(line, 'current');
+                editors[file].getSession().addGutterDecoration(line, 'current');
               }
-              editors['testjs'].scrollToLine(line, true, true);
+              editors[file].scrollToLine(line, true, true);
             }
           };
 
