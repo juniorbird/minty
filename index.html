@@ -102,31 +102,26 @@
 
           ['line', 'error', 'file'].forEach( (val) => getAttr(arr, index, val, li));
 
-          li.highlight = () => {
-            let line = li.line;
-            let error = li.error;
-            let file = safeFileID(li.file);
+          // Run this through the thing that generates all our references to a file
+          li.file = safeFileID(li.file);
 
-            if (line) {
-              if (error) {
-                editors[file].getSession().addGutterDecoration(line, 'error');
+          li.highlight = () => {
+            if (li.line) {
+              if (li.error) {
+                editors[li.file].getSession().addGutterDecoration(li.line, 'error');
               } else {
-                editors[file].getSession().addGutterDecoration(line, 'current');
+                editors[li.file].getSession().addGutterDecoration(li.line, 'current');
               }
-              editors[file].scrollToLine(line, true, true);
+              editors[li.file].scrollToLine(li.line, true, true);
             }
           };
 
           li.unlight = () => {
-            let line = li.line;
-            let error = li.error;
-            let file = safeFileID(li.file);
-
-            if (line) {
-              if (error) {
-                editors[file].getSession().removeGutterDecoration(line, 'error');
+            if (li.line) {
+              if (li.error) {
+                editors[li.file].getSession().removeGutterDecoration(li.line, 'error');
               } else {
-                editors[file].getSession().removeGutterDecoration(line, 'current');
+                editors[li.file].getSession().removeGutterDecoration(li.line, 'current');
               }
             }
           };
