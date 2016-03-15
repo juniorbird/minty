@@ -29,7 +29,6 @@ $(document).ready(() => {
       oldIndex = indexCounter;
       indexCounter++;
       newIndex = indexCounter;
-      console.log()
       moveLineIndicator(newIndex, oldIndex, data.log);
 
       disableBackFirstButtons(false);
@@ -43,7 +42,7 @@ $(document).ready(() => {
 
     //updating the variable values
     watchedVariables = data.log[indexCounter].variables;
-    if (data[indexCounter]) {
+    if (data.log[indexCounter]) {
       // console.log('indexCounter', indexCounter, 'variables:', data[indexCounter]);
       for (var key in watchedVariables) {
         updateVariables(key, watchedVariables);
@@ -73,8 +72,8 @@ $(document).ready(() => {
 
     //when user clicks back, this will update the DOM with new values
     watchedVariables = data.log[indexCounter].variables;
-    if (data[indexCounter]) {
-      console.log('indexCounter', indexCounter, 'old line:', data[oldIndex].line, 'new line:', data[newIndex].line, 'variables:', watchedVariables);
+    if (data.log[indexCounter]) {
+      // console.log('indexCounter', indexCounter, 'old line:', data[oldIndex].line, 'new line:', data[newIndex].line, 'variables:', watchedVariables);
       for (var key in watchedVariables) {
         updateVariables(key, watchedVariabes);
       }
