@@ -761,7 +761,7 @@ $(document).ready(() => {
       indexCounter++;
       newIndex = indexCounter;
       console.log()
-      moveLineIndicator(newIndex, oldIndex, data);
+      moveLineIndicator(newIndex, oldIndex, data.log);
 
       disableBackFirstButtons(false);
       $('#step').text(`Step ${indexCounter+1} of ${dataLength}`);
@@ -791,7 +791,7 @@ $(document).ready(() => {
       oldIndex = indexCounter;
       indexCounter--;
       newIndex = indexCounter;
-      moveLineIndicator(newIndex, oldIndex, data);
+      moveLineIndicator(newIndex, oldIndex, data.log);
       disableForwardLastButtons(false);
       $('#step').text(`Step ${indexCounter + 1} of ${dataLength}`);
 
@@ -830,7 +830,7 @@ $(document).ready(() => {
     oldIndex = indexCounter;
     indexCounter = -1;
     newIndex = indexCounter;
-    moveLineIndicator(newIndex, oldIndex, data);
+    moveLineIndicator(newIndex, oldIndex, data.log);
     makeValuesUndefined();
     $('#step').text(`Step ${indexCounter + 1} of ${dataLength}`);
   });
@@ -844,7 +844,7 @@ $(document).ready(() => {
     oldIndex = indexCounter;
     indexCounter = dataLength - 1;
     newIndex = indexCounter;
-    moveLineIndicator(newIndex, oldIndex, data);
+    moveLineIndicator(newIndex, oldIndex, data.log);
     $('.variables').each((i, elem) => {
       variable = completeVariableList[declaredVariables[i]];
       $(elem).text(`${variable}`);

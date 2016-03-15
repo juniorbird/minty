@@ -85,41 +85,56 @@
     function moveLineIndicator(currIndex, lastIndex, dataArr) {
       'use strict';
 
-      let lastLine;
-      let currLine;
-      let currStatus;
-
+      console.log('current', currIndex, 'last', lastIndex);
       function getAttr(obj, idx, attr) {
         try {
-          return obj.log[idx][attr];
+          // console.log('index', idx);
+          return obj[idx][attr];
         } catch (err) {
           return undefined;
         }
       }
 
-      function buildSelector(num) {
-        return `.ace_line:nth-of-type(${num})`;
+      function lineIndicator(index, arr) {
+        console.log('index', index);
+        if ((index !== undefined) && (index !== null)) {
+          let li = {};
+          let temp;
+
+          function setter(key) {
+            temp = getAttr(arr, index, key);
+            console.log('temp', temp);
+            if (temp) li[key] = temp;
+          }
+
+          ['line', 'error', 'file'].forEach( (val) => setter(val));
+
+          return li;
+        } else {
+          return null;
+        }
       }
 
-      lastLine = getAttr(data, lastIndex, 'line') + 1;
-      currLine = getAttr(data, currIndex, 'line') + 1;
-      console.log('lastLine', lastLine);
-      console.log('currLine', currLine);
-      currStatus = getAttr(data, currIndex, 'error');
-      console.log('currStatus', currStatus);
+      let lastInfo = new lineIndicator(lastIndex, dataArr);
+      let currInfo = new lineIndicator(currIndex, dataArr);
+
+      console.log('last:', JSON.stringify(lastInfo), 'curr:', JSON.stringify(currInfo));
 
 
+      // lastInfo.line = getAttr(data, lastIndex, 'line') + 1;
+      // currInfo.line = getAttr(data, currIndex, 'line') + 1;
+      // lastInfo.status = getAttr(data, lastIndex, 'error');
+      // currInfo.status = getAttr(data, currIndex, 'error');
+      // lastInfo.file = safeFileID(getAttr(data, lastIndex, 'file'));
+      // currInfo.file = safeFileID(getAttr(data, currIndex, 'file'));
 
-      if (lastLine) {
-        $(buildSelector(lastLine)).removeClass('current');
+
+      if (lastInfo.line) {
+        editors[lastInfo.file].removeGutterDecoration(lastInfo.status);
       }
-      $(buildSelector(currLine)).addClass('current');
+      editors[currInfo.file].addGutterDecoration(currInfo.status);
 
-      if (currStatus) {
-        buildSelector(currLine).addClass('error');
-      }
-
-      editors['testjs'].scrollToLine(currLine, true, true);
+      editors[currInfo.file].scrollToLine(currInfo.line, true, true);
     }
 
     function safeFileID(filename) {
