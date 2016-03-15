@@ -1,2 +1,3 @@
 # minty
-Step by step visualization of node processess
+
+Step by step visualization of node processes

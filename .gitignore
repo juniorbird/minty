@@ -1,2 +1,6 @@
 node_modules
+<<<<<<< HEAD
 .jshintrc
+=======
+bower_components
+>>>>>>> 91b385c33a1d525f8c5e9edb9e32c983ea876e51
