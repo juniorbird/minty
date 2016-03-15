@@ -24,6 +24,7 @@
   },
   "homepage": "https://www.mintyjs.com",
   "dependencies": {
+    "app-root-path": "^1.0.0",
     "async": "^1.5.2",
     "decomment": "^0.8.5",
     "lodash": "^4.6.1"
