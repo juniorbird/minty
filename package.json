@@ -1,19 +1,32 @@
 {
-  "name": "lumpy-turnips",
-  "version": "0.0.0",
-  "description": "Step by step visualization of node processess",
-  "main": "add.js",
+  "name": "minty",
+  "version": "0.1.2",
+  "description": "Node process visualization",
+  "main": "/lib/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tzilist/lumpy-turnips.git"
+    "url": "git+https://github.com/lumpy-turnips/minty.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "visualization",
+    "node",
+    "minty",
+    "mintyjs",
+    "tutor"
+  ],
+  "author": "Ted Zilist <tzilist@gmail.com>, Wade Armstrong <wade@wadearmstrong.com>, Angie Yeh <angieyeh24@gmail.com>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tzilist/lumpy-turnips/issues"
+    "url": "https://github.com/lumpy-turnips/minty/issues"
   },
-  "homepage": "https://github.com/tzilist/lumpy-turnips#readme"
+  "homepage": "https://www.mintyjs.com",
+  "dependencies": {
+    "app-root-path": "^1.0.0",
+    "async": "^1.5.2",
+    "decomment": "^0.8.5",
+    "lodash": "^4.6.1"
+  }
 }
