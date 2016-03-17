@@ -2,7 +2,7 @@
   "name": "minty",
   "version": "0.1.2",
   "description": "Node process visualization",
-  "main": "/lib/main.js",
+  "main": "lib/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
