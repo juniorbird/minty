@@ -26,9 +26,10 @@ and let us know if you've found a significant bug.
 
 1. `npm install minty --save-dev` (don't use minty in production!)
 1. `const minty = require ('minty');` in the file you'd like to analyze
-1. Wrap the code you'd like to watch in `minty( //code here );`
-1. Run your code as usual (e.g. `nodemon server.js`) to generate the minty output
-1. Open /minty/index.html in your browser
+1. You can execute an entire file by typing `minty.file(//path to file)`. Note, the file path must be absolute, e.g. `minty.file(path.join(__dirname, ../lib/test.js))`
+1. You can also 'mintify' a function by typing `var newFunc = mint.wrap(initialFunc)`, and then execute it by calling `newFunc()`
+1. Run your code as usual (e.g. `node minty.js`) to generate the minty output. A new minty folder will appear in your root directory
+1. Open the minty.html file in your browser in either the 'file' or 'function' folder (depending on whether you executed a file, function, or both). Note: data is stored in the mintyVis.js
 1. Click forward and back to step through your variables' state as your app executes!
 
 ## Roadmap
