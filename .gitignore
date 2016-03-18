@@ -2,3 +2,4 @@ node_modules
 .jshintrc
 minty/*
 minty.js
+lib/test.js
