@@ -1,0 +1,3 @@
+describe(() => {
+  require('backend.js');
+});

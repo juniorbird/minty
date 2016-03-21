@@ -3,3 +3,4 @@ node_modules
 minty/*
 minty.js
 lib/test.js
+.eslintrc
