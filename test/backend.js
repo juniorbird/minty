@@ -66,6 +66,24 @@ describe('Backend', () => {
       expect(utils.splitFile(mediumIn, undefined, returnFunc1))
         .toEqual(mediumOut);
     });
+    it('should return the filename when passed a filename', () =>{
+      expect(utils.splitFile(mediumIn, 'medium.js', returnFunc2))
+        .toEqual('medium.js');
+    });
+    it('should return the first function name when not passed a filename', () =>{
+      expect(utils.splitFile('function myFuncName1() =\nfunction myFuncName2() =', undefined, returnFunc2))
+        .toEqual('myFuncName1');
+    });
+    it('should return anonymous when passed neither a filename nor a function', () =>{
+      expect(utils.splitFile('let foo = 1\n const bar = false', undefined, returnFunc2))
+        .toEqual('anonymous');
+    });
+  });
+  describe('#injectCheckCode', () => {
+    it('injectCheckCode should exist', () => {
+      expect(utils.injectCheckCode).toBeA(Function);
+    });
+    it('')
   });
   describe('#functionLineSwap', () => {
     it('functionLineSwap should exist', () => {
