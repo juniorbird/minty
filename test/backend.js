@@ -91,9 +91,33 @@ describe('Backend', () => {
         ]);
     });
   });
-  describe('#createVariable', () => {
-    it('createVariable should exist', () => {
-      expect(utils.createVariable).toBeA(Function);
+  describe('#createLine', () => {
+    it('createLine should exist', () => {
+      expect(utils.createLine).toBeA(Function);
+    });
+    it('should return blank line when no text exists on line', () => {
+      const runCreateLine = [];
+      utils.createLine('minty.js', runCreateLine, [], '', 2);
+      expect(runCreateLine)
+        .toEqual(['\n', '\n']);
+    });
+    it('should return a minty.variable function with "minty undefined" when there are no variables or parameters are declared', () => {
+      const runCreateLine = [];
+      utils.createLine('minty.js', runCreateLine, [], 'console.log("minty is awesome")', 2);
+      expect(runCreateLine)
+      .toEqual([
+        'console.log("minty is awesome")\n',
+        'minty.variableLog(2, file, log, [], \'_mintyUndefined\');\n',
+      ]);
+    });
+    it('should return a minty.variable function after each line with active variables and parameters', () => {
+      const runCreateLine = [];
+      utils.createLine('minty.js', runCreateLine, ["a", "b", "c"], 'console.log("minty is awesome")', 2);
+      expect(runCreateLine)
+        .toEqual([
+          'console.log("minty is awesome")\n',
+          'minty.variableLog(2, file, log, ["a","b","c"], a, b, c);\n',
+        ]);
     });
   });
 });
