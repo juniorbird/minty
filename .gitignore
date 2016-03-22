@@ -4,3 +4,4 @@ minty/*
 minty.js
 lib/test.js
 .eslintrc
+npm-debug.log
