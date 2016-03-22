@@ -1,3 +1,0 @@
-describe(() => {
-  require('backend.js');
-});
