@@ -91,4 +91,9 @@ describe('Backend', () => {
         ]);
     });
   });
+  describe('#createVariable', () => {
+    it('createVariable should exist', () => {
+      expect(utils.createVariable).toBeA(Function);
+    });
+  });
 });
