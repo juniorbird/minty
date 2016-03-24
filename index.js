@@ -1,30 +1,18 @@
-const utils = require('./lib/utils.js');
-const async = require('async');
-const Promise = require('bluebird');
-
+const parser = require('./lib/parser.js');
+const ruler = require('./lib/createLineRules.js');
+const inject = require('./lib/injector.js');
 
 var minty = {};
 
-function file(path) {
-  async.waterfall([
-    async.apply(utils.read, path),
-    utils.splitFile,
-    utils.injectCheckCode,
-    utils.run
-  ]);
-}
-
-function wrap(func) {
-
-}
-
-
-minty.file = Promise.promisify(file);
-
-minty.wrap = func => {
- var test = utils.splitFile(func.toString(), null);
- return test;
+minty.file = function file(path) {
+  const parsed = parser(path);
+  const rules = ruler(parsed);
+  const injected = inject(parsed, path);
+  // console.log(injected)
 };
 
+minty.wrap = function wrap(func) {
+
+}
 
 module.exports = minty;
