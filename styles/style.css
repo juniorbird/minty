@@ -1,0 +1,20 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#step {
+  display: inline;
+}
+
+#error-msg {
+  font-size: 20px;
+}
+
+#return {
+  font-size: 20px;
+}
+
+#return span {
+  font-size: 20px;
+  color: green;
+}
