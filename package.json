@@ -1,6 +1,6 @@
 {
   "name": "minty",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Node process visualization",
   "main": "index.js",
   "scripts": {
@@ -24,15 +24,11 @@
   },
   "homepage": "https://www.mintyjs.com",
   "dependencies": {
+    "acorn": "^3.0.4",
     "app-root-path": "^1.0.0",
-    "async": "^1.5.2",
-    "bluebird": "^3.3.4",
-    "decomment": "^0.8.5",
+    "esquery": "^0.4.0",
     "expect": "^1.15.2",
-    "lodash": "^4.6.1",
     "mocha": "^2.4.5"
   },
-  "devDependencies": {
-    "eslint": "^2.4.0"
-  }
+  "devDependencies": {}
 }
