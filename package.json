@@ -4,7 +4,8 @@
   "description": "Node process visualization",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test"
+    "test": "mocha ./test",
+    "zombie": "mocha --timeout 8000 test/front-end-test.js"
   },
   "repository": {
     "type": "git",
@@ -30,5 +31,9 @@
     "expect": "^1.15.2",
     "mocha": "^2.4.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^2.4.0",
+    "expect": "^1.15.2",
+    "zombie": "^4.2.1"
+  }
 }
