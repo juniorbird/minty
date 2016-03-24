@@ -27,10 +27,26 @@ const multiLineIn = [
 
 const mediumIn = "var one = 'Greetings';\nvar two = 'Programs';\n\nvar three = 'Positive and negative, huh? You are a Bit.';";
 const mediumOut = ['var one = \'Greetings\';', 'var two = \'Programs\';', '', 'var three = \'Positive and negative, huh? You are a Bit.\';'];
+const mediumInjected = `'Greetings';
+minty.variableLog(0, file, log, ["one"], one);
+var two = 'Programs';
+minty.variableLog(1, file, log, ["one","two"], one, two);
+
+var three = 'Positive and negative, huh? You are a Bit.';
+minty.variableLog(3, file, log, ["one","two","three","huh?YouareaBit.'"], one, two, three, huh?YouareaBit.');`;
 
 // Stub out the callbacks
+function returnErr(err, val1, val2) {
+  console.log('err', err);
+  console.log('val1', val1);
+  console.log('val2',  val2);
+  return err;
+}
+
 function returnFunc1(err, val1, val2) {
   // Generic callback that can be used with Async's callback format;
+  console.log('*** In returnFunc1 ***');
+  console.log('val1 equals', val1);
   return val1;
 }
 
@@ -83,7 +99,11 @@ describe('Backend', () => {
     it('injectCheckCode should exist', () => {
       expect(utils.injectCheckCode).toBeA(Function);
     });
-    it('')
+    it('should do give expected output numbers of lines', () => {
+      console.log('in injectCheckCode');
+      expect(utils.injectCheckCode(mediumOut, 'medium', returnFunc1))
+        .toEqual('foo');
+    });
   });
   describe('#functionLineSwap', () => {
     it('functionLineSwap should exist', () => {
