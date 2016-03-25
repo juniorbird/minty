@@ -7,12 +7,11 @@ var minty = {};
 minty.file = function file(path) {
   const parsed = parser(path);
   const rules = ruler(parsed);
-  const injected = inject(parsed, path);
-  // console.log(injected)
+  console.log(JSON.stringify(rules));
 };
 
 minty.wrap = function wrap(func) {
 
-}
+};
 
 module.exports = minty;
