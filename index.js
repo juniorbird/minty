@@ -9,11 +9,13 @@ minty.file = function file(path) {
   // const rules = ruler(parsed);
   // const injected = inject(parsed, path);
   // console.log(injected)
-  console.log(parsed);
+  // console.log(parsed);
+  const rules = ruler(parsed);
+  console.log(JSON.stringify(rules));
 };
 
 minty.wrap = function wrap(func) {
 
-}
+};
 
 module.exports = minty;
