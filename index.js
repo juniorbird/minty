@@ -1,4 +1,4 @@
-const parser = require('./lib/parser.js');
+const parser = require('./lib/parser.js').parser;
 const ruler = require('./lib/createLineRules.js');
 const inject = require('./lib/injector.js');
 const fs = require('fs');
