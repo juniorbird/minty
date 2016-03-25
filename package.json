@@ -25,14 +25,17 @@
   },
   "homepage": "https://www.mintyjs.com",
   "dependencies": {
-    "acorn": "^3.0.4",
     "app-root-path": "^1.0.0",
-    "esquery": "^0.4.0",
-    "mocha": "^2.4.5"
+    "decomment": "^0.8.6",
+    "esprima": "^2.7.2",
+    "esquery": "^0.4.0"
   },
   "devDependencies": {
-    "eslint": "^2.4.0",
+    "eslint": "^2.5.0",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-plugin-react": "^4.2.3",
     "expect": "^1.15.2",
+    "mocha": "^2.4.5",
     "zombie": "^4.2.1"
   }
 }

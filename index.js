@@ -1,17 +1,15 @@
 const parser = require('./lib/parser.js').parser;
 const ruler = require('./lib/createLineRules.js');
 const inject = require('./lib/injector.js');
+const fs = require('fs');
 
-var minty = {};
+const minty = {};
 
 minty.file = function file(path) {
-  const parsed = parser(path);
-  // const rules = ruler(parsed);
-  // const injected = inject(parsed, path);
-  // console.log(injected)
-  // console.log(parsed);
+  const JSTEXT = fs.readFileSync(path);
+  const parsed = parser(JSTEXT);
   const rules = ruler(parsed);
-  console.log(JSON.stringify(rules));
+  const injected = inject(rules, JSTEXT);
 };
 
 minty.wrap = function wrap(func) {

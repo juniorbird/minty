@@ -3,6 +3,6 @@ node_modules
 minty/*
 minty.js
 lib/test.js
-.eslintrc
 npm-debug.log
 lib/output.json
+lib/util.js
