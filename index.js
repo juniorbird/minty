@@ -6,9 +6,9 @@ var minty = {};
 
 minty.file = function file(path) {
   const parsed = parser(path);
-  const rules = ruler(parsed);
-  const injected = inject(parsed, path);
-  // console.log(injected)
+  // const rules = ruler(parsed);
+  // const injected = inject(parsed, path);
+  console.log(parsed)
 };
 
 minty.wrap = function wrap(func) {

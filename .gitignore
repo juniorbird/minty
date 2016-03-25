@@ -2,7 +2,7 @@ node_modules
 .jshintrc
 minty/*
 minty.js
-lib/test.js
+
 .eslintrc
 npm-debug.log
 lib/output.json
