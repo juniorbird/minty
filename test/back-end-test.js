@@ -24,6 +24,7 @@ var checkedTypes = {
   ArrowFunctionExpression:  { found: false, expectedCallbacks: 1, hasCallbacks: false, },
   CallExpression:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   IfStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  SwitchStatement: { found:false, expectedCallbacks: 1, hasCallbacks: false, },
   extra: 0, // this catches if we're examining ast types that we're not testing for
 };
 
@@ -44,29 +45,30 @@ describe('Backend', () => {
         // Set up by checking types
         var theType;
         var cbCount;
-        parser.tester.types.forEach((type) => {
 
+        parser.tester.types.forEach((type) => {
           // Check that we're checking for all the node types we expect
           theType = type.type;
           if (checkedTypes.hasOwnProperty(theType)) {
             checkedTypes[theType].found = true;
+
+            // Check that we have callbacks where expected
+            cbCount = (type.callbacks) ? type.callbacks.length : 0;
+            if (cbCount === checkedTypes[theType].expectedCallbacks) {
+              checkedTypes[theType].hasCallbacks = true;
+            }
+
+            // Grab those callbacks so that we can later test they exist
+            if (type.callbacks && (type.callbacks.length > 0)) {
+              type.callbacks.forEach((cb) => {
+                allCallbackContainer.push(cb[0]);
+              });
+            }
           } else {
             // And that we're not checking for more node types
             checkedTypes.extra++;
           }
 
-          // Check that we have callbacks where expected
-          cbCount = (type.callbacks) ? type.callbacks.length : 0;
-          if (cbCount === checkedTypes[theType].expectedCallbacks) {
-            checkedTypes[theType].hasCallbacks = true;
-          }
-
-          // Grab those callbacks so that we can later test they exist
-          if (type.callbacks && (type.callbacks.length > 0)) {
-            type.callbacks.forEach((cb) => {
-              allCallbackContainer.push(cb[0]);
-            });
-          }
         });
 
         for (var keys in checkedTypes) {
@@ -80,7 +82,7 @@ describe('Backend', () => {
       });
 
       it('types array includes 14 types', () => {
-        expect(parser.tester.types.length).toEqual(14);
+        expect(parser.tester.types.length).toEqual(Object.keys(checkedTypes).length - 1);
       });
 
       it('those 14 types being the 14 we plan to check for', () => {
@@ -136,5 +138,5 @@ describe('Backend', () => {
         });
       });
     });
-  })
+  });
 });
