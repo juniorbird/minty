@@ -3,7 +3,7 @@ const ruler = require('./lib/createLineRules.js');
 const inject = require('./lib/injector.js');
 const fs = require('fs');
 
-var minty = {};
+const minty = {};
 
 minty.file = function file(path) {
   const JSTEXT = fs.readFileSync(path);
