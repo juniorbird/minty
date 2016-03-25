@@ -8,11 +8,11 @@ minty.file = function file(path) {
   const parsed = parser(path);
   // const rules = ruler(parsed);
   // const injected = inject(parsed, path);
-  console.log(parsed)
+  console.log(parsed);
 };
 
 minty.wrap = function wrap(func) {
 
-}
+};
 
 module.exports = minty;

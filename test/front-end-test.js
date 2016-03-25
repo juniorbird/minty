@@ -37,6 +37,7 @@ describe('Minty Tests', () => {
 
   it('has text in the ace editor', () => {
     var text = browser.queryAll('.ace_line');
+    console.log(text);
   });
 
 });
