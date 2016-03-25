@@ -1,6 +1,8 @@
 const parser = require('../lib/parser.js');
 const expect = require('expect');
 
+const largeast = require('./fixtures/largeAST.js')[0];
+
 /*
 HOWTO: add a new checked node type
 1. Add a new key with the name of the node type, e.g. MyNode:
@@ -106,6 +108,9 @@ describe('Backend', () => {
     describe('#query', () => {
       it('query helper should exist', () => {
         expect(parser.tester.query).toBeA(Function);
+      });
+      it('query helper should execute a query correctly', () => {
+        expect(parser.tester.query('[type="FunctionDeclaration"]', largeast).length).toEqual(3);
       });
     });
     describe('#functionParameterParse', () => {
