@@ -43,6 +43,7 @@ describe('Backend', () => {
         var theType;
         var cbCount;
         parser.tester.types.forEach((type) => {
+
           theType = type.type;
           if (checkedTypes.hasOwnProperty(theType)) {
             checkedTypes[theType].found = true;
@@ -50,7 +51,7 @@ describe('Backend', () => {
             checkedTypes.extra++;
           }
 
-          cbCount = type.callbacks.length;
+          cbCount = (type.callbacks) ? type.callbacks.length : 0;
           if (cbCount === checkedTypes[theType].expectedCallbacks) {
             checkedTypes[theType].hasCallbacks = true;
           }
