@@ -27,8 +27,10 @@ var checkedTypes = {
   extra: 0, // this catches if we're examining ast types that we're not testing for
 };
 
-var allKeys = true; // Mocha apparently prefers globals
-var allCallbacks = true; // dangerous defaults!
+var allKeysPresent = true; // Mocha apparently prefers globals
+var allCallbacksPresent = true; // dangerous defaults!
+var allCallbackContainer = [];
+var allCallbacksFunctions = true;
 
 describe('Backend', () => {
   describe('#parser', () => {
@@ -44,29 +46,33 @@ describe('Backend', () => {
         var cbCount;
         parser.tester.types.forEach((type) => {
 
+          // Check that we're checking for all the node types we expect
           theType = type.type;
           if (checkedTypes.hasOwnProperty(theType)) {
             checkedTypes[theType].found = true;
           } else {
+            // And that we're not checking for more node types
             checkedTypes.extra++;
           }
 
+          // Check that we have callbacks where expected
           cbCount = (type.callbacks) ? type.callbacks.length : 0;
           if (cbCount === checkedTypes[theType].expectedCallbacks) {
             checkedTypes[theType].hasCallbacks = true;
           }
+
+          // Grab those callbacks so that we can later test they exist
+          if (type.callbacks && (type.callbacks.length > 0)) {
+            type.callbacks.forEach((cb) => {
+              allCallbackContainer.push(cb[0]);
+            });
+          }
         });
 
-        // console.log(checkedTypes);
-
         for (var keys in checkedTypes) {
-          // console.log(keys);
-          // console.log(checkedTypes.keys.found);
-          allKeys = (keys !== 'extra') ?  checkedTypes[keys].found && allKeys : allKeys;
-          allCallbacks = (keys !== 'extra') ?  checkedTypes[keys].hasCallbacks && allCallbacks : allCallbacks;
+          allKeysPresent = (keys !== 'extra') ?  checkedTypes[keys].found && allKeysPresent : allKeysPresent;
+          allCallbacksPresent = (keys !== 'extra') ?  checkedTypes[keys].hasCallbacks && allCallbacksPresent : allCallbacksPresent;
         }
-
-        // console.log('allKeys', allKeys);
       });
 
       it('types array should exist', () => {
@@ -78,7 +84,7 @@ describe('Backend', () => {
       });
 
       it('those 14 types being the 14 we plan to check for', () => {
-        expect(allKeys).toBe(true);
+        expect(allKeysPresent).toBe(true);
       });
 
       it('and all types we\'re checking for are also being tested', () => {
@@ -86,7 +92,13 @@ describe('Backend', () => {
       });
 
       it('the types we\'re checking have the correct number of callbacks', () => {
-        expect(allCallbacks).toBe(true);
+        expect(allCallbacksPresent).toBe(true);
+      });
+
+      it('the callbacks are actually functions', () => {
+        allCallbackContainer.forEach((cb) => {
+          expect(cb).toBeA(Function);
+        });
       });
     });
     describe('#query', () => {
