@@ -1,427 +1,102 @@
-{
-  "3": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["one", "two", "three"],
-        "kind": "var"
-      }
-    }
-  },
-  "4": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["four", "five"],
-        "kind": "var"
-      }
-    }
-  },
-  "5": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["seven"],
-        "kind": "var"
-      }
-    }
-  },
-  "6": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["six"],
-        "kind": "var"
-      }
-    }
-  },
-  "10": {
-    "rulesFound": [
-      ["START", "SCOPE", "ForStatement"]
-    ],
-    "variables": {
-      "variables": {
-        "names": ["i"],
-        "kind": "let"
-      }
-    }
-  },
-  "11": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "14": {
-    "rulesFound": [
-      ["START", "SWAP", "BreakStatement"],
-      ["END", "SWAP", "BreakStatement"]
-    ]
-  },
-  "16": {
-    "rulesFound": [
-      ["END", "SCOPE", "ForStatement"]
-    ]
-  },
-  "18": {
-    "rulesFound": [
-      ["START", "SCOPE", "ForStatement"]
-    ],
-    "variables": {
-      "variables": {
-        "names": ["j"],
-        "kind": "var"
-      }
-    }
-  },
-  "20": {
-    "rulesFound": [
-      ["END", "SCOPE", "ForStatement"]
-    ]
-  },
-  "23": {
-    "rulesFound": [
-      ["START", "SCOPE", "ForInStatement"]
-    ],
-    "variables": {
-      "variables": {
-        "names": ["keys"],
-        "kind": "var"
-      }
-    }
-  },
-  "24": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "25": {
-    "rulesFound": [
-      ["END", "SCOPE", "ForInStatement"]
-    ]
-  },
-  "27": {
-    "rulesFound": [
-      ["START", "SCOPE", "FunctionDeclaration"]
-    ],
-    "variables": {
-      "parameters": ["a", "b", "c"]
-    },
-    "scope": "fn"
-  },
-  "28": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "29": {
-    "rulesFound": [
-      ["START", "SCOPE", "FunctionDeclaration"]
-    ],
-    "variables": {
-      "parameters": ["d", "e", "f"]
-    },
-    "scope": "fn2"
-  },
-  "30": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "31": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["bus"],
-        "kind": "var"
-      }
-    }
-  },
-  "32": {
-    "rulesFound": [
-      ["END", "SCOPE", "FunctionDeclaration"]
-    ]
-  },
-  "33": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "34": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["car"],
-        "kind": "var"
-      }
-    }
-  },
-  "35": {
-    "rulesFound": [
-      ["END", "SCOPE", "FunctionDeclaration"]
-    ]
-  },
-  "38": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "41": {
-    "rulesFound": [
-      ["START", "SCOPE", "ArrowFunctionExpression"],
-      ["START", "VOID", "CallExpression"]
-    ],
-    "variables": {
-      "parameters": ["val"]
-    },
-    "scope": "anonymous function"
-  },
-  "42": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "43": {
-    "rulesFound": [
-      ["END", "SCOPE", "ArrowFunctionExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "45": {
-    "rulesFound": [
-      ["START", "SCOPE", "ArrowFunctionExpression"],
-      ["START", "VOID", "CallExpression"]
-    ],
-    "variables": {
-      "parameters": ["val", "i"]
-    },
-    "scope": "anonymous function"
-  },
-  "46": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "47": {
-    "rulesFound": [
-      ["END", "SCOPE", "ArrowFunctionExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "49": {
-    "rulesFound": [
-      ["START", "SCOPE", "FunctionExpression"]
-    ],
-    "variables": {
-      "variables": {
-        "names": ["checkThis"],
-        "kind": "var"
-      },
-      "parameters": ["a"]
-    },
-    "scope": "checkThis"
-  },
-  "50": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "51": {
-    "rulesFound": [
-      ["END", "SCOPE", "FunctionExpression"]
-    ]
-  },
-  "55": {
-    "rulesFound": [
-      ["START", "SCOPE", "DoWhileStatement"]
-    ]
-  },
-  "56": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "57": {
-    "rulesFound": [
-      ["END", "SCOPE", "DoWhileStatement"]
-    ]
-  },
-  "60": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["k"],
-        "kind": "var"
-      }
-    }
-  },
-  "62": {
-    "rulesFound": [
-      ["START", "SCOPE", "WhileStatement"]
-    ]
-  },
-  "63": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["mom"],
-        "kind": "let"
-      }
-    }
-  },
-  "64": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "66": {
-    "rulesFound": [
-      ["END", "SCOPE", "WhileStatement"]
-    ]
-  },
-  "68": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"]
-    ]
-  },
-  "70": {
-    "rulesFound": [
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "73": {
-    "rulesFound": [
-      ["START", "SCOPE", "FunctionDeclaration"]
-    ],
-    "variables": {
-      "parameters": ["whats", "that"]
-    },
-    "scope": "stuff"
-  },
-  "74": {
-    "rulesFound": [
-      ["START", "SWAP", "ReturnStatement"],
-      ["START", "SCOPE", "FunctionExpression"]
-    ],
-    "variables": {
-      "parameters": []
-    },
-    "scope": "anonymous function"
-  },
-  "75": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "76": {
-    "rulesFound": [
-      ["END", "SWAP", "ReturnStatement"],
-      ["END", "SCOPE", "FunctionExpression"]
-    ]
-  },
-  "77": {
-    "rulesFound": [
-      ["END", "SCOPE", "FunctionDeclaration"]
-    ]
-  },
-  "79": {
-    "rulesFound": [
-      ["START", "SCOPE", "FunctionDeclaration"]
-    ],
-    "variables": {
-      "parameters": ["a", "b", "c"]
-    },
-    "scope": "gener"
-  },
-  "80": {
-    "rulesFound": [
-      ["START", "SWAP", "YieldExpression"],
-      ["END", "SWAP", "YieldExpression"]
-    ]
-  },
-  "81": {
-    "rulesFound": [
-      ["START", "SWAP", "YieldExpression"],
-      ["END", "SWAP", "YieldExpression"]
-    ]
-  },
-  "82": {
-    "rulesFound": [
-      ["END", "SCOPE", "FunctionDeclaration"]
-    ]
-  },
-  "85": {
-    "rulesFound": [
-      ["START", "SCOPE", "FunctionExpression"]
-    ],
-    "variables": {
-      "variables": {
-        "names": ["gen"],
-        "kind": "var"
-      },
-      "parameters": ["a"]
-    },
-    "scope": "gen"
-  },
-  "86": {
-    "rulesFound": [
-      ["START", "SWAP", "YieldExpression"],
-      ["END", "SWAP", "YieldExpression"]
-    ]
-  },
-  "87": {
-    "rulesFound": [
-      ["END", "SCOPE", "FunctionExpression"]
-    ]
-  },
-  "89": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "95": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["what"],
-        "kind": "let"
-      }
-    }
-  },
-  "97": {
-    "rulesFound": [
-      ["START", "VOID", "CallExpression"],
-      ["END", "VOID", "CallExpression"]
-    ]
-  },
-  "98": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["test"],
-        "kind": "var"
-      }
-    }
-  },
-  "101": {
-    "rulesFound": [],
-    "variables": {
-      "variables": {
-        "names": ["hello"],
-        "kind": "const"
-      }
-    }
-  }
-}
+undefined
+undefined
+{"rulesFound":[],"variables":{"variables":{"names":["one","two","three"],"kind":"var"}}}
+{"rulesFound":[],"variables":{"variables":{"names":["four","five"],"kind":"var"}}}
+{"rulesFound":[],"variables":{"variables":{"names":["seven"],"kind":"var"}}}
+{"rulesFound":[],"variables":{"variables":{"names":["eight"],"kind":"const"}}}
+undefined
+undefined
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"ForStatement"}],"variables":{"variables":{"names":["i"],"kind":"let"}}}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+undefined
+undefined
+{"rulesFound":[{"action":"START","rule":"SWAP","type":"BreakStatement"},{"action":"END","rule":"SWAP","type":"BreakStatement"}]}
+undefined
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"ForStatement"}]}
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"ForStatement"}],"variables":{"variables":{"names":["j"],"kind":"var"}}}
+undefined
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"ForStatement"}]}
+undefined
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"ForInStatement"}],"variables":{"variables":{"names":["keys"],"kind":"var"}}}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"ForInStatement"}]}
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"FunctionDeclaration"}],"variables":{"parameters":["a","b","c"]},"scope":"fn"}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"FunctionDeclaration"}],"variables":{"parameters":["d","e","f"]},"scope":"fn2"}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[],"variables":{"variables":{"names":["bus"],"kind":"var"}}}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"FunctionDeclaration"}]}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[],"variables":{"variables":{"names":["car"],"kind":"var"}}}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"FunctionDeclaration"}]}
+undefined
+undefined
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+undefined
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"ArrowFunctionExpression"},{"action":"START","rule":"VOID","type":"CallExpression"}],"variables":{"parameters":["val"]},"scope":"anonymous function"}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"ArrowFunctionExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"ArrowFunctionExpression"},{"action":"START","rule":"VOID","type":"CallExpression"}],"variables":{"parameters":["val","i"]},"scope":"anonymous function"}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"ArrowFunctionExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"FunctionExpression"}],"variables":{"variables":{"names":["checkThis"],"kind":"var"},"parameters":["a"]},"scope":"checkThis"}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"FunctionExpression"}]}
+undefined
+undefined
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"DoWhileStatement"}]}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"DoWhileStatement"}]}
+undefined
+undefined
+{"rulesFound":[],"variables":{"variables":{"names":["k"],"kind":"var"}}}
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"WhileStatement"}]}
+{"rulesFound":[],"variables":{"variables":{"names":["mom"],"kind":"let"}}}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+undefined
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"WhileStatement"}]}
+undefined
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"}]}
+undefined
+{"rulesFound":[{"action":"END","rule":"VOID","type":"CallExpression"}]}
+undefined
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"FunctionDeclaration"}],"variables":{"parameters":["whats","that"]},"scope":"stuff"}
+{"rulesFound":[{"action":"START","rule":"SWAP","type":"ReturnStatement"},{"action":"START","rule":"SCOPE","type":"FunctionExpression"}],"variables":{"parameters":[]},"scope":"anonymous function"}
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[{"action":"END","rule":"SWAP","type":"ReturnStatement"},{"action":"END","rule":"SCOPE","type":"FunctionExpression"}]}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"FunctionDeclaration"}]}
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"FunctionDeclaration"}],"variables":{"parameters":["a","b","c"]},"scope":"gener"}
+{"rulesFound":[{"action":"START","rule":"SWAP","type":"YieldExpression"},{"action":"END","rule":"SWAP","type":"YieldExpression"}]}
+{"rulesFound":[{"action":"START","rule":"SWAP","type":"YieldExpression"},{"action":"END","rule":"SWAP","type":"YieldExpression"}]}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"FunctionDeclaration"}]}
+undefined
+undefined
+{"rulesFound":[{"action":"START","rule":"SCOPE","type":"FunctionExpression"}],"variables":{"variables":{"names":["gen"],"kind":"var"},"parameters":["a"]},"scope":"gen"}
+{"rulesFound":[{"action":"START","rule":"SWAP","type":"YieldExpression"},{"action":"END","rule":"SWAP","type":"YieldExpression"}]}
+{"rulesFound":[{"action":"END","rule":"SCOPE","type":"FunctionExpression"}]}
+undefined
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+undefined
+undefined
+undefined
+undefined
+undefined
+{"rulesFound":[],"variables":{"variables":{"names":["what"],"kind":"let"}}}
+undefined
+{"rulesFound":[{"action":"START","rule":"VOID","type":"CallExpression"},{"action":"END","rule":"VOID","type":"CallExpression"}]}
+{"rulesFound":[],"variables":{"variables":{"names":["test"],"kind":"var"}}}
+undefined
+undefined
+{"rulesFound":[],"variables":{"variables":{"names":["hello"],"kind":"const"}}}
+undefined
