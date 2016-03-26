@@ -1,5 +1,208 @@
 var asts = {};
-// var Object = {}; //stub
+
+asts.VariableDeclaration = {};
+
+asts.VariableDeclaration.Var = {
+    type: 'VariableDeclaration',
+    start: 803,
+    end: 821,
+    loc: {
+      start: {
+        line: 66,
+        column: 0,
+      },
+      end: {
+        line: 66,
+        column: 18,
+      },
+    },
+    declarations: [
+      {
+        type: 'VariableDeclarator',
+        start: 807,
+        end: 820,
+        loc: {
+          start: {
+            line: 66,
+            column: 4,
+          },
+          end: {
+            line: 66,
+            column: 17,
+          },
+        },
+        id: {
+          type: 'Identifier',
+          start: 807,
+          end: 811,
+          loc: {
+            start: {
+              line: 66,
+              column: 4,
+            },
+            end: {
+              line: 66,
+              column: 8,
+            },
+          },
+          name: 'who',
+        },
+        init: {
+          type: 'Literal',
+          start: 814,
+          end: 820,
+          loc: {
+            start: {
+              line: 66,
+              column: 11,
+            },
+            end: {
+              line: 66,
+              column: 17,
+            },
+          },
+          value: 'who',
+          raw: 'who',
+        },
+      },
+    ],
+    kind: 'var',
+  };
+
+
+asts.VariableDeclaration.Let = {
+    type: 'VariableDeclaration',
+    start: 803,
+    end: 821,
+    loc: {
+      start: {
+        line: 66,
+        column: 0,
+      },
+      end: {
+        line: 66,
+        column: 18,
+      },
+    },
+    declarations: [
+      {
+        type: 'VariableDeclarator',
+        start: 807,
+        end: 820,
+        loc: {
+          start: {
+            line: 66,
+            column: 4,
+          },
+          end: {
+            line: 66,
+            column: 17,
+          },
+        },
+        id: {
+          type: 'Identifier',
+          start: 807,
+          end: 811,
+          loc: {
+            start: {
+              line: 66,
+              column: 4,
+            },
+            end: {
+              line: 66,
+              column: 8,
+            },
+          },
+          name: 'what',
+        },
+        init: {
+          type: 'Literal',
+          start: 814,
+          end: 820,
+          loc: {
+            start: {
+              line: 66,
+              column: 11,
+            },
+            end: {
+              line: 66,
+              column: 17,
+            },
+          },
+          value: 'what',
+          raw: 'what',
+        },
+      },
+    ],
+    kind: 'let',
+  };
+
+asts.VariableDeclaration.Const = {
+    type: 'VariableDeclaration',
+    start: 803,
+    end: 821,
+    loc: {
+      start: {
+        line: 66,
+        column: 0,
+      },
+      end: {
+        line: 66,
+        column: 18,
+      },
+    },
+    declarations: [
+      {
+        type: 'VariableDeclarator',
+        start: 807,
+        end: 820,
+        loc: {
+          start: {
+            line: 66,
+            column: 4,
+          },
+          end: {
+            line: 66,
+            column: 17,
+          },
+        },
+        id: {
+          type: 'Identifier',
+          start: 807,
+          end: 811,
+          loc: {
+            start: {
+              line: 66,
+              column: 4,
+            },
+            end: {
+              line: 66,
+              column: 8,
+            },
+          },
+          name: 'where',
+        },
+        init: {
+          type: 'Literal',
+          start: 814,
+          end: 820,
+          loc: {
+            start: {
+              line: 66,
+              column: 11,
+            },
+            end: {
+              line: 66,
+              column: 17,
+            },
+          },
+          value: 'where',
+          raw: 'where',
+        },
+      },
+    ],
+    kind: 'const',
+  };
 
 asts.FunctionDeclaration = { type: 'FunctionDeclaration',
     start: 248,
@@ -15,7 +218,7 @@ asts.FunctionDeclaration = { type: 'FunctionDeclaration',
     expression: false,
     params: [
       {
-        type: "Identifier",
+        type: 'Identifier',
         start: 689,
         end: 694,
         loc: {
@@ -28,10 +231,10 @@ asts.FunctionDeclaration = { type: 'FunctionDeclaration',
             column: 20,
           },
         },
-        name: "whats",
+        name: 'whats',
       },
       {
-        type: "Identifier",
+        type: 'Identifier',
         start: 696,
         end: 700,
         loc: {
@@ -44,7 +247,7 @@ asts.FunctionDeclaration = { type: 'FunctionDeclaration',
             column: 26
           },
         },
-        name: "that",
+        name: 'that',
       },
     ],
     body:
