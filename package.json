@@ -34,8 +34,9 @@
     "eslint": "^2.5.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",
-    "expect": "^1.15.2",
+    "expect": "^1.16.0",
     "mocha": "^2.4.5",
+    "sinon": "^1.17.3",
     "zombie": "^4.2.1"
   }
 }
