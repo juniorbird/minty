@@ -1,7 +1,8 @@
 const parser = require('../lib/parser.js');
 const expect = require('expect');
-const astFixtures = require('./fixtures/fixtures.js').asts;
 
+// Fixtures
+const astFixtures = require('./fixtures/ast-fixtures.js').asts;
 const largeast = require('./fixtures/largeAST.js')[0];
 
 /*
