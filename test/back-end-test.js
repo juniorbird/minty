@@ -1,5 +1,6 @@
 const parser = require('../lib/parser.js');
 const expect = require('expect');
+const astFixtures = require('./fixtures/fixtures.js').asts;
 
 const largeast = require('./fixtures/largeAST.js')[0];
 
@@ -117,15 +118,33 @@ describe('Backend', () => {
       it('functionParameterParse helper should exist', () => {
         expect(parser.tester.functionParameterParse).toBeA(Function);
       });
+      it('functionParameterParse should return an array of parameters, where there are parameters', () => {
+        expect(parser.tester.functionParameterParse(astFixtures.FunctionDeclaration)).toEqual([ 'whats', 'that' ]);
+      });
+      it('functionParameterParse should return an empty array, with no parameters', () => {
+        expect(parser.tester.functionParameterParse(astFixtures.FunctionExpression)).toEqual([]);
+      });
     });
     describe('#variableKindParse', () => {
       it('variableKindParse helper should exist', () => {
         expect(parser.tester.variableKindParse).toBeA(Function);
       });
+      it('variableKindParse helper should recognize vars', () => {
+        expect(parser.tester.variableKindParse(astFixtures.VariableDeclaration.Var)).toEqual('var');
+      });
+      it('variableKindParse helper should recognize lets', () => {
+        expect(parser.tester.variableKindParse(astFixtures.VariableDeclaration.Let)).toEqual('let');
+      });
+      it('variableKindParse helper should recognize consts', () => {
+        expect(parser.tester.variableKindParse(astFixtures.VariableDeclaration.Const)).toEqual('const');
+      });
     });
     describe('#variableNameParse', () => {
       it('variableNameParse helper should exist', () => {
         expect(parser.tester.variableNameParse).toBeA(Function);
+      });
+      it('variableNameParse helper should grab the name of a function', () => {
+        expect(parser.tester.variableNameParse(astFixtures.VariableDeclaration.Var)).toEqual([ 'who' ]);
       });
     });
     describe('#parseFunction', () => {
