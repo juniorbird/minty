@@ -54,7 +54,7 @@ describe('Backend', () => {
         var theType;
         var cbCount;
 
-        parser.tester.types.forEach((type) => {
+        parser.types.forEach((type) => {
           // Check that we're checking for all the node types we expect
           theType = type.type;
           if (checkedTypes.hasOwnProperty(theType)) {
@@ -84,10 +84,10 @@ describe('Backend', () => {
       });
 
       it('types array should exist', () => {
-        expect(parser.tester.types).toBeAn(Array);
+        expect(parser.parseutils.types).toBeAn(Array);
       });
       it('types array includes the expected number of types', () => {
-        expect(parser.tester.types.length).toEqual(Object.keys(checkedTypes).length - 1);
+        expect(parser.parseutils.types.length).toEqual(Object.keys(checkedTypes).length - 1);
       });
       it('those types being the ones we plan to check for', () => {
         expect(allKeysPresent).toBe(true);
@@ -107,75 +107,75 @@ describe('Backend', () => {
 
     describe('#query', () => {
       it('query helper should exist', () => {
-        expect(parser.tester.query).toBeA(Function);
+        expect(parser.parseutils.query).toBeA(Function);
       });
       it('query helper should execute a query correctly', () => {
-        expect(parser.tester.query('[type="FunctionDeclaration"]', largeast).length).toEqual(3);
+        expect(parser.parseutils.query('[type="FunctionDeclaration"]', largeast).length).toEqual(3);
       });
     });
 
     describe('#functionParameterParse', () => {
       it('functionParameterParse helper should exist', () => {
-        expect(parser.tester.functionParameterParse).toBeA(Function);
+        expect(parser.parseutils.functionParameterParse).toBeA(Function);
       });
       it('functionParameterParse should return an array of parameters, where there are parameters', () => {
-        expect(parser.tester.functionParameterParse(astFixtures.FunctionDeclaration)).toEqual([ 'whats', 'that' ]);
+        expect(parser.parseutils.functionParameterParse(astFixtures.FunctionDeclaration)).toEqual([ 'whats', 'that' ]);
       });
       it('functionParameterParse should return an empty array, with no parameters', () => {
-        expect(parser.tester.functionParameterParse(astFixtures.FunctionExpression)).toEqual([]);
+        expect(parser.parseutils.functionParameterParse(astFixtures.FunctionExpression)).toEqual([]);
       });
     });
 
     describe('#variableKindParse', () => {
       it('variableKindParse helper should exist', () => {
-        expect(parser.tester.variableKindParse).toBeA(Function);
+        expect(parser.parseutils.variableKindParse).toBeA(Function);
       });
       it('variableKindParse helper should recognize vars', () => {
-        expect(parser.tester.variableKindParse(astFixtures.VariableDeclaration.Var)).toEqual('var');
+        expect(parser.parseutils.variableKindParse(astFixtures.VariableDeclaration.Var)).toEqual('var');
       });
       it('variableKindParse helper should recognize lets', () => {
-        expect(parser.tester.variableKindParse(astFixtures.VariableDeclaration.Let)).toEqual('let');
+        expect(parser.parseutils.variableKindParse(astFixtures.VariableDeclaration.Let)).toEqual('let');
       });
       it('variableKindParse helper should recognize consts', () => {
-        expect(parser.tester.variableKindParse(astFixtures.VariableDeclaration.Const)).toEqual('const');
+        expect(parser.parseutils.variableKindParse(astFixtures.VariableDeclaration.Const)).toEqual('const');
       });
     });
 
     describe('#variableNameParse', () => {
       it('variableNameParse helper should exist', () => {
-        expect(parser.tester.variableNameParse).toBeA(Function);
+        expect(parser.parseutils.variableNameParse).toBeA(Function);
       });
       it('variableNameParse helper should grab the name of a function', () => {
-        expect(parser.tester.variableNameParse(astFixtures.VariableDeclaration.Var)).toEqual([ 'who' ]);
+        expect(parser.parseutils.variableNameParse(astFixtures.VariableDeclaration.Var)).toEqual([ 'who' ]);
       });
     });
 
     describe('#parseFunction', () => {
       it('parseFunction helper should exist', () => {
-        expect(parser.tester.parseFunction).toBeA(Function);
+        expect(parser.parseutils.parseFunction).toBeA(Function);
       });
 
       it('parseFunction should return a cache with the number of expected nodes, when the node type is not in the cache ', () => {
-        var query = sinon.stub(parser.tester.query);
+        var query = sinon.stub(parser.parseutils.query);
       console.log('hello');
         query.returns(queryResultSimple);
         console.log('query', query());
-        expect(parser.tester.parseFunction('foo')).toEqual(47);
+        expect(parser.parseutils.parseFunction('foo')).toEqual(47);
       });
       it('parseFunction should return a cache with the number of expected nodes, when the node type is in the cache', () => {
-        expect(parser.tester.parseFunction).toBeA(Function);
+        expect(parser.parseutils.parseFunction).toBeA(Function);
       });
       it('parseFunction should return a cache with the number of expected nodes, and their callback values', () => {
-        expect(parser.tester.parseFunction).toBeA(Function);
+        expect(parser.parseutils.parseFunction).toBeA(Function);
       });
     });
 
     describe('#asyncTasks', () => {
       it('asyncTasks builder helper should return an Array', () => {
-        expect(parser.tester.asyncTasks).toBeAn(Array);
+        expect(parser.parseutils.asyncTasks).toBeAn(Array);
       });
       it('asyncTasks array members should each be functions', () => {
-        parser.tester.asyncTasks.forEach((el) => {
+        parser.parseutils.asyncTasks.forEach((el) => {
           expect(el).toBeA(Function);
         });
       });
