@@ -84,10 +84,10 @@ describe('Backend', () => {
       });
 
       it('types array should exist', () => {
-        expect(parser.parseutils.types).toBeAn(Array);
+        expect(parser.types).toBeAn(Array);
       });
       it('types array includes the expected number of types', () => {
-        expect(parser.parseutils.types.length).toEqual(Object.keys(checkedTypes).length - 1);
+        expect(parser.types.length).toEqual(Object.keys(checkedTypes).length - 1);
       });
       it('those types being the ones we plan to check for', () => {
         expect(allKeysPresent).toBe(true);
