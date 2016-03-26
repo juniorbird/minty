@@ -1,5 +1,6 @@
 const parser = require('../lib/parser.js');
 const expect = require('expect');
+const astFixtures = require('./fixtures/fixtures.js').asts;
 
 const largeast = require('./fixtures/largeAST.js')[0];
 
@@ -116,6 +117,13 @@ describe('Backend', () => {
     describe('#functionParameterParse', () => {
       it('functionParameterParse helper should exist', () => {
         expect(parser.tester.functionParameterParse).toBeA(Function);
+      });
+      it('functionParameterParse should return an array of parameters, where there are parameters', () => {
+
+        expect(parser.tester.functionParameterParse(astFixtures.FunctionDeclaration)).toEqual([ 'whats', 'that' ]);
+      });
+      it('functionParameterParse should return an empty array, with no parameters', () => {
+        expect(parser.tester.functionParameterParse(astFixtures.FunctionExpression)).toEqual([]);
       });
     });
     describe('#variableKindParse', () => {
