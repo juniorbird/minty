@@ -1,9 +1,11 @@
 const parser = require('../lib/parser.js');
 const expect = require('expect');
+const sinon = require('sinon');
 
 // Fixtures
 const astFixtures = require('./fixtures/ast-fixtures.js').asts;
 const largeast = require('./fixtures/largeAST.js')[0];
+const queryResultSimple = require('./fixtures/queryResult-simple.js');
 
 /*
 HOWTO: add a new checked node type
@@ -28,7 +30,9 @@ var checkedTypes = {
   ArrowFunctionExpression:  { found: false, expectedCallbacks: 1, hasCallbacks: false, },
   CallExpression:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   IfStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
-  SwitchStatement: { found:false, expectedCallbacks: 1, hasCallbacks: false, },
+  SwitchStatement: { found:false, expectedCallbacks: 0, hasCallbacks: false, },
+  SwitchCase: { found:false, expectedCallbacks: 0, hasCallbacks: false, },
+  AssignmentExpression: { found:false, expectedCallbacks: 1, hasCallbacks: false, },
   extra: 0, // this catches if we're examining ast types that we're not testing for
 };
 
@@ -72,9 +76,7 @@ describe('Backend', () => {
             // And that we're not checking for more node types
             checkedTypes.extra++;
           }
-
         });
-
         for (var keys in checkedTypes) {
           allKeysPresent = (keys !== 'extra') ?  checkedTypes[keys].found && allKeysPresent : allKeysPresent;
           allCallbacksPresent = (keys !== 'extra') ?  checkedTypes[keys].hasCallbacks && allCallbacksPresent : allCallbacksPresent;
@@ -84,29 +86,25 @@ describe('Backend', () => {
       it('types array should exist', () => {
         expect(parser.tester.types).toBeAn(Array);
       });
-
-      it('types array includes 14 types', () => {
+      it('types array includes the expected number of types', () => {
         expect(parser.tester.types.length).toEqual(Object.keys(checkedTypes).length - 1);
       });
-
-      it('those 14 types being the 14 we plan to check for', () => {
+      it('those types being the ones we plan to check for', () => {
         expect(allKeysPresent).toBe(true);
       });
-
       it('and all types we\'re checking for are also being tested', () => {
         expect(checkedTypes.extra).toEqual(0);
       });
-
       it('the types we\'re checking have the correct number of callbacks', () => {
         expect(allCallbacksPresent).toBe(true);
       });
-
       it('the callbacks are actually functions', () => {
         allCallbackContainer.forEach((cb) => {
           expect(cb).toBeA(Function);
         });
       });
     });
+
     describe('#query', () => {
       it('query helper should exist', () => {
         expect(parser.tester.query).toBeA(Function);
@@ -115,6 +113,7 @@ describe('Backend', () => {
         expect(parser.tester.query('[type="FunctionDeclaration"]', largeast).length).toEqual(3);
       });
     });
+
     describe('#functionParameterParse', () => {
       it('functionParameterParse helper should exist', () => {
         expect(parser.tester.functionParameterParse).toBeA(Function);
@@ -126,6 +125,7 @@ describe('Backend', () => {
         expect(parser.tester.functionParameterParse(astFixtures.FunctionExpression)).toEqual([]);
       });
     });
+
     describe('#variableKindParse', () => {
       it('variableKindParse helper should exist', () => {
         expect(parser.tester.variableKindParse).toBeA(Function);
@@ -140,6 +140,7 @@ describe('Backend', () => {
         expect(parser.tester.variableKindParse(astFixtures.VariableDeclaration.Const)).toEqual('const');
       });
     });
+
     describe('#variableNameParse', () => {
       it('variableNameParse helper should exist', () => {
         expect(parser.tester.variableNameParse).toBeA(Function);
@@ -148,11 +149,27 @@ describe('Backend', () => {
         expect(parser.tester.variableNameParse(astFixtures.VariableDeclaration.Var)).toEqual([ 'who' ]);
       });
     });
+
     describe('#parseFunction', () => {
       it('parseFunction helper should exist', () => {
         expect(parser.tester.parseFunction).toBeA(Function);
       });
+
+      it('parseFunction should return a cache with the number of expected nodes, when the node type is not in the cache ', () => {
+        var query = sinon.stub(parser.tester.query);
+      console.log('hello');
+        query.returns(queryResultSimple);
+        console.log('query', query());
+        expect(parser.tester.parseFunction('foo')).toEqual(47);
+      });
+      it('parseFunction should return a cache with the number of expected nodes, when the node type is in the cache', () => {
+        expect(parser.tester.parseFunction).toBeA(Function);
+      });
+      it('parseFunction should return a cache with the number of expected nodes, and their callback values', () => {
+        expect(parser.tester.parseFunction).toBeA(Function);
+      });
     });
+
     describe('#asyncTasks', () => {
       it('asyncTasks builder helper should return an Array', () => {
         expect(parser.tester.asyncTasks).toBeAn(Array);

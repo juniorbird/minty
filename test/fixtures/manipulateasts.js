@@ -6,7 +6,7 @@ const largeast = require('./largeAST.js')[0];
 const parser = require('../../lib/parser.js');
 
 var foundItems = parser.tester.query('[type="VariableDeclaration"]', largeast);
-console.log(foundItems);
+console.log(JSON.stringify(foundItems));
 
 
 /* need
