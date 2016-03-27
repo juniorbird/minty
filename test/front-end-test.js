@@ -42,9 +42,13 @@ describe('Minty Tests', () => {
     browser.assert.element('.ace_editor');
   });
 
-  it ('press forward appends right data to table', () => {
+  it ('press forward appends correct data to table', () => {
 
     return browser.fire('#forward', 'click')
+      .then(() => {
+        counter++;
+        browser.fire('#forward', 'click');
+      })
       .then(() => {
         counter++;
         browser.fire('#forward', 'click');
@@ -59,11 +63,25 @@ describe('Minty Tests', () => {
         const word = parseInt(variables[1].textContent);
         const varNames = Object.keys(mockData.log[counter].variables);
         const mockVar = mockData.log[counter].variables[varNames[1]];
-        expect(word).toEqual(mockVar);
+        return expect(word).toEqual(mockVar);
       });
   });
 
-  it ('press ')
+  it ('press back button appends correct data to table', () => {
+    return browser.fire('#back', 'click')
+    .then(() => {
+      counter--;
+      browser.fire('#back', 'click');
+    })
+    .then(() => {
+      counter--;
+      const variables = browser.queryAll('.variables');
+      const word = parseInt(variables[1].textContent);
+      const varNames = Object.keys(mockData.log[counter].variables);
+      const mockVar = mockData.log[counter].variables[varNames[1]];
+      return expect(word).toEqual(mockVar);
+    });
+  });
 
 
 
