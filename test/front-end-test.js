@@ -4,19 +4,19 @@
 //4. how to test if last button and first does what its supposed to
 //5. need dummmy data
 //6. test if file loads
+//7. test if buttons are disabled
 
 const Browser = require('zombie');
 const expect = require('expect');
 const mockData = require('./dummyfiles/front-end-dummy');
-var counter = 0;
 
 
 describe('Minty Tests', () => {
   const browser = new Browser();
 
-  // beforeEach(done => {
-  //   browser.reload(done);
-  // });
+  beforeEach(done => {
+    browser.reload(done);
+  });
 
   before(done => {
     browser.visit(`file://${__dirname.slice(0, -4)}minty/file/minty.html`, done);
@@ -42,8 +42,9 @@ describe('Minty Tests', () => {
     browser.assert.element('.ace_editor');
   });
 
-  it ('press forward appends correct data to table', () => {
 
+  it ('press forward appends correct data to table', () => {
+    var counter = 0;
     return browser.fire('#forward', 'click')
       .then(() => {
         counter++;
@@ -60,31 +61,62 @@ describe('Minty Tests', () => {
       .then(() => {
         counter++;
         const variables = browser.queryAll('.variables');
-        const word = parseInt(variables[1].textContent);
+        const tdVarVal = parseInt(variables[1].textContent);
         const varNames = Object.keys(mockData.log[counter].variables);
-        const mockVar = mockData.log[counter].variables[varNames[1]];
-        return expect(word).toEqual(mockVar);
+        const mockVarVal = mockData.log[counter].variables[varNames[1]];
+        return expect(tdVarVal).toEqual(mockVarVal);
       });
   });
 
   it ('press back button appends correct data to table', () => {
-    return browser.fire('#back', 'click')
-    .then(() => {
+    var counter = 0;
+    return browser.fire('#forward', 'click')
+      .then(() => {
+        counter++;
+        browser.fire('#forward', 'click');
+      })
+      .then(() => {
+        counter++;
+        browser.fire('#forward', 'click');
+      })
+      .then(() => {
+        counter++;
+        browser.fire('#forward', 'click');
+      })
+      .then(() => {
+        counter++;
+        browser.fire('#back', 'click');
+      })
+      .then(() => {
       counter--;
       browser.fire('#back', 'click');
-    })
-    .then(() => {
-      counter--;
-      const variables = browser.queryAll('.variables');
-      const word = parseInt(variables[1].textContent);
-      const varNames = Object.keys(mockData.log[counter].variables);
-      const mockVar = mockData.log[counter].variables[varNames[1]];
-      return expect(word).toEqual(mockVar);
-    });
+      })
+      .then(() => {
+        counter--;
+        const variables = browser.queryAll('.variables');
+        const tdVarVal = parseInt(variables[2].textContent);
+        const varNames = Object.keys(mockData.log[counter].variables);
+        const mockVarVal = mockData.log[counter].variables[varNames[2]];
+        return expect(tdVarVal).toEqual(mockVarVal);
+      });
   });
 
+  it ('press last button appends variables from last line of data', () => {
+    var counter = 0;
+    return browser.pressButton('#last')
+      .then(() => {
+        counter = mockData.log.length - 1;
+        const variables = browser.queryAll('.variables');
+        const tdVarVal = parseInt(variables[3].textContent);
+        const varNames = Object.keys(mockData.log[counter].variables);
+        const mockVarVal = mockData.log[counter].variables[varNames[3]];
+        return expect(tdVarVal).toEqual(mockVarVal);
+      });
+  });
 
+  it ('press first button makes .variable values undefined', () => {
 
+  });
 
 
 });
