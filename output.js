@@ -1,15 +1,19 @@
 "use strict";
-mintyLog(0, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(0, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test)
 
 
 var one, two = 2, three = 1;
-mintyLog(2, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(2, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three)
 var four = 2, five;
-mintyLog(3, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(3, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five)
 var seven = {a: 1, b: 2};
-mintyLog(4, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(4, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven)
 var six = [1,2,3,4];
-mintyLog(5, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(5, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six)
+hey = 9, ho = 1;
+mintyLog(6, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six)
+warm = true;
+mintyLog(7, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six)
 
 
 
@@ -17,113 +21,135 @@ mintyLog(5, 'global', undefined, ["one","two","three","four","five","seven","six
 
 
 var expr = 'Mangoes';
-mintyLog(9, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(11, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr)
 
 
 
 
 for(let i = 0; i < 10; i++) {
-mintyLog(12, 'global', ["i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(14, '_mintyGlobalScope', ["i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr"],i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr)
   console.log(i);
-mintyLog(13, 'global', ["i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(15, '_mintyGlobalScope', ["i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr"],i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr)
 
 
 
 
+mintyLog(18, '_mintyGlobalScope', ["i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr"],i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr)
   break;
-mintyLog(16, 'global', ["i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(18, '_mintyGlobalScope', ["i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr"],i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr)
 
 
 }
-mintyLog(18, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(20, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr)
 
 
 for(var j = 0; j < 5; j++) {
-mintyLog(20, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(22, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j)
   j += j;
-mintyLog(21, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(23, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j)
 }
-mintyLog(22, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(24, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j)
 
 
 
 
 var regexstr = 'here is some string'
-mintyLog(25, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(27, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr)
 
 
 regexstr.replace(/"\/text/g, '')
-mintyLog(27, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(29, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr)
 
 
 
 
 for(var keys in seven) {
-mintyLog(30, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(32, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
   console.log(keys);
-mintyLog(31, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(33, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
 }
-mintyLog(32, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(34, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
 
 
 function fn(a, b, c) {
-mintyLog(34, 'global', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(36, 'fn', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
+  blob = 'blobbers'
+mintyLog(37, 'fn', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
   console.log(a,b,c);
-mintyLog(35, 'global', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(38, 'fn', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
   function fn2(d,e,f) {
-mintyLog(36, 'global', ["a","b","c","d","e","f"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c,d,e,f, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(39, 'fn2', ["a","b","c","d","e","f"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"],a,b,c,d,e,f, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
     console.log('what!');
-mintyLog(37, 'global', ["a","b","c","d","e","f"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c,d,e,f, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(40, 'fn2', ["a","b","c","d","e","f"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"],a,b,c,d,e,f, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
     var bus = 'slow';
-mintyLog(38, 'global', ["a","b","c","d","e","f","bus"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c,d,e,f,bus, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(41, 'fn2', ["a","b","c","d","e","f","bus"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"],a,b,c,d,e,f,bus, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
   }
-mintyLog(39, 'global', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(42, 'fn', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
   fn2(4,5,6);
-mintyLog(40, 'global', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(43, 'fn', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
   var car = 'toyota';
-mintyLog(41, 'global', ["a","b","c","car"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c,car, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(44, 'fn', ["a","b","c","car"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"],a,b,c,car, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
 }
-mintyLog(42, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(45, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys)
 
 
 var expr = 'food';
-mintyLog(44, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(47, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 
 
+switch (expr) {
 
-
+  case 'toy':
+mintyLog(51, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
+    console.log('toy');
+mintyLog(52, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
+    break;
+  case 'food':
+mintyLog(54, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
+    console.log('food');
+mintyLog(55, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
+    break;
+  default:
+mintyLog(57, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
+    console.log('i dunno!');
+}
+mintyLog(59, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 
 
 fn(1,2,3);
-mintyLog(48, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
-
-
+mintyLog(61, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 
 
 six.forEach(val => {
-mintyLog(51, 'global', ["val"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],val, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(63, 'anonymous function', ["val"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"],val, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
   console.log(val);
-mintyLog(52, 'global', ["val"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],val, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(64, 'anonymous function', ["val"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"],val, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 });
-mintyLog(53, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(65, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 console.log('here')
-mintyLog(54, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(66, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 
 
 six.forEach((val, i) => {
-mintyLog(56, 'global', ["val","i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],val,i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(68, 'anonymous function', ["val","i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"],val,i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
   console.log(val);
-mintyLog(57, 'global', ["val","i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],val,i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(69, 'anonymous function', ["val","i"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"],val,i, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 });
-mintyLog(58, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(70, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 
 
 var checkThis = function(a) {
-mintyLog(60, 'global', ["a","checkThis"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,checkThis, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(72, 'checkThis', ["a","checkThis"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"],a,checkThis, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
   console.log('hello there my friend');
-mintyLog(61, 'global', ["a","checkThis"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,checkThis, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(73, 'checkThis', ["a","checkThis"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"],a,checkThis, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 };
-mintyLog(62, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(74, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
+
+
+
+
+
+
 
 
 
@@ -131,73 +157,85 @@ mintyLog(62, 'global', undefined, ["one","two","three","four","five","seven","si
 
 
 do {
-mintyLog(66, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(81, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
   console.log('dowhile');
-mintyLog(67, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(82, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 } while(false);
-mintyLog(68, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(83, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr)
 
 
 
 
 var k = 10;
-mintyLog(71, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(86, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 
 
 while(k !== 3) {
-mintyLog(73, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(88, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
   let mom = 'nice';
-mintyLog(74, 'global', ["mom"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],mom, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(89, '_mintyGlobalScope', ["mom"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],mom, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
   console.log(k);
-mintyLog(75, 'global', ["mom"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],mom, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(90, '_mintyGlobalScope', ["mom"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],mom, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
   k--;
-mintyLog(76, 'global', ["mom"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],mom, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(91, '_mintyGlobalScope', ["mom"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],mom, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 }
-mintyLog(77, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(92, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 
 
 checkThis({
   that: 1,  hello:2
 });
-mintyLog(81, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(96, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 
 
 
 
 function stuff(whats, that) {
-mintyLog(84, 'global', ["whats","that"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],whats,that, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(99, 'stuff', ["whats","that"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],whats,that, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
+mintyLog(100, 'anonymous function', ["whats","that"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],whats,that, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
   return function() {
-mintyLog(85, 'global', ["whats","that"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],whats,that, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(100, 'anonymous function', ["whats","that"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],whats,that, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
     console.log('hello');
-mintyLog(86, 'global', ["whats","that"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],whats,that, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(101, 'anonymous function', ["whats","that"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],whats,that, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
   };
-mintyLog(87, 'global', ["whats","that"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],whats,that, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(102, 'stuff', ["whats","that"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],whats,that, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 }
-mintyLog(88, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(103, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 
 
 function *gener(a,b,c) {
-mintyLog(90, 'global', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(105, 'gener', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
+mintyLog(106, 'gener', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
   yield a;
-mintyLog(91, 'global', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(106, 'gener', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
+mintyLog(107, 'gener', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
   yield b;
-mintyLog(92, 'global', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(107, 'gener', ["a","b","c"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],a,b,c, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 }
-mintyLog(93, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(108, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 
 
 
 
 var gen = function *(a) {
-mintyLog(96, 'global', ["a","gen"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,gen, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(111, 'gen', ["a","gen"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],a,gen, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
+mintyLog(112, 'gen', ["a","gen"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],a,gen, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
   yield a;
-mintyLog(97, 'global', ["a","gen"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],a,gen, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(112, 'gen', ["a","gen"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"],a,gen, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 }
-mintyLog(98, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(113, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 stuff(1, 2);
-mintyLog(99, 'global', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(114, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k)
 
 
+var binkers = 10;
+mintyLog(116, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers)
+if (binkers < 30) {
+mintyLog(117, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers)
+  var bonkers = 31
+mintyLog(118, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers)
+}
+mintyLog(119, '_mintyGlobalScope', undefined, ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers"], one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers)
 
 
 
@@ -207,1386 +245,25 @@ mintyLog(99, 'global', undefined, ["one","two","three","four","five","seven","si
 
 
 let what = 'what';
-mintyLog(105, 'global', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(124, '_mintyGlobalScope', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers)
+var ted = "Ted"
+mintyLog(125, '_mintyGlobalScope', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted)
+Ted = 'T'
+mintyLog(126, '_mintyGlobalScope', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted)
+what = 'where';
+mintyLog(127, '_mintyGlobalScope', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted)
 
 
 console.log(that)
-mintyLog(107, 'global', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(129, '_mintyGlobalScope', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted)
 var test = "hello";
-mintyLog(108, 'global', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(130, '_mintyGlobalScope', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test)
 test += " buddy";
-mintyLog(109, 'global', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(131, '_mintyGlobalScope', ["what"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test"],what, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test)
 
 
 const hello = 'hi';
-mintyLog(111, 'global', ["what","hello"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","test"],what,hello, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,test)
+mintyLog(133, '_mintyGlobalScope', ["what","hello"], ["one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test","one","two","three","four","five","seven","six","expr","j","regexstr","keys","expr","k","binkers","bonkers","ted","test"],what,hello, one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test,one,two,three,four,five,seven,six,expr,j,regexstr,keys,expr,k,binkers,bonkers,ted,test)
 
 
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 0
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 2
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 3
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 4
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 5
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 9
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 12
-0
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 13
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 18
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 20
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 21
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 20
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 21
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 20
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 21
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 22
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 25
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 27
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 30
-a
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 31
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 30
-b
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 31
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 32
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 42
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 44
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 34
-1 2 3
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 35
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 39
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 36
-what!
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 37
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 38
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 40
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 41
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 48
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 51
-1
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 52
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 51
-2
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 52
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 51
-3
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 52
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 51
-4
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 52
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 53
-here
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 54
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 56
-1
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 57
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 56
-2
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 57
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 56
-3
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 57
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 56
-4
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 57
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 58
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 62
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 66
-dowhile
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 67
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 68
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 71
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 73
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 74
-10
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 75
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 76
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 73
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 74
-9
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 75
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 76
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 73
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 74
-8
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 75
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 76
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 73
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 74
-7
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 75
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 76
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 73
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 74
-6
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 75
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 76
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 73
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 74
-5
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 75
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 76
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 73
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 74
-4
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 75
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 76
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 77
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 60
-hello there my friend
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 61
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 81
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 88
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 93
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 98
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 84
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 99
-[ 'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'seven',
-  'six',
-  'expr',
-  'j',
-  'regexstr',
-  'keys',
-  'expr',
-  'k',
-  'test' ] 105
-[{"file":"test.js","line":0,"variables":{"special":{},"global":{}},"scope":"global"},{"file":"test.js","line":2,"variables":{"special":{},"global":{"two":2,"three":1}},"scope":"global"},{"file":"test.js","line":3,"variables":{"special":{},"global":{"two":2,"three":1,"four":2}},"scope":"global"},{"file":"test.js","line":4,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2}}},"scope":"global"},{"file":"test.js","line":5,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4]}},"scope":"global"},{"file":"test.js","line":9,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes"}},"scope":"global"},{"file":"test.js","line":12,"variables":{"special":{"i":0},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes"}},"scope":"global"},{"file":"test.js","line":13,"variables":{"special":{"i":0},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes"}},"scope":"global"},{"file":"test.js","line":18,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes"}},"scope":"global"},{"file":"test.js","line":20,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":0}},"scope":"global"},{"file":"test.js","line":21,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":0}},"scope":"global"},{"file":"test.js","line":20,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":1}},"scope":"global"},{"file":"test.js","line":21,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":2}},"scope":"global"},{"file":"test.js","line":20,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":3}},"scope":"global"},{"file":"test.js","line":21,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":6}},"scope":"global"},{"file":"test.js","line":22,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":7}},"scope":"global"},{"file":"test.js","line":25,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":7,"regexstr":"here is some string"}},"scope":"global"},{"file":"test.js","line":27,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":7,"regexstr":"here is some string"}},"scope":"global"},{"file":"test.js","line":30,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":7,"regexstr":"here is some string","keys":"a"}},"scope":"global"},{"file":"test.js","line":31,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":7,"regexstr":"here is some string","keys":"a"}},"scope":"global"},{"file":"test.js","line":30,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":31,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":32,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":42,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"Mangoes","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":44,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":34,"variables":{"special":{"a":1,"b":2,"c":3},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":35,"variables":{"special":{"a":1,"b":2,"c":3},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":39,"variables":{"special":{"a":1,"b":2,"c":3},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":36,"variables":{"special":{"a":1,"b":2,"c":3,"d":4,"e":5,"f":6},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":37,"variables":{"special":{"a":1,"b":2,"c":3,"d":4,"e":5,"f":6},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":38,"variables":{"special":{"a":1,"b":2,"c":3,"d":4,"e":5,"f":6,"bus":"slow"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":40,"variables":{"special":{"a":1,"b":2,"c":3},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":41,"variables":{"special":{"a":1,"b":2,"c":3,"car":"toyota"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":48,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":51,"variables":{"special":{"val":1},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":52,"variables":{"special":{"val":1},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":51,"variables":{"special":{"val":2},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":52,"variables":{"special":{"val":2},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":51,"variables":{"special":{"val":3},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":52,"variables":{"special":{"val":3},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":51,"variables":{"special":{"val":4},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":52,"variables":{"special":{"val":4},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":53,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":54,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":56,"variables":{"special":{"val":1,"i":0},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":57,"variables":{"special":{"val":1,"i":0},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":56,"variables":{"special":{"val":2,"i":1},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":57,"variables":{"special":{"val":2,"i":1},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":56,"variables":{"special":{"val":3,"i":2},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":57,"variables":{"special":{"val":3,"i":2},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":56,"variables":{"special":{"val":4,"i":3},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":57,"variables":{"special":{"val":4,"i":3},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":58,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":62,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":66,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":67,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":68,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b"}},"scope":"global"},{"file":"test.js","line":71,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":10}},"scope":"global"},{"file":"test.js","line":73,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":10}},"scope":"global"},{"file":"test.js","line":74,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":10}},"scope":"global"},{"file":"test.js","line":75,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":10}},"scope":"global"},{"file":"test.js","line":76,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":9}},"scope":"global"},{"file":"test.js","line":73,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":9}},"scope":"global"},{"file":"test.js","line":74,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":9}},"scope":"global"},{"file":"test.js","line":75,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":9}},"scope":"global"},{"file":"test.js","line":76,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":8}},"scope":"global"},{"file":"test.js","line":73,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":8}},"scope":"global"},{"file":"test.js","line":74,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":8}},"scope":"global"},{"file":"test.js","line":75,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":8}},"scope":"global"},{"file":"test.js","line":76,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":7}},"scope":"global"},{"file":"test.js","line":73,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":7}},"scope":"global"},{"file":"test.js","line":74,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":7}},"scope":"global"},{"file":"test.js","line":75,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":7}},"scope":"global"},{"file":"test.js","line":76,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":6}},"scope":"global"},{"file":"test.js","line":73,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":6}},"scope":"global"},{"file":"test.js","line":74,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":6}},"scope":"global"},{"file":"test.js","line":75,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":6}},"scope":"global"},{"file":"test.js","line":76,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":5}},"scope":"global"},{"file":"test.js","line":73,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":5}},"scope":"global"},{"file":"test.js","line":74,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":5}},"scope":"global"},{"file":"test.js","line":75,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":5}},"scope":"global"},{"file":"test.js","line":76,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":4}},"scope":"global"},{"file":"test.js","line":73,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":4}},"scope":"global"},{"file":"test.js","line":74,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":4}},"scope":"global"},{"file":"test.js","line":75,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":4}},"scope":"global"},{"file":"test.js","line":76,"variables":{"special":{"mom":"nice"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":77,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":60,"variables":{"special":{"a":{"that":1,"hello":2}},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":61,"variables":{"special":{"a":{"that":1,"hello":2}},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":81,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":88,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":93,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":98,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":84,"variables":{"special":{"whats":1,"that":2},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":99,"variables":{"special":{},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"},{"file":"test.js","line":105,"variables":{"special":{"what":"what"},"global":{"two":2,"three":1,"four":2,"seven":{"a":1,"b":2},"six":[1,2,3,4],"expr":"food","j":7,"regexstr":"here is some string","keys":"b","k":3}},"scope":"global"}]
+Minty has finished analyzing test.js
