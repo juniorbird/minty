@@ -6,3 +6,5 @@ lib/test.js
 npm-debug.log
 lib/output.json
 lib/util.js
+output.json
+output.js
