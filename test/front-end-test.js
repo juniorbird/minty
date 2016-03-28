@@ -12,7 +12,7 @@ const mockData = require('./dummyfiles/front-end-dummy');
 
 
 describe('Minty Tests', () => {
-  const browser = new Browser();
+  const browser = new Browser({waitDuration: 1000});
 
   beforeEach(done => {
     browser.reload(done);
@@ -115,8 +115,23 @@ describe('Minty Tests', () => {
   });
 
   it ('press first button makes .variable values undefined', () => {
+    var counter = 0;
+    return browser.fire('#forward', 'click')
+      .then(() => {
+        browser.fire('#first', 'click');
+      })
+      .then(() => {
+        const variable = browser.queryAll('.variables');
+        console.log('tired', variable[1].textContent);
 
+        expect(variable[0].textContent).toEqual('undefined');
+        expect(variable[1].textContent).toEqual('undefined');
+        expect(variable[2].textContent).toEqual('undefined');
+        expect(variable[3].textContent).toEqual('undefined');
+      });
   });
+
+  
 
 
 });
