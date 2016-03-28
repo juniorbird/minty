@@ -18,4 +18,6 @@ minty.wrap = function wrap(func) {
 
 };
 
+minty.file('lib/test.js');
+
 module.exports = minty;
