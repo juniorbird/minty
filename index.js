@@ -11,11 +11,15 @@ minty.file = function file(path) {
   const parsed = parser(JSTEXT);
   const rules = ruler(parsed);
   const injected = inject(rules, JSTEXT);
-  run(injected, path);
+  run.runFile(injected, path);
 };
 
 minty.wrap = function wrap(func) {
-
+  const JSTEXT = func.toString();
+  const parsed = parser(JSTEXT);
+  const rules = ruler(parsed);
+  const injected = inject(rules, JSTEXT);
+  run.wrap(injected);
 };
 
 module.exports = minty;
