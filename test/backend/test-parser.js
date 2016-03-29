@@ -153,30 +153,26 @@
       describe('#parseFunction', () => {
         'use strict';
         let stubParseFunction;
-        // before(() => {
-        //   // stubParseFunction.onCall(1).returns([]);
-        //   // stubParseFunction.returns('foo');
-        // });
 
         it('parseFunction helper should exist', () => {
           expect(parser.parseutils.parseFunction).toBeA(Function);
         });
 
+        it('parseFunction should return the expected cache when the node type is not in the cache', () => {
+          stubParseFunction = sinon.stub(parser.parseutils, 'query');
+          stubParseFunction.returns([]);
+
+          parser.parseutils.parseFunction('foo', [[parser.parseutils.functionParameterParse, 'parameters']]);
+          expect(parser.parseutils.cache).toEqual({ foo: [] });
+
+          stubParseFunction.restore();
+        });
         it('parseFunction should return the expected cache when the node type is in the cache ', () => {
           stubParseFunction = sinon.stub(parser.parseutils, 'query');
           stubParseFunction.returns(queryResultSimple);
 
           parser.parseutils.parseFunction('foo', [[parser.parseutils.variableKindParse, 'kind'], [parser.parseutils.variableNameParse, 'variables']]);
           expect(parser.parseutils.cache).toEqual(cacheResultSimple);
-
-          stubParseFunction.restore();
-        });
-        it('parseFunction should return the expected cache when the node type is not in the cache', () => {
-          stubParseFunction = sinon.stub(parser.parseutils, 'query');
-          stubParseFunction.returns([undefined]);
-
-          parser.parseutils.parseFunction('foo', [[parser.parseutils.functionParameterParse, 'parameters']]);
-          expect(parser.parseutils.cache).toEqual({ foo: [] });
 
           stubParseFunction.restore();
         });
