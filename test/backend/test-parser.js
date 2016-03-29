@@ -162,6 +162,8 @@
           stubParseFunction = sinon.stub(parser.parseutils, 'query');
           stubParseFunction.returns([]);
 
+          parser.parseutils.cache = {};
+
           parser.parseutils.parseFunction('foo', [[parser.parseutils.functionParameterParse, 'parameters']]);
           expect(parser.parseutils.cache).toEqual({ foo: [] });
 
@@ -170,6 +172,8 @@
         it('parseFunction should return the expected cache when the node type is in the cache ', () => {
           stubParseFunction = sinon.stub(parser.parseutils, 'query');
           stubParseFunction.returns(queryResultSimple);
+
+          parser.parseutils.cache = {};
 
           parser.parseutils.parseFunction('foo', [[parser.parseutils.variableKindParse, 'kind'], [parser.parseutils.variableNameParse, 'variables']]);
           expect(parser.parseutils.cache).toEqual(cacheResultSimple);
