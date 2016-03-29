@@ -6,6 +6,7 @@ const sinon = require('sinon');
 const astFixtures = require('../fixtures/ast-fixtures.js').asts;
 const largeast = require('../fixtures/largeAST.js')[0];
 const queryResultSimple = require('../fixtures/queryResult-simple.js');
+const cacheResultSimple = require('../fixtures/cacheResult-simple.js');
 
 /*
 HOWTO: add a new checked node type
@@ -150,16 +151,16 @@ describe('Backend', () => {
     });
 
     describe('#parseFunction', () => {
-      xit('parseFunction helper should exist', () => {
+      it('parseFunction helper should exist', () => {
         expect(parser.parseutils.parseFunction).toBeA(Function);
       });
 
-      xit('parseFunction should return a cache with the number of expected nodes, when the node type is not in the cache ', () => {
-        var query = sinon.stub(parser.parseutils.query);
-      console.log('hello');
-        query.returns(queryResultSimple);
-        console.log('query', query());
-        expect(parser.parseutils.parseFunction('foo')).toEqual(47);
+      it('parseFunction should return a cache with the number of expected nodes, when the node type is not in the cache ', () => {
+        var stubParseFunction = sinon.stub(parser.parseutils, 'query');
+        stubParseFunction.returns(queryResultSimple);
+        parser.parseutils.parseFunction('foo', [[parser.parseutils.variableKindParse, 'kind'], [parser.parseutils.variableNameParse, 'variables']]);
+        // console.log('executing stub', parser.parseutils.parseFunction(22));
+        expect(parser.parseutils.cache).toEqual(cacheResultSimple);
       });
       xit('parseFunction should return a cache with the number of expected nodes, when the node type is in the cache', () => {
         expect(parser.parseutils.parseFunction).toBeA(Function);
