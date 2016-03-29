@@ -22,6 +22,4 @@ minty.wrap = function wrap(func) {
   run.wrap(injected);
 };
 
-minty.file('lib/test.js');
-
 module.exports = minty;
