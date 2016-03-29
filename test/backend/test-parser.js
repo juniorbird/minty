@@ -47,8 +47,12 @@ describe('Backend', () => {
     it('parser should exist', () => {
       expect(parser.parser).toBeA(Function);
     });
-    it('parser should run all of the queued functions', () => {
+    xit('parser should run all of the queued functions', () => {
       let func1 = sinon.spy();
+      let func2 = sinon.spy();
+      let func3 = sinon.spy();
+      let func4 = sinon.spy();
+      let stubAsyncTasks = sinon.stub(parser.parseutils.asyncTasks).returns([func1, func2, func3, func4]);
 
     });
   });
@@ -158,15 +162,17 @@ describe('Backend', () => {
     describe('#parseFunction', () => {
       let stubParseFunction;
 
+      before(() => {
+        // Initialize the cache, since it's not done in this function
+        parser.parseutils.cache = {};
+      });
+
       it('parseFunction helper should exist', () => {
         expect(parser.parseutils.parseFunction).toBeA(Function);
       });
 
       it('parseFunction should return the expected cache when the node type is not in the cache', () => {
-        stubParseFunction = sinon.stub(parser.parseutils, 'query');
-        stubParseFunction.returns([]);
-
-        parser.parseutils.cache = {};
+        stubParseFunction = sinon.stub(parser.parseutils, 'query').returns([]);
 
         parser.parseutils.parseFunction('foo', [[parser.parseutils.functionParameterParse, 'parameters']]);
         expect(parser.parseutils.cache).toEqual({ foo: [] });
@@ -174,10 +180,7 @@ describe('Backend', () => {
         stubParseFunction.restore();
       });
       it('parseFunction should return the expected cache when the node type is in the cache ', () => {
-        stubParseFunction = sinon.stub(parser.parseutils, 'query');
-        stubParseFunction.returns(queryResultSimple);
-
-        parser.parseutils.cache = {};
+        stubParseFunction = sinon.stub(parser.parseutils, 'query').returns(queryResultSimple);
 
         parser.parseutils.parseFunction('foo', [[parser.parseutils.variableKindParse, 'kind'], [parser.parseutils.variableNameParse, 'variables']]);
         expect(parser.parseutils.cache).toEqual(cacheResultSimple);
