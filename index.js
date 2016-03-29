@@ -19,7 +19,11 @@ minty.wrap = function wrap(func) {
   const parsed = parser(JSTEXT);
   const rules = ruler(parsed);
   const injected = inject(rules, JSTEXT);
-  run.wrap(injected);
+  const mintified = run.wrap(injected);
+  return function() {
+    const args = Array.prototype.slice.call(arguments);
+    mintified.apply(null, args);
+  };
 };
 
 module.exports = minty;
