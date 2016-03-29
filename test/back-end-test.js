@@ -22,17 +22,16 @@ var checkedTypes = {
   ForOfStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   WhileStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   DoWhileStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  SwitchStatement: { found:false, expectedCallbacks: 0, hasCallbacks: false, },
+  SwitchCase: { found:false, expectedCallbacks: 0, hasCallbacks: false, },
+  IfStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   BreakStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   ReturnStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   YieldExpression:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  CallExpression:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   FunctionDeclaration:  { found: false, expectedCallbacks: 2, hasCallbacks: false, },
   FunctionExpression:  { found: false, expectedCallbacks: 1, hasCallbacks: false, },
   ArrowFunctionExpression:  { found: false, expectedCallbacks: 1, hasCallbacks: false, },
-  CallExpression:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
-  IfStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
-  SwitchStatement: { found:false, expectedCallbacks: 0, hasCallbacks: false, },
-  SwitchCase: { found:false, expectedCallbacks: 0, hasCallbacks: false, },
-  AssignmentExpression: { found:false, expectedCallbacks: 1, hasCallbacks: false, },
   extra: 0, // this catches if we're examining ast types that we're not testing for
 };
 
@@ -151,30 +150,30 @@ describe('Backend', () => {
     });
 
     describe('#parseFunction', () => {
-      it('parseFunction helper should exist', () => {
+      xit('parseFunction helper should exist', () => {
         expect(parser.parseutils.parseFunction).toBeA(Function);
       });
 
-      it('parseFunction should return a cache with the number of expected nodes, when the node type is not in the cache ', () => {
+      xit('parseFunction should return a cache with the number of expected nodes, when the node type is not in the cache ', () => {
         var query = sinon.stub(parser.parseutils.query);
       console.log('hello');
         query.returns(queryResultSimple);
         console.log('query', query());
         expect(parser.parseutils.parseFunction('foo')).toEqual(47);
       });
-      it('parseFunction should return a cache with the number of expected nodes, when the node type is in the cache', () => {
+      xit('parseFunction should return a cache with the number of expected nodes, when the node type is in the cache', () => {
         expect(parser.parseutils.parseFunction).toBeA(Function);
       });
-      it('parseFunction should return a cache with the number of expected nodes, and their callback values', () => {
+      xit('parseFunction should return a cache with the number of expected nodes, and their callback values', () => {
         expect(parser.parseutils.parseFunction).toBeA(Function);
       });
     });
 
     describe('#asyncTasks', () => {
-      it('asyncTasks builder helper should return an Array', () => {
+      xit('asyncTasks builder helper should return an Array', () => {
         expect(parser.parseutils.asyncTasks).toBeAn(Array);
       });
-      it('asyncTasks array members should each be functions', () => {
+      xit('asyncTasks array members should each be functions', () => {
         parser.parseutils.asyncTasks.forEach((el) => {
           expect(el).toBeA(Function);
         });
