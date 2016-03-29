@@ -5,7 +5,7 @@ const fs = require('fs');
 const largeast = require('./largeAST.js')[0];
 const parser = require('../../lib/parser.js');
 
-var foundItems = parser.tester.query('[type="VariableDeclaration"]', largeast);
+var foundItems = parser.parseutils.query('[type="HooptyMama"]', largeast);
 console.log(JSON.stringify(foundItems));
 
 
