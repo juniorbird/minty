@@ -1,11 +1,11 @@
-const parser = require('../lib/parser.js');
+const parser = require('../../lib/parser.js');
 const expect = require('expect');
 const sinon = require('sinon');
 
 // Fixtures
-const astFixtures = require('./fixtures/ast-fixtures.js').asts;
-const largeast = require('./fixtures/largeAST.js')[0];
-const queryResultSimple = require('./fixtures/queryResult-simple.js');
+const astFixtures = require('../fixtures/ast-fixtures.js').asts;
+const largeast = require('../fixtures/largeAST.js')[0];
+const queryResultSimple = require('../fixtures/queryResult-simple.js');
 
 /*
 HOWTO: add a new checked node type
