@@ -1,11 +1,13 @@
 const parser = require('../../lib/parser.js');
 const expect = require('expect');
 const sinon = require('sinon');
+const esprima = require('esprima');
 
 // Fixtures
 const astFixtures = require('../fixtures/ast-fixtures.js').asts;
 const largeast = require('../fixtures/largeAST.js')[0];
 const queryResultSimple = require('../fixtures/queryResult-simple.js');
+const cacheResultSimple = require('../fixtures/cacheResult-simple.js');
 
 /*
 HOWTO: add a new checked node type
@@ -41,17 +43,13 @@ var allCallbackContainer = [];
 var allCallbacksFunctions = true;
 
 describe('Backend', () => {
-  describe('#parser', () => {
-    it('parser should exist', () => {
-      expect(parser.parser).toBeA(Function);
-    });
-  });
+  'use strict';
   describe('#parser\'s helper functions', () => {
     describe('::types', () => {
       before(function () {
         // Set up by checking types
-        var theType;
-        var cbCount;
+        let theType;
+        let cbCount;
 
         parser.types.forEach((type) => {
           // Check that we're checking for all the node types we expect
@@ -76,7 +74,7 @@ describe('Backend', () => {
             checkedTypes.extra++;
           }
         });
-        for (var keys in checkedTypes) {
+        for (let keys in checkedTypes) {
           allKeysPresent = (keys !== 'extra') ?  checkedTypes[keys].found && allKeysPresent : allKeysPresent;
           allCallbacksPresent = (keys !== 'extra') ?  checkedTypes[keys].hasCallbacks && allCallbacksPresent : allCallbacksPresent;
         }
@@ -150,34 +148,62 @@ describe('Backend', () => {
     });
 
     describe('#parseFunction', () => {
-      xit('parseFunction helper should exist', () => {
+      let stubParseFunction;
+
+      before(() => {
+        // Initialize the cache, since it's not done in this function
+        parser.parseutils.cache = {};
+      });
+
+      it('parseFunction helper should exist', () => {
         expect(parser.parseutils.parseFunction).toBeA(Function);
       });
 
-      xit('parseFunction should return a cache with the number of expected nodes, when the node type is not in the cache ', () => {
-        var query = sinon.stub(parser.parseutils.query);
-      console.log('hello');
-        query.returns(queryResultSimple);
-        console.log('query', query());
-        expect(parser.parseutils.parseFunction('foo')).toEqual(47);
+      it('parseFunction should return the expected cache when the node type is not in the cache', () => {
+        stubParseFunction = sinon.stub(parser.parseutils, 'query').returns([]);
+
+        parser.parseutils.parseFunction('foo', [[parser.parseutils.functionParameterParse, 'parameters']]);
+        expect(parser.parseutils.cache).toEqual({ foo: [] });
+
+        stubParseFunction.restore();
       });
-      xit('parseFunction should return a cache with the number of expected nodes, when the node type is in the cache', () => {
-        expect(parser.parseutils.parseFunction).toBeA(Function);
-      });
-      xit('parseFunction should return a cache with the number of expected nodes, and their callback values', () => {
-        expect(parser.parseutils.parseFunction).toBeA(Function);
+      it('parseFunction should return the expected cache when the node type is in the cache ', () => {
+        stubParseFunction = sinon.stub(parser.parseutils, 'query').returns(queryResultSimple);
+
+        parser.parseutils.parseFunction('foo', [[parser.parseutils.variableKindParse, 'kind'], [parser.parseutils.variableNameParse, 'variables']]);
+        expect(parser.parseutils.cache).toEqual(cacheResultSimple);
+
+        stubParseFunction.restore();
       });
     });
 
     describe('#asyncTasks', () => {
-      xit('asyncTasks builder helper should return an Array', () => {
+      it('asyncTasks builder helper should return an Array', () => {
         expect(parser.parseutils.asyncTasks).toBeAn(Array);
       });
-      xit('asyncTasks array members should each be functions', () => {
+      it('asyncTasks array members should each be functions', () => {
         parser.parseutils.asyncTasks.forEach((el) => {
           expect(el).toBeA(Function);
         });
       });
+    });
+  });
+  describe('#parser', () => {
+    it('parser should exist', () => {
+      expect(parser.parser).toBeA(Function);
+    });
+    it('parser should run all of the queued functions', () => {
+      let func1 = sinon.spy();
+      let func2 = sinon.spy();
+      let func3 = sinon.spy();
+      let func4 = sinon.spy();
+      parser.parseutils.asyncTasks = [func1, func2, func3, func4];
+      let stubEsprima = sinon.stub(esprima, 'parse').returns('');
+      let result = parser.parser('foo');
+      expect(func1).toHaveBeenCalled;
+      expect(func2).toHaveBeenCalled;
+      expect(func3).toHaveBeenCalled;
+      expect(func4).toHaveBeenCalled;
     });
   });
 });
