@@ -179,10 +179,10 @@
       });
 
       describe('#asyncTasks', () => {
-        xit('asyncTasks builder helper should return an Array', () => {
+        it('asyncTasks builder helper should return an Array', () => {
           expect(parser.parseutils.asyncTasks).toBeAn(Array);
         });
-        xit('asyncTasks array members should each be functions', () => {
+        it('asyncTasks array members should each be functions', () => {
           parser.parseutils.asyncTasks.forEach((el) => {
             expect(el).toBeA(Function);
           });
