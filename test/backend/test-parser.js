@@ -1,6 +1,7 @@
 const parser = require('../../lib/parser.js');
 const expect = require('expect');
 const sinon = require('sinon');
+const esprima = require('esprima');
 
 // Fixtures
 const astFixtures = require('../fixtures/ast-fixtures.js').asts;
@@ -43,19 +44,6 @@ var allCallbacksFunctions = true;
 
 describe('Backend', () => {
   'use strict';
-  describe('#parser', () => {
-    it('parser should exist', () => {
-      expect(parser.parser).toBeA(Function);
-    });
-    xit('parser should run all of the queued functions', () => {
-      let func1 = sinon.spy();
-      let func2 = sinon.spy();
-      let func3 = sinon.spy();
-      let func4 = sinon.spy();
-      let stubAsyncTasks = sinon.stub(parser.parseutils.asyncTasks).returns([func1, func2, func3, func4]);
-
-    });
-  });
   describe('#parser\'s helper functions', () => {
     describe('::types', () => {
       before(function () {
@@ -198,6 +186,24 @@ describe('Backend', () => {
           expect(el).toBeA(Function);
         });
       });
+    });
+  });
+  describe('#parser', () => {
+    it('parser should exist', () => {
+      expect(parser.parser).toBeA(Function);
+    });
+    it('parser should run all of the queued functions', () => {
+      let func1 = sinon.spy();
+      let func2 = sinon.spy();
+      let func3 = sinon.spy();
+      let func4 = sinon.spy();
+      parser.parseutils.asyncTasks = [func1, func2, func3, func4];
+      let stubEsprima = sinon.stub(esprima, 'parse').returns('');
+      let result = parser.parser('foo');
+      expect(func1).toHaveBeenCalled;
+      expect(func2).toHaveBeenCalled;
+      expect(func3).toHaveBeenCalled;
+      expect(func4).toHaveBeenCalled;
     });
   });
 });
