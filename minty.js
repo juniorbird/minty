@@ -5,6 +5,7 @@ const path = require('path');
 
 minty.file(path.join(__dirname, '/lib/test.js'));
 
+<<<<<<< HEAD
 // function hello(a,b,c) {
 //   console.log('hi there my friend' + a + b + c);
 // }
@@ -13,5 +14,22 @@ minty.file(path.join(__dirname, '/lib/test.js'));
 // var mintified = minty.wrap(hello);
 //
 // mintified(1, 2, ' hi');
+=======
+function hello(a,b,c) {
+  console.log('hi there my friend' + a + b + c);
+  console.log(a + b)
+  a = 3;
+  function fn2(d,e,f) {
+    a = 4;
+  }
+  fn2(6,7,8);
+  console.log(a);
+}
+
+
+var mintified = minty.wrap(hello);
+
+mintified(1, 2, ' hi');
+>>>>>>> frontend
 
 // console.log(mintified.toString())
