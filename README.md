@@ -15,6 +15,8 @@ you use Minty.js.
 
 ## Current Status
 
+[![Coverage Status](https://coveralls.io/repos/github/lumpy-turnips/minty/badge.svg?branch=master)](https://coveralls.io/github/lumpy-turnips/minty?branch=master)
+
 Minty.js is __alpha__ code. Install and use at your own risk. May not work!
 Even worse, may not be useful!
 
