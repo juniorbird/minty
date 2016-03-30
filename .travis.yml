@@ -3,5 +3,8 @@ node_js:
   - "node"
   - "5"
   - "5.1"
+  - "4.2"
+  - "4.0"
+  - "4"
 script:
   - npm test
