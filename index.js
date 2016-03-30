@@ -6,6 +6,9 @@ const fs = require('fs');
 
 const minty = {};
 
+/*path is the path users provide
+so JSTEXT takes the file and reads all the contents
+*/
 minty.file = function file(path) {
   const JSTEXT = fs.readFileSync(path);
   const parsed = parser(JSTEXT);
@@ -21,5 +24,7 @@ minty.wrap = function wrap(func) {
   const injected = inject(rules, JSTEXT);
   run.wrap(injected);
 };
+
+
 
 module.exports = minty;
