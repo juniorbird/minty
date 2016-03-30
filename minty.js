@@ -12,5 +12,6 @@ function hello(a,b,c) {
 
 // var mintified = minty.wrap(hello);
 
-
 // mintified(1, 2, ' hi');
+
+// console.log(mintified.toString())

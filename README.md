@@ -1,5 +1,7 @@
 # minty.js
 
+[![npm version](https://badge.fury.io/js/minty.svg)](https://badge.fury.io/js/minty) [![Build Status](https://travis-ci.org/lumpy-turnips/minty.svg?branch=master)](https://travis-ci.org/lumpy-turnips/minty) [![Coverage Status](https://coveralls.io/repos/github/lumpy-turnips/minty/badge.svg?branch=master)](https://coveralls.io/github/lumpy-turnips/minty?branch=master) [![Dependencies](https://david-dm.org/lumpy-turnips/minty.svg?minty=minty)](https://david-dm.org/lumpy-turnips/minty#info=dependencies&view=list) [![Codacy Badge](https://api.codacy.com/project/badge/grade/b3826ca9b78f4cdbb151bef5d66e5136)](https://www.codacy.com/app/wade_2/minty)
+
 Minty.js helps you keep your Node.js app minty-fresh. Run your code through
 Minty.js to see the state of your variables as each line executes. Can't
 figure out why you're not getting the output you expect? Minty.js will help you
@@ -13,7 +15,11 @@ Your code is yours, and your data is yours &mdash; your debugging results should
 be as well. None of your work ever leaves your development environment when
 you use Minty.js.
 
+[![NPM](https://nodei.co/npm/minty.png)](https://nodei.co/npm/minty/)
+
 ## Current Status
+
+
 
 Minty.js is __alpha__ code. Install and use at your own risk. May not work!
 Even worse, may not be useful!
@@ -21,6 +27,10 @@ Even worse, may not be useful!
 Minty.js is under active development, and we're iterating at a high rate.
 Please do [open an issue](https://github.com/lumpy-turnips/minty/issues/new)
 and let us know if you've found a significant bug.
+
+## Requirements
+
+Requires Node.js 4.0 or greater.
 
 ## How-To
 
