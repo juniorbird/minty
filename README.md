@@ -14,7 +14,6 @@ be as well. None of your work ever leaves your development environment when
 you use Minty.js.
 
 ## Current Status
-
 [![Build Status](https://travis-ci.org/lumpy-turnips/minty.svg?branch=master)](https://travis-ci.org/lumpy-turnips/minty) [![Coverage Status](https://coveralls.io/repos/github/lumpy-turnips/minty/badge.svg?branch=master)](https://coveralls.io/github/lumpy-turnips/minty?branch=master)
 
 Minty.js is __alpha__ code. Install and use at your own risk. May not work!
