@@ -30,7 +30,8 @@
     "decomment": "^0.8.6",
     "esprima": "^2.7.2",
     "esquery": "^0.4.0",
-    "eval": "^0.1.1"
+    "eval": "^0.1.1",
+    "jquery": "^2.2.2"
   },
   "devDependencies": {
     "coveralls": "^2.11.9",

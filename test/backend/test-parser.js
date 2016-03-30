@@ -1,4 +1,4 @@
-const parser = require('../../lib/parser.js');
+ const parser = require('../../lib/parser.js');
 const expect = require('expect');
 const sinon = require('sinon');
 const esprima = require('esprima');
@@ -31,6 +31,7 @@ var checkedTypes = {
   ReturnStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   YieldExpression:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
   CallExpression:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  ReturnStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false},
   FunctionDeclaration:  { found: false, expectedCallbacks: 2, hasCallbacks: false, },
   FunctionExpression:  { found: false, expectedCallbacks: 1, hasCallbacks: false, },
   ArrowFunctionExpression:  { found: false, expectedCallbacks: 1, hasCallbacks: false, },
