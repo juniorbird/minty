@@ -15,12 +15,18 @@ you use Minty.js.
 
 ## Current Status
 
+[![Build Status](https://travis-ci.org/lumpy-turnips/minty.svg?branch=master)](https://travis-ci.org/lumpy-turnips/minty) [![Coverage Status](https://coveralls.io/repos/github/lumpy-turnips/minty/badge.svg?branch=master)](https://coveralls.io/github/lumpy-turnips/minty?branch=master)
+
 Minty.js is __alpha__ code. Install and use at your own risk. May not work!
 Even worse, may not be useful!
 
 Minty.js is under active development, and we're iterating at a high rate.
 Please do [open an issue](https://github.com/lumpy-turnips/minty/issues/new)
 and let us know if you've found a significant bug.
+
+## Requirements
+
+Requires Node.js 4.0 or greater.
 
 ## How-To
 

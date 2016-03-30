@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/backend",
+    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/backend",
     "zombie": "mocha --timeout 5000 test/front-end-test.js"
   },
   "repository": {
@@ -32,10 +33,12 @@
     "eval": "^0.1.1"
   },
   "devDependencies": {
+    "coveralls": "^2.11.9",
     "eslint": "^2.5.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",
     "expect": "^1.16.0",
+    "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "sinon": "^1.17.3",
     "zombie": "^4.2.1"
