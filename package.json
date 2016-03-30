@@ -32,11 +32,13 @@
     "eval": "^0.1.1"
   },
   "devDependencies": {
+    "coveralls": "^2.11.9",
     "eslint": "^2.5.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",
     "expect": "^1.16.0",
     "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.2.0",
     "sinon": "^1.17.3",
     "zombie": "^4.2.1"
   }

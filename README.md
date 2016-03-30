@@ -22,6 +22,10 @@ Minty.js is under active development, and we're iterating at a high rate.
 Please do [open an issue](https://github.com/lumpy-turnips/minty/issues/new)
 and let us know if you've found a significant bug.
 
+## Requirements
+
+Requires Node.js 4.0 or greater.
+
 ## How-To
 
 1. `npm install -g minty` or `npm install --save-dev minty` (don't use minty in production!)
