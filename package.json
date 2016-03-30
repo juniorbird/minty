@@ -4,7 +4,7 @@
   "description": "Node process visualization",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/backend",
+    "test": "mocha --harmony-proxies ./test/backend",
     "zombie": "mocha --timeout 5000 test/front-end-test.js"
   },
   "repository": {
