@@ -41,6 +41,10 @@ Requires Node.js 4.0 or greater.
 1. Open the minty.html file in your browser in either the 'file' or 'function' folder (depending on whether you executed a file, function, or both). Note: data is stored in the mintyVis.js
 1. Click forward and back to step through your variables' state as your app executes!
 
+## Gotchas
+
+* If you globally declare a variable without using let, var, or const, we won't track it
+
 ## Roadmap
 
 * Show execution path through multiple files, for instance for middleware
