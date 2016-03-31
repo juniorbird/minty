@@ -8,13 +8,9 @@
 
 const Browser = require('zombie');
 const expect = require('expect');
-<<<<<<< HEAD
 const mockData = require('./dummyfiles/front-end-dummy');
 
 
-=======
-// console.log(__dirname.slice(0, -4) +'minty/file/minty.html')
->>>>>>> e401e5e858df1aba0afd3a9c025be213be8ee276
 describe('Minty Tests', () => {
   const browser = new Browser({waitDuration: 1000});
 
