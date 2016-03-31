@@ -7,6 +7,9 @@ const Promise = require('bluebird');
 
 const minty = {};
 
+/*path is the path users provide
+so JSTEXT takes the file and reads all the contents
+*/
 function file(path) {
   const JSTEXT = fs.readFileSync(path).toString();
   const parsed = parser(JSTEXT);
@@ -30,6 +33,8 @@ function wrap(func) {
 
 minty.file = file;
 minty.wrap = wrap;
+
+
 
 
 module.exports = minty;

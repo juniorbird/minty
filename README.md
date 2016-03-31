@@ -20,7 +20,6 @@ you use Minty.js.
 ## Current Status
 
 
-
 Minty.js is __alpha__ code. Install and use at your own risk. May not work!
 Even worse, may not be useful!
 
