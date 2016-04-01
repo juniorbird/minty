@@ -2,18 +2,27 @@
 <body>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="twelve columns">
       <h1 id="pagetitle">Minty.js Report: Helping Make Your Code Minty-Fresh</h1>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6">
-      <ul class="nav nav-tabs">
-      </ul>
-      <div class="tab-content"></div>
+    <div class="six columns">
+      <div class="row">
+        <button id="first" class="btn btn-default" type="button" accesskey="h">&lt;&lt; First</button>
+        <button id="back" class="btn btn-primary" type="button" accesskey="j">&lt; Back</button>
+        <p id="step"></p>
+        <button id="forward" class="btn btn-primary" type="button" accesskey="k">Forward &gt;</button>
+        <button id="last" class="btn btn-default" type="button" accesskey="l">Last &gt;&gt;</button>
+      </div>
+      <div class="row">
+        <ul class="nav nav-tabs">
+        </ul>
+        <div class="tab-content"></div>
+      </div>
     </div>
-    <div class="col-md-6 table-container">
+    <div class="six columns table-container">
       <table id="watch-list">
         <tbody></tbody>
       </table>
@@ -25,17 +34,4 @@
       <p id="error-msg"></p>
 
     </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <button id="first" class="btn btn-default" type="button" accesskey="h">&lt;&lt; First</button>
-        <button id="back" class="btn btn-primary" type="button" accesskey="j">&lt; Back</button>
-        <p id="step"></p>
-        <button id="forward" class="btn btn-primary" type="button" accesskey="k">Forward &gt;</button>
-        <button id="last" class="btn btn-default" type="button" accesskey="l">Last &gt;&gt;</button>
-      </div>
-    </div>
-
-
-
   </div>
