@@ -1,30 +1,16 @@
 </head>
-<body>
+<body class="mar05">
 
   <div class="row">
     <div class="twelve columns">
-      <h1 id="pagetitle">Minty.js Report: Helping Make Your Code Minty-Fresh</h1>
+      <h1 id="pagetitle" class="centered rale mar05">Loading...</h1>
     </div>
   </div>
 
   <div class="row">
-    <div class="six columns">
-      <div class="row">
-        <button id="first" class="btn btn-default" type="button" accesskey="h">&lt;&lt; First</button>
-        <button id="back" class="btn btn-primary" type="button" accesskey="j">&lt; Back</button>
-        <p id="step"></p>
-        <button id="forward" class="btn btn-primary" type="button" accesskey="k">Forward &gt;</button>
-        <button id="last" class="btn btn-default" type="button" accesskey="l">Last &gt;&gt;</button>
-      </div>
-      <div class="row">
-        <ul class="nav nav-tabs">
-        </ul>
-        <div class="tab-content"></div>
-      </div>
-    </div>
     <div class="six columns table-container">
       <table id="watch-list">
-        <tbody></tbody>
+        <tbody class="mono"></tbody>
       </table>
 
       <table id="main-array-table"></table>
@@ -33,5 +19,17 @@
 
       <p id="error-msg"></p>
 
+    </div>
+    <div class="six columns">
+      <div class="row centered gray">
+        <button id="first" type="button" class="minty-button" accesskey="h">&lt;&lt; First</button>
+        <button id="back" type="button" class="minty-button" accesskey="j">&lt; Back</button>
+        <p id="step" class="mar2">Step<span id="currStep" class="mono black"></span>&nbsp;of&nbsp;<span id="lastStep" class="mono black"></span></p>
+        <button id="forward" type="button" class="minty-button" accesskey="k">Forward &gt;</button>
+        <button id="last" type="button" class="minty-button" accesskey="l">Last &gt;&gt;</button>
+      </div>
+      <div class="row">
+        <div class="file-content"></div>
+      </div>
     </div>
   </div>
