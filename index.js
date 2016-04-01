@@ -3,7 +3,6 @@ const ruler = require('./lib/createLineRules.js');
 const inject = require('./lib/injector.js');
 const run = require('./lib/run.js');
 const fs = require('fs');
-const Promise = require('bluebird');
 
 const minty = {};
 
