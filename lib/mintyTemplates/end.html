@@ -65,7 +65,7 @@
         li.file = safeFileID(li.file);
 
         li.highlight = () => {
-          if (li.line) {
+          if (li.line > -1) {
             if (li.error) {
               editors[li.file].getSession().addGutterDecoration(li.line, 'error');
             } else {
@@ -76,7 +76,7 @@
         };
 
         li.unlight = () => {
-          if (li.line) {
+          if (li.line > -1) {
             if (li.error) {
               editors[li.file].getSession().removeGutterDecoration(li.line, 'error');
             } else {
