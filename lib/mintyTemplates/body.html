@@ -1,37 +1,28 @@
 </head>
 <body>
-
-  <div class="row">
-    <div class="twelve columns">
-      <h1 id="pagetitle">Minty.js Report: Helping Make Your Code Minty-Fresh</h1>
+  <div class="row ltgrn-bg">
+    <div class="five columns centered gray gray-bg">
+        <button id="first" type="button" class="minty-button" accesskey="h">&lt;&lt; First</button>
+        <button id="back" type="button" class="minty-button" accesskey="j">&lt; Back</button>
+        <button id="forward" type="button" class="minty-button" accesskey="k">Forward &gt;</button>
+        <button id="last" type="button" class="minty-button" accesskey="l">Last &gt;&gt;</button>
+        <p id="step" class="mar2 ltgray">Step<span id="currStep" class="mono bold"></span>&nbsp;of&nbsp;<span id="lastStep" class="mono bold"></span></p>
+    </div>
+    <div class="seven columns">
+      <h1 id="pagetitle" class="rale row mar02">Loading...</h1>
     </div>
   </div>
 
   <div class="row">
-    <div class="six columns">
-      <div class="row">
-        <button id="first" class="btn btn-default" type="button" accesskey="h">&lt;&lt; First</button>
-        <button id="back" class="btn btn-primary" type="button" accesskey="j">&lt; Back</button>
-        <p id="step"></p>
-        <button id="forward" class="btn btn-primary" type="button" accesskey="k">Forward &gt;</button>
-        <button id="last" class="btn btn-default" type="button" accesskey="l">Last &gt;&gt;</button>
-      </div>
-      <div class="row">
-        <ul class="nav nav-tabs">
-        </ul>
-        <div class="tab-content"></div>
-      </div>
+    <div class="five columns">
+      <div class="file-content"></div>
+      <p id="return"></p>
+      <p id="error-msg"></p>
     </div>
-    <div class="six columns table-container">
-      <table id="watch-list">
+    <div class="seven columns">
+      <table id="watch-list" class="mono mar1-l code-size">
         <tbody></tbody>
       </table>
-
       <table id="main-array-table"></table>
-      <p id="return"></p>
-
-
-      <p id="error-msg"></p>
-
     </div>
   </div>
