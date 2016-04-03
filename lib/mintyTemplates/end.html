@@ -39,6 +39,13 @@
     // console.log('editors', editors);
   }
 
+  function resizeEditors(editorObj, height) {
+    $('.ace_editor').height(height);
+    for (let editor in editorObj) {
+      editorObj[editor].resize();
+    }
+  }
+
   function moveLineIndicator(currIndex, lastIndex, dataArr) {
     'use strict';
 
