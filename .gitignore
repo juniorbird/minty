@@ -2,7 +2,7 @@ node_modules
 .jshintrc
 minty/*
 minty.js
-
+workingDatavis.html
 npm-debug.log
 lib/output.json
 lib/util.js
