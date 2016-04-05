@@ -8,3 +8,8 @@ lib/output.json
 lib/util.js
 output.json
 output.js
+.eslintrc
+coverage/
+
+Raleway*
+runminty.js

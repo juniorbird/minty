@@ -6,20 +6,34 @@ const fs = require('fs');
 
 const minty = {};
 
-minty.file = function file(path) {
-  const JSTEXT = fs.readFileSync(path);
+/*path is the path users provide
+so JSTEXT takes the file and reads all the contents
+*/
+function file(path) {
+  const JSTEXT = fs.readFileSync(path).toString();
   const parsed = parser(JSTEXT);
   const rules = ruler(parsed);
   const injected = inject(rules, JSTEXT);
-  run.runFile(injected, path);
-};
+  run.runFile(injected, path, JSTEXT);
+  return;
+}
 
-minty.wrap = function wrap(func) {
+function wrap(func) {
   const JSTEXT = func.toString();
   const parsed = parser(JSTEXT);
   const rules = ruler(parsed);
   const injected = inject(rules, JSTEXT);
-  run.wrap(injected);
-};
+  const mintified = run.wrap(injected, JSTEXT);
+  return function() {
+    const args = Array.prototype.slice.call(arguments);
+    mintified.apply(null, args);
+  };
+}
+
+minty.file = file;
+minty.wrap = wrap;
+
+
+
 
 module.exports = minty;
