@@ -163,7 +163,7 @@
       }
 
       .minty-button {
-        border: none;
+        border: 1px solid #272822;
         background-color: #272822;
         color: #8F908A;
         border-radius: 4px;
@@ -184,8 +184,14 @@
         margin-right: 0px;
       }
 
-      button:disabled {
-        cursor: not-allowed;
+      button.minty-button:hover, button.minty-button:active, button.minty-button:focus {
+        color: #25E698;
+        border: 1px solid #25E698;
+      }
+
+      button.minty-button:disabled {
+        cursor: no-drop;
+        color: #4e4f4a;
       }
 
   </style>
