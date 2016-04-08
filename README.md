@@ -52,7 +52,7 @@ flow.
 
 ![minty example](https://raw.githubusercontent.com/bahmutov/minty-example/master/minty-example.gif)
 
-## Example program
+## Example for minty.file
 
 ```js
 // index.js
@@ -86,7 +86,31 @@ $ node minty.js
 9
 ```
 
-It creates a file with the structure -  `minty/file/<file/function name><timestamp>html`
+## Example for minty.wrap
+```js
+const minty = require('minty')
+
+function test(a) {
+  return a;
+}
+```
+
+This function can now be wrapped via
+
+```js
+const newTest = minty.wrap(test);
+```
+
+Each time this new function is called, an output from minty will be generated. This function can be called in the same way the original function would be.
+
+```js
+newTest(1)
+//returns 1 and generates a visualization of the function process
+```
+Multiple functions may be 'mintified' and ran at the same time.
+
+
+Both methods create a file with the structure -  `minty/ <file || function> / <file name || function name><timestamp>html`.
 
 ## Roadmap
 
