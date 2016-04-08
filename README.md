@@ -50,7 +50,7 @@ Requires Node.js 4.0 or greater.
 [Minty](https://github.com/lumpy-turnips/minty) is an awesome visualizer for your Node program's
 flow.
 
-![minty example](minty-example.gif)
+![minty example](https://raw.githubusercontent.com/bahmutov/minty-example/master/minty-example.gif)
 
 ## Example program
 
