@@ -86,8 +86,8 @@ $ node minty.js
 9
 ```
 
-It also created `minty/file/index<timestamp>html` file, like this one
-[index.html](minty/file/index.html)
+It creates a file with the structure -  `minty/file/<file/function name><timestamp>html`
+
 ## Roadmap
 
 * Show execution path through multiple files, for instance for middleware
