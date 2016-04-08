@@ -6,9 +6,10 @@ const fs = require('fs');
 
 const minty = {};
 
-/*path is the path users provide
-so JSTEXT takes the file and reads all the contents
-*/
+/**
+* reads the file the user provides, creates an abstract syntax tree, creates rules, injects monitoring code based on rules, generates html file for user
+* @param {file path to file user wants us to analyze} path
+**/
 function file(path) {
   const JSTEXT = fs.readFileSync(path).toString();
   const parsed = parser(JSTEXT);
@@ -18,6 +19,9 @@ function file(path) {
   return;
 }
 
+/**
+* turns function to a string, turns function into abstract syntax tree, create rules for where to inject code, inject the monitoring code into user's function,
+**/
 function wrap(func) {
   const JSTEXT = func.toString();
   const parsed = parser(JSTEXT);
@@ -33,6 +37,7 @@ function wrap(func) {
 minty.file = file;
 minty.wrap = wrap;
 
+file('/Users/AngieYeh/lumpy-turnips/lib/test.js')
 
 
 
