@@ -16,6 +16,7 @@
       "space-before-function-paren": 0,
       "func-names": 0,
       "strict": 0,
-      "no-eval": [2, {"allowIndirect": true}]
+      "no-eval": [2, {"allowIndirect": true}],
+      "prefer-rest-params": 0,
   }
 }
