@@ -1,4 +1,4 @@
- const parser = require('../../lib/parser.js');
+const parser = require('../../lib/parser.js');
 const expect = require('expect');
 const sinon = require('sinon');
 const esprima = require('esprima');

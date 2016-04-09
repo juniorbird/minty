@@ -1,6 +1,6 @@
 /* eslint prefer-rest-params: 0*/
 const parser = require('./lib/parser.js').parser;
-const ruler = require('./lib/createLineRules.js');
+const ruler = require('./lib/createLineRules.js').ruler;
 const inject = require('./lib/injector.js');
 const run = require('./lib/run.js');
 const anonFunc = require('./lib/anonFuncHandler.js')
@@ -28,11 +28,11 @@ function file(path) {
 **/
 function wrap(func) {
   const JSTEXT = func.toString();
-  const checkForAnonFunc = anonFunc(JSTEXT);
-  const parsed = parser(checkForAnonFunc);
+  const namedJsFunc = anonFunc(JSTEXT);
+  const parsed = parser(namedJsFunc);
   const rules = ruler(parsed);
-  const injected = inject(rules, JSTEXT);
-  const mintified = run.wrap(injected, JSTEXT);
+  const injected = inject(rules, namedJsFunc);
+  const mintified = run.wrap(injected, namedJsFunc);
   return function() {
     const args = Array.prototype.slice.call(arguments);
     return mintified.apply(null, args);
@@ -41,8 +41,9 @@ function wrap(func) {
 
 minty.file = file;
 minty.wrap = wrap;
+file('/Users/AngieYeh/lumpy-turnips/lib/test.js')
 
-<<<<<<< HEAD
-// file('/Users/AngieYeh/lumpy-turnips/lib/test.js')
-
+// wrap(function() {
+//   var b = 'c'
+// });
 module.exports = minty;
