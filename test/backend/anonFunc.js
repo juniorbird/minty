@@ -17,3 +17,13 @@ test('output when passed anonymous function', t => {
   t.equal(output, 'function anonymousFunc(){}');
   t.equal(output2, 'function anonymousFunc() {}');
 });
+
+test('output when passed named function', t => {
+  t.plan(2);
+  const namedFunc = function fn(){};
+  const namedFunc2 = function     fn2() {};
+  const output = anonFuncHandler(namedFunc.toString());
+  const output2 = anonFuncHandler(namedFunc2.toString());
+  t.equal(output, 'function fn(){}');
+  t.equal(output2, 'function fn2() {}');
+});
