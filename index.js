@@ -1,15 +1,19 @@
 /* eslint prefer-rest-params: 0*/
 const parser = require('./lib/parser.js').parser;
-const ruler = require('./lib/createLineRules.js');
+const ruler = require('./lib/createLineRules.js').ruler;
 const inject = require('./lib/injector.js');
 const run = require('./lib/run.js');
+const anonFunc = require('./lib/anonFuncHandler.js')
 const fs = require('fs');
 
 const minty = {};
 
-/* path is the path users provide
-so JSTEXT takes the file and reads all the contents
-*/
+
+/**
+* reads the file the user provides, creates an abstract syntax tree, creates rules, injects monitoring code based on rules, generates html file for user
+* @param {file path to file user wants us to analyze} path
+**/
+
 function file(path) {
   const JSTEXT = fs.readFileSync(path).toString();
   const parsed = parser(JSTEXT);
@@ -19,12 +23,16 @@ function file(path) {
   return;
 }
 
+/**
+* turns function to a string, turns function into abstract syntax tree, create rules for where to inject code, inject the monitoring code into user's function,
+**/
 function wrap(func) {
   const JSTEXT = func.toString();
-  const parsed = parser(JSTEXT);
+  const namedJsFunc = anonFunc(JSTEXT);
+  const parsed = parser(namedJsFunc);
   const rules = ruler(parsed);
-  const injected = inject(rules, JSTEXT);
-  const mintified = run.wrap(injected, JSTEXT);
+  const injected = inject(rules, namedJsFunc);
+  const mintified = run.wrap(injected, namedJsFunc);
   return function() {
     const args = Array.prototype.slice.call(arguments);
     return mintified.apply(null, args);
@@ -33,5 +41,9 @@ function wrap(func) {
 
 minty.file = file;
 minty.wrap = wrap;
+file('/Users/AngieYeh/lumpy-turnips/lib/test.js')
 
+// wrap(function() {
+//   var b = 'c'
+// });
 module.exports = minty;

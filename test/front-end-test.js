@@ -48,15 +48,15 @@ describe('Minty Tests', () => {
     return browser.fire('#forward', 'click')
       .then(() => {
         counter++;
-        browser.fire('#forward', 'click');
+        return browser.fire('#forward', 'click');
       })
       .then(() => {
         counter++;
-        browser.fire('#forward', 'click');
+        return browser.fire('#forward', 'click');
       })
       .then(() => {
         counter++;
-        browser.fire('#forward', 'click');
+        return browser.fire('#forward', 'click');
       })
       .then(() => {
         counter++;
@@ -73,23 +73,23 @@ describe('Minty Tests', () => {
     return browser.fire('#forward', 'click')
       .then(() => {
         counter++;
-        browser.fire('#forward', 'click');
+        return browser.fire('#forward', 'click');
       })
       .then(() => {
         counter++;
-        browser.fire('#forward', 'click');
+        return browser.fire('#forward', 'click');
       })
       .then(() => {
         counter++;
-        browser.fire('#forward', 'click');
+        return browser.fire('#forward', 'click');
       })
       .then(() => {
         counter++;
-        browser.fire('#back', 'click');
+        return browser.fire('#back', 'click');
       })
       .then(() => {
       counter--;
-      browser.fire('#back', 'click');
+       return browser.fire('#back', 'click');
       })
       .then(() => {
         counter--;
@@ -118,11 +118,10 @@ describe('Minty Tests', () => {
     var counter = 0;
     return browser.fire('#forward', 'click')
       .then(() => {
-        browser.fire('#first', 'click');
+        return browser.fire('#first', 'click');
       })
       .then(() => {
         const variable = browser.queryAll('.variables');
-        console.log('tired', variable[1].textContent);
 
         expect(variable[0].textContent).toEqual('undefined');
         expect(variable[1].textContent).toEqual('undefined');
