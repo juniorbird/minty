@@ -1,3 +1,4 @@
+/* eslint prefer-rest-params: 0*/
 const parser = require('./lib/parser.js').parser;
 const ruler = require('./lib/createLineRules.js');
 const inject = require('./lib/injector.js');
@@ -6,7 +7,7 @@ const fs = require('fs');
 
 const minty = {};
 
-/*path is the path users provide
+/* path is the path users provide
 so JSTEXT takes the file and reads all the contents
 */
 function file(path) {
@@ -26,14 +27,11 @@ function wrap(func) {
   const mintified = run.wrap(injected, JSTEXT);
   return function() {
     const args = Array.prototype.slice.call(arguments);
-    mintified.apply(null, args);
+    return mintified.apply(null, args);
   };
 }
 
 minty.file = file;
 minty.wrap = wrap;
-
-
-
 
 module.exports = minty;

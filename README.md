@@ -43,7 +43,74 @@ Requires Node.js 4.0 or greater.
 
 ## Gotchas
 
-* If you globally declare a variable without using let, var, or const, we won't track it
+* If you globally declare a variable without using let, var, or const, we won't track it.
+
+## Examples (thanks to user [Bahmutov](https://github.com/bahmutov) for the write-up)
+
+[Minty](https://github.com/lumpy-turnips/minty) is an awesome visualizer for your Node program's
+flow.
+
+![minty example](https://raw.githubusercontent.com/bahmutov/minty-example/master/minty-example.gif)
+
+## Example for minty.file
+
+```js
+// index.js
+'use strict'
+
+function add(a, b) {
+  a += 10
+  return a + b
+}
+
+function sub(a, b) {
+  return add(a, -b)
+}
+console.log(sub(2, 3))
+```
+
+Create a separate file `minty.js` that just loads `index.js`
+
+```js
+// minty.js
+const minty = require('minty')
+minty.file(require('path').join(__dirname, 'index.js'))
+```
+
+and install the tool itself `npm i -D minty`
+
+Let's run!
+
+```sh
+$ node minty.js
+9
+```
+
+## Example for minty.wrap
+```js
+const minty = require('minty')
+
+function test(a) {
+  return a;
+}
+```
+
+This function can now be wrapped via
+
+```js
+const newTest = minty.wrap(test);
+```
+
+Each time this new function is called, an output from minty will be generated. This function can be called in the same way the original function would be.
+
+```js
+newTest(1)
+//returns 1 and generates a visualization of the function process
+```
+Multiple functions may be 'mintified' and ran at the same time.
+
+
+Both methods create a file with the structure -  `minty/ <file || function> / <file name || function name><timestamp>html`.
 
 ## Roadmap
 
