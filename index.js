@@ -2,6 +2,7 @@ const parser = require('./lib/parser.js').parser;
 const ruler = require('./lib/createLineRules.js');
 const inject = require('./lib/injector.js');
 const run = require('./lib/run.js');
+const anonFunc = require('./lib/anonFuncHandler.js')
 const fs = require('fs');
 
 const minty = {};
@@ -24,7 +25,8 @@ function file(path) {
 **/
 function wrap(func) {
   const JSTEXT = func.toString();
-  const parsed = parser(JSTEXT);
+  const checkFuncText = anonFunc(JSTEXT);
+  const parsed = parser(checkFuncText);
   const rules = ruler(parsed);
   const injected = inject(rules, JSTEXT);
   const mintified = run.wrap(injected, JSTEXT);
@@ -37,8 +39,6 @@ function wrap(func) {
 minty.file = file;
 minty.wrap = wrap;
 
-file('/Users/AngieYeh/lumpy-turnips/lib/test.js')
-
-
+// file('/Users/AngieYeh/lumpy-turnips/lib/test.js')
 
 module.exports = minty;
