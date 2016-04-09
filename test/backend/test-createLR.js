@@ -1,26 +1,23 @@
 const createLR = require('./../../lib/createLineRules.js')
 const expect = require('expect');
-console.log(createLR.ruler)
+const test = require('tape');
 
-describe('Create line rules file', () => {
-  describe('ruler', () => {
-    it('should be a function', () => {
-      expect(createLR.ruler).toBeA(Function);
-    });
-  });
-  describe('addlines', () => {
-    it('should be a function', () => {
-      expect(createLR.addLines).toBeA(Function);
-    })
-  });
-  describe('addVariables', () => {
-    it('should be a function', () => {
-      expect(createLR.addVariables).toBeA(Function);
-    })
-  });
-  describe('addScopeName', () => {
-    it('should be a function', () => {
-      expect(createLR.addScopeName).toBeA(Function);
-    })
-  });
+test('ruler', (t) => {
+  t.plan(1);
+  t.equal(typeof createLR.ruler, 'function');
+});
+
+test('addLines', (t) => {
+  t.plan(1);
+  t.equal(typeof createLR.addLines, 'function');
+});
+
+test('ruler', (t) => {
+  t.plan(1);
+  t.equal(typeof createLR.addVariables, 'function');
+});
+
+test('ruler', (t) => {
+  t.plan(1);
+  t.equal(typeof createLR.addScopeName, 'function');
 });
