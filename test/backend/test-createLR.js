@@ -1,23 +1,21 @@
+/* eslint no-unused-vars: 0 */
+
 'use strict';
 const createLR = require('./../../lib/createLineRules.js');
 const createLRFixture = require('./../fixtures/createLR-input.js');
-const lineActivityFixture = require('./../fixtures/lineActivityObj.js')
-const expect = require('expect');
+const lineActivityFixture = require('./../fixtures/lineActivityObj.js');
 const test = require('tape');
 const sinon = require('sinon');
 
 test('ruler', (t) => {
   t.plan(2);
 
-  let addScopeName = sinon.spy(createLR.addScopeName);
-  var lineActivityObj = createLR.ruler(createLRFixture);
-  // console.log('called once', addScopeName.callCount);
+  const addScopeName = sinon.spy(createLR.addScopeName);
+  const lineActivityObj = createLR.ruler(createLRFixture);
 
   t.equal(typeof createLR.ruler, 'function');
-  t.deepEqual(lineActivityObj, lineActivityFixture)
+  t.deepEqual(lineActivityObj, lineActivityFixture);
 });
-
-
 
 test('addLines', (t) => {
   t.plan(1);
