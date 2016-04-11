@@ -1,6 +1,6 @@
 {
   "name": "minty",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "Node process visualization",
   "main": "index.js",
   "scripts": {
