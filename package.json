@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/backend | colortape",
-    "tapetest": "node ./test/backend/anonFunc.js | colortape",
+    "anonfunctest": "node ./test/backend/test-anonFunc.js | colortape",
+    "lineruletest": "node ./test/backend/test-createLR.js | colortape",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/backend",
     "zombie": "mocha --timeout 5000 test/front-end-test.js"
   },
