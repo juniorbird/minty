@@ -3,13 +3,13 @@ const fs = require('fs');
 const ruler = require('./lib/createLineRules.js').ruler;
 const inject = require('./lib/injector.js');
 const run = require('./lib/run.js');
-const anonFunc = require('./lib/anonFuncHandler.js');
+const anonFunc = require('./lib/tools.js').anonFuncCheck;
 const minty = {};
 
 
 /**
-* reads the file the user provides, creates an abstract syntax tree, creates rules, injects monitoring code based on rules, generates html file for user
-* @param {file path to file user wants us to analyze} path
+* reads the file the user provides, creates an abstract syntax tree, creates rules, injects monitoring code based on rules, generates HTML file for user
+* @param {string} absolute path to file that will be analyze
 **/
 
 function file(path) {
@@ -22,7 +22,9 @@ function file(path) {
 }
 
 /**
-* turns function to a string, turns function into abstract syntax tree, create rules for where to inject code, inject the monitoring code into user's function,
+* turns function to a string, turns function into abstract syntax tree, creates rules to inject monitoring code, and returns function that will output HTML file each time it is called
+* @param {function}
+* @returns {function} each time returned function is executed, an HTML visualization will be created
 **/
 function wrap(func) {
   const JSTEXT = func.toString();
