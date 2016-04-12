@@ -8,7 +8,7 @@ const test = require('tape');
 const sinon = require('sinon');
 
 test('ruler', (t) => {
-  t.plan(3);
+  t.plan(4);
 
   let addScopeName = sinon.spy(createLR, 'addScopeName');
   let addVariables = sinon.spy(createLR, 'addVariables');
@@ -25,7 +25,7 @@ test('ruler', (t) => {
   t.equal(typeof createLR.ruler, 'function');
   t.deepEqual(lineActivityObj, lineActivityFixture);
   t.equal(addLines.callCount, 16);
-  t.equal(addVariables.callCount, 5);
+  t.equal(addScopeName.callCount, 4);
   console.log('call count', addScopeName.callCount);
 });
 
