@@ -8,14 +8,25 @@ const test = require('tape');
 const sinon = require('sinon');
 
 test('ruler', (t) => {
-  t.plan(2);
+  t.plan(3);
 
   let addScopeName = sinon.spy(createLR, 'addScopeName');
+  let addVariables = sinon.spy(createLR, 'addVariables');
+  let addLines = sinon.spy(createLR, 'addLines');
+  console.log('----- BEFORE CALLING ---', addScopeName.callCount);
+
+
+
+
+
+
   var lineActivityObj = createLR.ruler(createLRInput.parsed);
 
   t.equal(typeof createLR.ruler, 'function');
   t.deepEqual(lineActivityObj, lineActivityFixture);
-  console.log('called once', addScopeName.callCount);
+  t.equal(addLines.callCount, 16);
+  t.equal(addVariables.callCount, 5);
+  console.log('call count', addScopeName.callCount);
 });
 
 
