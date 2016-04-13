@@ -1,10 +1,12 @@
 {
   "name": "minty",
-  "version": "0.5.5",
+  "version": "0.5.7",
   "description": "Node process visualization",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/backend",
+    "test": "mocha ./test/backend | colortape",
+    "anonfunctest": "node ./test/backend/test-anonFunc.js | colortape",
+    "lineruletest": "node ./test/backend/test-createLR.js | colortape",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/backend",
     "zombie": "mocha --timeout 5000 test/front-end-test.js"
   },
@@ -31,9 +33,11 @@
     "esprima": "^2.7.2",
     "esquery": "^0.4.0",
     "eval": "^0.1.1",
-    "jquery": "^2.2.2"
+    "jquery": "^2.2.2",
+    "json-stringify-safe": "^5.0.1"
   },
   "devDependencies": {
+    "colortape": "^0.1.1",
     "coveralls": "^2.11.9",
     "eslint": "^2.5.0",
     "eslint-config-airbnb": "^6.2.0",
@@ -42,6 +46,7 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "sinon": "^1.17.3",
+    "tape": "^4.5.1",
     "zombie": "^4.2.1"
   }
 }
