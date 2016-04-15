@@ -1,3 +1,6 @@
+/* eslint no-unused-vars: 0, no-unused-expressions: 0 */
+'use strict';
+
 const parser = require('../../lib/parser.js');
 const expect = require('expect');
 const sinon = require('sinon');
@@ -17,6 +20,7 @@ HOWTO: add a new checked node type
     e.g. expectedCallbacks: 1
 4. add the key:value pair hasCallbacks: false, to help the test
 */
+<<<<<<< HEAD
 var checkedTypes = {
   VariableDeclaration: { found: false, expectedCallbacks: 2, hasCallbacks: false, },
   ForStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
@@ -37,16 +41,16 @@ var checkedTypes = {
   extra: 0, // this catches if we're examining ast types that we're not testing for
 };
 
-var allKeysPresent = true; // Mocha apparently prefers globals
-var allCallbacksPresent = true; // dangerous defaults!
-var allCallbackContainer = [];
-var allCallbacksFunctions = true;
+let allKeysPresent = true; // Mocha apparently prefers globals
+let allCallbacksPresent = true; // dangerous defaults!
+const allCallbackContainer = [];
+const allCallbacksFunctions = true;
 
 describe('Backend', () => {
   'use strict';
   describe('#parser\'s helper functions', () => {
     describe('::types', () => {
-      before(function () {
+      before(() => {
         // Set up by checking types
         let theType;
         let cbCount;
@@ -74,9 +78,9 @@ describe('Backend', () => {
             checkedTypes.extra++;
           }
         });
-        for (let keys in checkedTypes) {
-          allKeysPresent = (keys !== 'extra') ?  checkedTypes[keys].found && allKeysPresent : allKeysPresent;
-          allCallbacksPresent = (keys !== 'extra') ?  checkedTypes[keys].hasCallbacks && allCallbacksPresent : allCallbacksPresent;
+        for (const keys in checkedTypes) {
+          allKeysPresent = (keys !== 'extra') ? checkedTypes[keys].found && allKeysPresent : allKeysPresent;
+          allCallbacksPresent = (keys !== 'extra') ? checkedTypes[keys].hasCallbacks && allCallbacksPresent : allCallbacksPresent;
         }
       });
 
@@ -116,7 +120,7 @@ describe('Backend', () => {
         expect(parser.parseutils.functionParameterParse).toBeA(Function);
       });
       it('functionParameterParse should return an array of parameters, where there are parameters', () => {
-        expect(parser.parseutils.functionParameterParse(astFixtures.FunctionDeclaration)).toEqual([ 'whats', 'that' ]);
+        expect(parser.parseutils.functionParameterParse(astFixtures.FunctionDeclaration)).toEqual(['whats', 'that']);
       });
       it('functionParameterParse should return an empty array, with no parameters', () => {
         expect(parser.parseutils.functionParameterParse(astFixtures.FunctionExpression)).toEqual([]);
@@ -143,7 +147,7 @@ describe('Backend', () => {
         expect(parser.parseutils.variableNameParse).toBeA(Function);
       });
       it('variableNameParse helper should grab the name of a function', () => {
-        expect(parser.parseutils.variableNameParse(astFixtures.VariableDeclaration.Var)).toEqual([ 'who' ]);
+        expect(parser.parseutils.variableNameParse(astFixtures.VariableDeclaration.Var)).toEqual(['who']);
       });
     });
 
@@ -193,13 +197,13 @@ describe('Backend', () => {
       expect(parser.parser).toBeA(Function);
     });
     it('parser should run all of the queued functions', () => {
-      let func1 = sinon.spy();
-      let func2 = sinon.spy();
-      let func3 = sinon.spy();
-      let func4 = sinon.spy();
+      const func1 = sinon.spy();
+      const func2 = sinon.spy();
+      const func3 = sinon.spy();
+      const func4 = sinon.spy();
       parser.parseutils.asyncTasks = [func1, func2, func3, func4];
-      let stubEsprima = sinon.stub(esprima, 'parse').returns('');
-      let result = parser.parser('foo');
+      const stubEsprima = sinon.stub(esprima, 'parse').returns('');
+      const result = parser.parser('foo');
       expect(func1).toHaveBeenCalled;
       expect(func2).toHaveBeenCalled;
       expect(func3).toHaveBeenCalled;

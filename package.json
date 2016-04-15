@@ -1,6 +1,6 @@
 {
   "name": "minty",
-  "version": "0.5.5",
+  "version": "0.5.7",
   "description": "Node process visualization",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,8 @@
     "esprima": "^2.7.2",
     "esquery": "^0.4.0",
     "eval": "^0.1.1",
-    "jquery": "^2.2.2"
+    "jquery": "^2.2.2",
+    "json-stringify-safe": "^5.0.1"
   },
   "devDependencies": {
     "colortape": "^0.1.1",

@@ -1,11 +1,11 @@
-const anonFuncHandler = require('./../../lib/anonFuncHandler.js')
-const expect = require('expect');
-const test = require('tape');
+/* eslint space-before-blocks: 0, no-multi-spaces: 0 */
 
+const anonFuncHandler = require('./../../lib/tools.js').anonFuncCheck;
+const test = require('tape');
 
 test('type of Anonymous Function Handler', t => {
   t.plan(1);
-  t.equal(typeof anonFuncHandler, 'function')
+  t.equal(typeof anonFuncHandler, 'function');
 });
 
 test('output when passed anonymous function', t => {
