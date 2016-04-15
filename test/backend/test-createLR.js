@@ -27,17 +27,20 @@ test('addLines', (t) => {
   t.plan(2);
   let lineActivity = {};
   createLR.addLines('FunctionDeclaration', 'SCOPE', createLRInput.parseFunctionDec, lineActivity);
-  t.deepEqual(lineActivity, createLROutput.addLines)
+  t.deepEqual(lineActivity, createLROutput.addLines);
   t.equal(typeof createLR.addLines, 'function');
 
 });
 
-test('ruler', (t) => {
-  t.plan(1);
+test('addScopeName', (t) => {
+  t.plan(2);
+  let lineActivity = {};
+  createLR.addLines(createLRInput.parseFunctionDec, lineActivity);
+  t.deepEqual(lineActivity)
   t.equal(typeof createLR.addVariables, 'function');
 });
 
-test('ruler', (t) => {
-  t.plan(1);
+test('addVariables', (t) => {
+  t.plan(2);
   t.equal(typeof createLR.addScopeName, 'function');
 });
