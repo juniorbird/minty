@@ -20,23 +20,24 @@ HOWTO: add a new checked node type
     e.g. expectedCallbacks: 1
 4. add the key:value pair hasCallbacks: false, to help the test
 */
-const checkedTypes = {
-  VariableDeclaration: { found: false, expectedCallbacks: 2, hasCallbacks: false },
-  ForStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  ForInStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  ForOfStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  WhileStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  DoWhileStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  SwitchStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  SwitchCase: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  IfStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  BreakStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  ReturnStatement: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  YieldExpression: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  CallExpression: { found: false, expectedCallbacks: 0, hasCallbacks: false },
-  FunctionDeclaration: { found: false, expectedCallbacks: 2, hasCallbacks: false },
-  FunctionExpression: { found: false, expectedCallbacks: 1, hasCallbacks: false },
-  ArrowFunctionExpression: { found: false, expectedCallbacks: 1, hasCallbacks: false },
+<<<<<<< HEAD
+var checkedTypes = {
+  VariableDeclaration: { found: false, expectedCallbacks: 2, hasCallbacks: false, },
+  ForStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  ForInStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  ForOfStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  WhileStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  DoWhileStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  SwitchStatement: { found:false, expectedCallbacks: 0, hasCallbacks: false, },
+  SwitchCase: { found:false, expectedCallbacks: 0, hasCallbacks: false, },
+  IfStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  BreakStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  ReturnStatement:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  YieldExpression:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  CallExpression:  { found: false, expectedCallbacks: 0, hasCallbacks: false, },
+  FunctionDeclaration:  { found: false, expectedCallbacks: 2, hasCallbacks: false, },
+  FunctionExpression:  { found: false, expectedCallbacks: 1, hasCallbacks: false, },
+  ArrowFunctionExpression:  { found: false, expectedCallbacks: 1, hasCallbacks: false, },
   extra: 0, // this catches if we're examining ast types that we're not testing for
 };
 
