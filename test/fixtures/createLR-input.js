@@ -1,4 +1,6 @@
-module.exports = { VariableDeclaration:
+'use strict';
+let input = {};
+input.parsed = { VariableDeclaration:
    [ { startLine: 2, endLine: 2, kind: 'const', variables: [ 'b' ] },
      { startLine: 3,
        endLine: 3,
@@ -56,3 +58,11 @@ module.exports = { VariableDeclaration:
        name: 'fn2' } ],
   FunctionExpression: [ { startLine: 14, endLine: 16, parameters: [] } ],
   ArrowFunctionExpression: [] }
+
+  input.parseFunctionDec = [ { startLine: 44, endLine: 55, parameters: [], name: 'fn' },
+    { startLine: 49,
+      endLine: 52,
+      parameters: [ 'd', 'e', 'f' ],
+      name: 'fn2' } ];
+
+  module.exports = input;
